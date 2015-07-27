@@ -619,7 +619,7 @@ function InitOutFaxes_ngTable () {
 			data: dataString
 
     	}).success(function(data, status) {
-    		$("#data").append(JSON.stringify(data));
+    		//$("#data").append(JSON.stringify(data));
         	var p = data.result[0];
        		$scope.totalRecords = p.records; 	
 			ShowFaxMessagesTable(p, $scope, true);

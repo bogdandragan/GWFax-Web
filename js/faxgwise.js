@@ -678,6 +678,7 @@ function InitOutFaxDetails_ngApplication (faxQueueID) {
 			data: dataString
 
     	}).success(function(data, status) {
+    		log(data);
         	var p = data.result[0]; 	
 			ShowFaxMessageDetails(p, $scope);
     	}).error(function(data, status, headers, config) {

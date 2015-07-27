@@ -9,10 +9,9 @@ display:function (photo) {
 		type: "POST",
 		url: MAIN_URL + '/RemoteFax.GetFaxImagePNGBase64/1',
 		dataType: "json",
+		contentType: "application/json",
 		data: dataString,
-		processData:false,
 		timeout: 2000,
-
 		success: function(data, textStatus, jqXHR) {
 		   $('#display-img')
 		    .attr('src', 'data:image/png;base64,' + data.result[0])

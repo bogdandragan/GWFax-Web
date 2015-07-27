@@ -193,6 +193,9 @@
 				                                        		</small>
 				                                        		<small ng-if="currTask.TASKSTATE != 2"> {{currTask.CONTROLLERNAME}} ({{currTask.ONLINETIME}} s)</small>
 				                                        	</div>	                                        		                                        	
+				                                        </td>
+				                                        <td>
+				                                        	<a class="faxpreview btn btn-primary btn-sm" id="{{currOutJob.ID}}" data-toggle="modal" data-target="#faxpreview">Preview</a>
 				                                        </td>				                                        				                                        
 	                                    			</tr>
 	                                    		</table>
@@ -201,6 +204,32 @@
                                     </tbody>
                                 </table>
                                 
+                                <div class="modal inmodal fade" id="faxpreview" tabindex="-1" role="dialog"  aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                            <!--<h4 class="modal-title">Subject</h4>-->
+                                            <!--<small class="font-bold">Subject text.</small>-->
+                                        </div>
+                                        <div class="modal-body">
+											<div class="carousel slide" id="carousel1">
+												<div class="carousel-inner">
+													<div class="item active">
+														<img src="" id="display-img"/>
+													</div>
+
+												</div>
+												<!--<a data-slide="prev" href="" onclick="prevPic();return false" class="left carousel-control"> <span class="icon-prev"></span> </a>-->
+												<!--<a data-slide="next" href="" onclick="nextPic();return false" class="right carousel-control"> <span class="icon-next"></span> </a>-->
+											</div>
+                            			</div>
+                                    </div>
+                                </div>
+                            </div>	
+
+
+
                                 <button type="button" id="button_showMore" class="btn btn-white btn-sm" ng-click="loadMoreFaxes($index)">
                                 	<i class="fa fa-refresh"></i> Show more
                                 </button>
@@ -237,7 +266,7 @@
 	<script src="../js/faxgwise_tools.js"></script>
 	<script src="../js/websockets.js"></script>
 	<script src="../js/faxgwise.js"></script>
-
+		<script src="../js/slideshow.js"></script>
     <script>
    /*     $(document).ready(function(){
 
@@ -268,6 +297,13 @@
     </script>    
     <script>
 		InitOutFaxes_ngTable();
+
+		$(document).on("click", ".faxpreview", function() {
+  		  //$("#expTable").css("display","none");
+		   slideShow.ID = $(this).attr('id');
+    	   slideShow.count = 1;
+		   slideShow.display(0);
+		});
 	</script>
 </body>
 

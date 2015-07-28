@@ -13,6 +13,7 @@
 
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+        <link href="css/loading.css" rel="stylesheet">
 
 </head>
 
@@ -173,13 +174,13 @@
 				                                            <small>Created {{currOutJob.CREATIONTIME}}</small>
 				                                        </td>
 				                                        
-				                                        <td  class="outjob-state">
+				                                       <!-- <td  class="outjob-state">
 				                                            <span ng-if="currOutJob.JOBSTATE == 'Error'" class="label label-danger"><i class="fa fa-times"></i> {{currOutJob.JOBSTATE}}</span>
 				                                            <span ng-if="currOutJob.JOBSTATE == 'Ok'" class="label label-success"><i class="fa fa-check"></i> {{currOutJob.JOBSTATE}}</span>
 				                                            <span ng-if="(currOutJob.JOBSTATE == 'Sending')||(currOutJob.JOBSTATE == 'Unsent')" class="label label-default">{{currOutJob.JOBSTATE}}</span>
 				                                            <br/>
 				                                            <span class="text-danger">{{currOutJob.ERRMESSAGE}}</span>
-				                                        </td>
+				                                        </td>-->
 				                                        
 				                                        <td class="outjob-tasks">
 				                                        	<div ng-repeat="currTask in currOutJob.TASKS">
@@ -229,7 +230,20 @@
                             </div>	
 
 
-
+                            	<div class="sk-circle">
+                                      <div class="sk-circle1 sk-child"></div>
+                                      <div class="sk-circle2 sk-child"></div>
+                                      <div class="sk-circle3 sk-child"></div>
+                                      <div class="sk-circle4 sk-child"></div>
+                                      <div class="sk-circle5 sk-child"></div>
+                                      <div class="sk-circle6 sk-child"></div>
+                                      <div class="sk-circle7 sk-child"></div>
+                                      <div class="sk-circle8 sk-child"></div>
+                                      <div class="sk-circle9 sk-child"></div>
+                                      <div class="sk-circle10 sk-child"></div>
+                                      <div class="sk-circle11 sk-child"></div>
+                                      <div class="sk-circle12 sk-child"></div>
+                                </div>
                                 <button type="button" id="button_showMore" class="btn btn-white btn-sm" ng-click="loadMoreFaxes($index)">
                                 	<i class="fa fa-refresh"></i> Show more
                                 </button>
@@ -266,7 +280,7 @@
 	<script src="../js/faxgwise_tools.js"></script>
 	<script src="../js/websockets.js"></script>
 	<script src="../js/faxgwise.js"></script>
-		<script src="../js/slideshow.js"></script>
+	<script src="../js/slideshow.js"></script>
     <script>
    /*     $(document).ready(function(){
 
@@ -297,7 +311,23 @@
     </script>    
     <script>
 		InitOutFaxes_ngTable();
-
+        //quit();
+		initWebSocket();
+        //quit;
+		//var url = MAIN_URL + '/RemoteFax.GetComponentStatus/1';
+	/*	$.ajax({
+		type: "GET",
+		url: url,
+		dataType: "json",
+		contentType: "application/json",
+		success: function(data) {
+		   console.log(data);
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
+			
+			log("send query status: "+textStatus+", message: "+errorThrown);
+		}
+	}); */
 		$(document).on("click", ".faxpreview", function() {
   		  //$("#expTable").css("display","none");
 		   slideShow.ID = $(this).attr('id');

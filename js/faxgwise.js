@@ -559,35 +559,38 @@ function parseMainTabEvents(){
 	})
 }
 */
-function InitOutFaxes_ngTable () {
+function InitOutFaxes_ngTable() {
+	
 	ngApplication = angular.module('FaxGWiseApp', []);
 	ngApplication.controller('outFaxesCtrl', function($scope, $http) {		
-		/*
-		$scope.tableRowExpanded = false;
-	    $scope.tableRowIndexCurrExpanded = "";
-	    $scope.tableRowIndexPrevExpanded = "";
-	    $scope.outFaxIdExpanded = "";
-	    $scope.outJobsCollapsed = [];
 	
-	    $scope.transactionShow = 0;
-	
-	    $scope.outJobsCollapsedFn = function () {
-	    	var tempArray = [];
-	        for (var i = 0; i < $scope.outFaxes.length; i++) {
-	            tempArray.push('true');
-	        }
-	        $scope.outJobsCollapsed = tempArray;
-	    };*/
-	   
-	   $scope.recordsPerPage = 10;
-		
-	    $scope.openOutJobs = function (index) {
+		$scope.recordsPerPage = 10;
+
+		var dataString = '[' + $scope.recordsPerPage + ',1,"ID","desc"]';
+		var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetFaxOutMessages/1');
+		var request = $http.post(url, dataString);
+
+    	request.success(function(data, status) {
+    		//$("#data").append(JSON.stringify(data));
+        	var p = data.result[0];
+        	$scope.outFaxes = data.result[0].rows;
+        	//log($scope.totalRecords);
+       		$scope.totalRecords = p.records; 	
+       		//log($scope.totalRecords);
+			ShowFaxMessagesTable(p, $scope, true);
+			$(".sk-circle").hide();
+    	});
+    	request.error(function(data, status, headers, config) {
+		    log("sendSQL status: "+status+", message: "+data);
+		});	
+
+    	$scope.openOutJobs = function (index) {
 	    	var dataToCheck = $scope.outFaxes[index]['JOBS'];
 	    	if ((typeof dataToCheck != 'undefined') && (dataToCheck.length > 0)) {	    		        
 	        	$scope.outFaxes[index]['childTableExpanded'] = !$scope.outFaxes[index]['childTableExpanded'];
 	        }         
-	    };
-	    
+	    }
+
 	    $scope.loadMoreFaxes = function (index) {	        
 	    	if ($scope.totalRecords == $scope.outFaxes.length) {
 	    		return;
@@ -609,25 +612,100 @@ function InitOutFaxes_ngTable () {
 			    log("sendSQL status: "+status+", message: "+data);
 			});
 	    		    		    		    	
-	    };
-			
-		var dataString = '[' + $scope.recordsPerPage + ',1,"ID","desc"]';
-		var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetFaxOutMessages/1');
-		var httpRequest = $http({
-        	method: 'POST',
-        	url: url,
-			data: dataString
+	    }
 
-    	}).success(function(data, status) {
-    		//$("#data").append(JSON.stringify(data));
-        	var p = data.result[0];
-       		$scope.totalRecords = p.records; 	
-			ShowFaxMessagesTable(p, $scope, true);
-    	}).error(function(data, status, headers, config) {
-		    log("sendSQL status: "+status+", message: "+data);
-		});
-	});
-}
+
+
+	/*		try
+  		{
+		 socket = new WebSocket(WEBSOCKET_URL,"synopsejson");
+		 console.log('WebSocket - status '+socket.readyState);
+		 socket.onopen    = function(msg){ 
+			console.log("status " + this.readyState); 
+			//sgetUpdatedFax();
+			//log("onopen: Welcome - status "+this.readyState); 
+			//getTimeStamp();
+			//Join();
+		};
+		socket.onmessage = function(msg){ 
+			console.log(msg); 
+			//log("onmessage: ("+msg.data.length+" bytes): " + (msg.data.length < 5000 ? msg.data : (msg.data.substr(0, 30) + '...'))); 
+			//log(msg.data);
+		};
+		socket.onerror   = function(msg){ 
+			console.log(msg); 
+			//log("onerror - code:" + msg.code + ", reason:" + msg.reason + ", wasClean:" + msg.wasClean + ", status:" + this.readyState); 
+		};
+		socket.onclose   = function(msg){ 
+			console.log(msg); 
+			//log("onclose - code:" + msg.code + ", reason:" + msg.reason + ", wasClean:" + msg.wasClean + ", status:" + this.readyState); 
+	    };
+		}
+		catch(ex) {
+	    	console.log(ex);
+		} 
+
+		
+		$scope.recordsPerPage = 10;
+		
+	    
+	    /*$scope.loadMoreFaxes = function (index) {	        
+	    	if ($scope.totalRecords == $scope.outFaxes.length) {
+	    		return;
+	    	}
+	    	
+	    	var pageNumberToLoad = Math.floor($scope.outFaxes.length / $scope.recordsPerPage) + 1;
+	    	var dataString = '[' + $scope.recordsPerPage + ',' + pageNumberToLoad + ',"ID","desc"]';
+			var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetFaxOutMessages/1');
+			var httpRequest = $http({
+	        	method: 'POST',
+	        	url: url,
+				data: dataString
+	
+	    	}).success(function(data, status) {
+	        	var p = data.result[0];
+	       		$scope.totalRecords = p.records; 	
+				ShowFaxMessagesTable(p, $scope, false);
+	    	}).error(function(data, status, headers, config) {
+			    log("sendSQL status: "+status+", message: "+data);
+			});
+	    		    		    		    	
+	    };*/
+
+	    /* $(window).scroll(function(){
+            if($(window).scrollTop() == $(document).height() - $(window).height()){
+            	 log($scope.totalRecords );
+                if ($scope.totalRecords == $scope.outFaxes.length) {
+                    return;
+                }
+
+                $(".sk-circle").show();
+                $scope.pageToLoad += 1;
+               // alert($scope.totalRecords + " " + $scope.outFaxes.length);
+               var pageNumberToLoad = Math.floor($scope.outFaxes.length / $scope.recordsPerPage) + 1;
+                var dataString = '[' + $scope.recordsPerPage + ',' + pageNumberToLoad + ',"ID","desc"]';
+                var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetFaxInMessages/1');
+                var request = $http.post(url, dataString);
+                request.success(function(data, status, headers, config) {
+                	var p = data.result[0];
+	       			$scope.totalRecords = p.records; 	
+					ShowFaxMessagesTable(p, $scope, false);
+                    log(data.result[0].rows)
+                    $(".sk-circle").hide();
+                });
+                request.error(function(data, status, headers, config) {
+                    log("sendSQL status: "+status+", message: "+data);
+                });
+            }   
+        });*/
+
+
+
+
+});
+
+}		
+
 
 function InitOutFaxDetails_ngApplication (faxQueueID) {		
 	ngApplication = angular.module('FaxGWiseApp', []);

@@ -13,6 +13,7 @@
 
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/loading.css" rel="stylesheet">
 
 </head>
 
@@ -218,9 +219,23 @@
                                 </div>
                             </div>
 
-                                <button type="button" id="button_showMore" class="btn btn-white btn-sm" ng-click="loadMoreFaxes($index)">
+                                <!--<button type="button" id="button_showMore" class="btn btn-white btn-sm" ng-click="loadMoreFaxes($index)">
                                 	<i class="fa fa-refresh"></i> Show more
-                                </button>
+                                </button>-->
+                                <div class="sk-circle">
+                                      <div class="sk-circle1 sk-child"></div>
+                                      <div class="sk-circle2 sk-child"></div>
+                                      <div class="sk-circle3 sk-child"></div>
+                                      <div class="sk-circle4 sk-child"></div>
+                                      <div class="sk-circle5 sk-child"></div>
+                                      <div class="sk-circle6 sk-child"></div>
+                                      <div class="sk-circle7 sk-child"></div>
+                                      <div class="sk-circle8 sk-child"></div>
+                                      <div class="sk-circle9 sk-child"></div>
+                                      <div class="sk-circle10 sk-child"></div>
+                                      <div class="sk-circle11 sk-child"></div>
+                                      <div class="sk-circle12 sk-child"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -256,13 +271,14 @@
 	<script src="../js/faxgwise.js"></script>
         <script src="../js/slideshow.js"></script>
     <script>
-    var FaxGWiseApp = angular.module('FaxGWiseApp', []);   
+    var FaxGWiseApp = angular.module('FaxGWiseApp', []);  
     FaxGWiseApp.controller('inFaxesCtrl', function ($scope, $http) {
 
+        
         $scope.recordsPerPage = 10;
         $scope.pageToLoad = 1;
        // $scope.expandTable = false;
-
+       $(".sk-circle").show();
         var dataString = '['+$scope.recordsPerPage+','+$scope.pageToLoad+',"ID","desc"]';
         var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetFaxInMessages/1');
         var request = $http.post(url, dataString);
@@ -272,12 +288,37 @@
            $scope.totalRecords = data.result[0].records;
             //$("#data").append(JSON.stringify(data.result[0].rows));
             $scope.inFaxes = data.result[0].rows;
+            $(".sk-circle").hide();
         });
         request.error(function(data, status, headers, config) {
             log("sendSQL status: "+status+", message: "+data);
         });
 
-        $scope.loadMoreFaxes = function (index) {           
+
+        $(window).scroll(function(){
+            if($(window).scrollTop() == $(document).height() - $(window).height()){
+                if ($scope.totalRecords == $scope.inFaxes.length) {
+                    return;
+                }
+                $(".sk-circle").show();
+                $scope.pageToLoad += 1;
+                //alert($scope.totalRecords + " " + $scope.inFaxes.length);
+                var dataString = '[' + $scope.recordsPerPage + ',' + $scope.pageToLoad + ',"ID","desc"]';
+                var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetFaxInMessages/1');
+                var request = $http.post(url, dataString);
+                request.success(function(data, status, headers, config) {
+                    $scope.totalRecords = data.result[0].records;
+                    $scope.inFaxes.push.apply($scope.inFaxes, data.result[0].rows);
+                    log(data.result[0].rows)
+                    $(".sk-circle").hide();
+                });
+                request.error(function(data, status, headers, config) {
+                    log("sendSQL status: "+status+", message: "+data);
+                });
+            }   
+        });
+        
+       /*$scope.loadMoreFaxes = function (index) {           
         if ($scope.totalRecords == $scope.inFaxes.length) {
             return;
         }
@@ -285,7 +326,7 @@
         $scope.pageToLoad += 1;
 
         var dataString = '[' + $scope.recordsPerPage + ',' + $scope.pageToLoad + ',"ID","desc"]';
-        var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetFaxInMessages');
+        var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetFaxInMessages/1');
         var request = $http.post(url, dataString);
 
         request.success(function(data, status, headers, config) {
@@ -299,7 +340,7 @@
             log("sendSQL status: "+status+", message: "+data);
         });
                                                 
-        };
+        };*/
 
         $scope.openInFaxes = function (index) {
              log($scope.inFaxes[index]);
@@ -309,13 +350,15 @@
         };  
 
     });
-    
+            
             $(document).on("click", ".faxpreview", function() {
           //$("#expTable").css("display","none");
            slideShow.ID = $(this).attr('id');
            slideShow.count = 1;
            slideShow.display(0);
         });
+
+   
 	</script>
 </body>
 

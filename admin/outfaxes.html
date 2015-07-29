@@ -121,7 +121,7 @@
                             <div class="project-list" ng-app="FaxGWiseApp" ng-controller="outFaxesCtrl">					        						        
                                 <table class="table table-hover" id="data">
                                    <tbody ng-repeat="currOutFax in outFaxes">	                                    	                                    	                                    
-	                                    <tr class="cursor-pointer" ng-click="openOutJobs($index)">           
+	                                    <tr class="cursor-pointer" ng-click="openOutJobs($index);">           
 	                                    	<td ng-if="currOutFax.FAXTYPE == 0" class="outfax-id">
 	                                            <span class="label label-success">ID: {{currOutFax.ID}}</span>
 	                                        </td>
@@ -144,8 +144,10 @@
 	                                        </td>	                                       	                                        
 	                                        
 	                                        <td class="outfax-jobstatuses">	                                        	
-	                                        	<span ng-repeat="currJobStatus in currOutFax.JOBSSTATUSES track by $index">
-	                                        		<img alt="Image" class="img-circle" src="../assets/images/{{currJobStatus}}.png"></img>
+	                                        	<span ng-repeat="currJobStatus in currOutFax.JOBS">
+	                                        		<img ng-if="currJobStatus.JOBSTATE == 'Ok'" alt="Image" class="img-circle" src="../assets/images/6.png"></img>
+                                                    <img ng-if="currJobStatus.JOBSTATE == 'Error'" alt="Image" class="img-circle" src="../assets/images/12.png"></img>
+                                                    <img ng-if="(currJobStatus.JOBSTATE == 'Sending')||(currJobStatus.JOBSTATE == 'Unsent')" alt="Image" class="img-circle" src="../assets/images/8.png"></img>
 	                                        	</span>	                                        	
 	                                        	<br/>	                                        		                                        	
 	                                            <span class="text-danger">{{currOutFax.ERRMESSAGE}}</span>
@@ -156,31 +158,31 @@
 	                                        </td-->
 	                                        
 	                                        <td  class="outfax-status">
-	                                            <span ng-if="currOutFax.collectiveStatus == 1" class="label label-success">{{currOutFax.FAXSTATE}}</span>
-	                                            <span ng-if="currOutFax.collectiveStatus == 2" class="label label-danger">{{currOutFax.FAXSTATE}}</span>
-	                                            <span ng-if="currOutFax.collectiveStatus == 0" class="label label-default">{{currOutFax.FAXSTATE}}</span>
+	                                            <span ng-if="currOutFax.FAXSTATE == 'Ok'" class="label label-success">{{currOutFax.FAXSTATE}}</span>
+	                                            <span ng-if="currOutFax.FAXSTATE == 'Error'" class="label label-danger">{{currOutFax.FAXSTATE}}</span>
+	                                            <span ng-if="currOutFax.FAXSTATE == 'Unsent'" class="label label-default">{{currOutFax.FAXSTATE}}</span>
 	                                        </td>	                                        
 	                                    </tr>
-	                                    <tr data-ng-show="currOutFax.childTableExpanded">
+	                                    <tr data-ng-show="currOutFax.expandRow">
 	                                    	<td></td>
 	                                    	<td colspan="10">
 	                                    		<table class="table table-striped">
 	                                    			<tr ng-repeat="currOutJob in currOutFax.JOBS">
 	                                    				<td class="outjob-title">
-				                                            <span>Fax number: {{currOutJob.FAX}}</span>
+				                                            <span>Fax number: {{currOutJob.FAX}}  {{currOutJob.ID}}</span>
 				                                            <br/>
 				                                            <span>Recipient: {{currOutJob.NAME}}</span>
 				                                            <br/>
 				                                            <small>Created {{currOutJob.CREATIONTIME}}</small>
 				                                        </td>
 				                                        
-				                                       <!-- <td  class="outjob-state">
-				                                            <span ng-if="currOutJob.JOBSTATE == 'Error'" class="label label-danger"><i class="fa fa-times"></i> {{currOutJob.JOBSTATE}}</span>
-				                                            <span ng-if="currOutJob.JOBSTATE == 'Ok'" class="label label-success"><i class="fa fa-check"></i> {{currOutJob.JOBSTATE}}</span>
-				                                            <span ng-if="(currOutJob.JOBSTATE == 'Sending')||(currOutJob.JOBSTATE == 'Unsent')" class="label label-default">{{currOutJob.JOBSTATE}}</span>
+				                                        <td  class="outjob-state">
+				                                            <span jobid="{{currOutJob.ID}}" ng-if="currOutJob.JOBSTATE == 'Error'" class="label label-danger"><i class="fa fa-times"></i> {{currOutJob.JOBSTATE}}</span>
+				                                            <span jobid="{{currOutJob.ID}}" ng-if="currOutJob.JOBSTATE == 'Ok'" class="label label-success"><i class="fa fa-check"></i> {{currOutJob.JOBSTATE}}</span>
+				                                            <span jobid="{{currOutJob.ID}}" ng-if="(currOutJob.JOBSTATE == 'Sending')||(currOutJob.JOBSTATE == 'Unsent')" class="label label-default">{{currOutJob.JOBSTATE}}</span>
 				                                            <br/>
 				                                            <span class="text-danger">{{currOutJob.ERRMESSAGE}}</span>
-				                                        </td>-->
+				                                        </td>
 				                                        
 				                                        <td class="outjob-tasks">
 				                                        	<div ng-repeat="currTask in currOutJob.TASKS">
@@ -244,9 +246,9 @@
                                       <div class="sk-circle11 sk-child"></div>
                                       <div class="sk-circle12 sk-child"></div>
                                 </div>
-                                <button type="button" id="button_showMore" class="btn btn-white btn-sm" ng-click="loadMoreFaxes($index)">
+                               <!-- <button type="button" id="button_showMore" class="btn btn-white btn-sm" ng-click="loadMoreFaxes($index)">
                                 	<i class="fa fa-refresh"></i> Show more
-                                </button>
+                                </button>-->
                             </div>
                         </div>
                     </div>
@@ -278,7 +280,7 @@
     
     <script src="../js/config.js"></script>
 	<script src="../js/faxgwise_tools.js"></script>
-	<script src="../js/websockets.js"></script>
+	<!--<script src="../js/websockets.js"></script>-->
 	<script src="../js/faxgwise.js"></script>
 	<script src="../js/slideshow.js"></script>
     <script>
@@ -310,9 +312,177 @@
         }*/
     </script>    
     <script>
-		InitOutFaxes_ngTable();
+    var FaxGWiseApp = angular.module('FaxGWiseApp', []);  
+    FaxGWiseApp.controller('outFaxesCtrl', function ($scope, $http) {
+
+        //openOutJobs
+        $scope.recordsPerPage = 10;
+        $scope.pageToLoad = 1;
+       // $scope.expandTable = false;
+       $(".sk-circle").show();
+        var dataString = '['+$scope.recordsPerPage+','+$scope.pageToLoad+',"ID","desc"]';
+        var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetFaxOutMessages/1');
+        var request = $http.post(url, dataString);
+
+        request.success(function(data, status, headers, config) {
+           // log(data);
+           $scope.totalRecords = data.result[0].records;
+            //$("#data").append(JSON.stringify(data.result[0].rows));
+            $scope.outFaxes = data.result[0].rows;
+            //console.log($scope.outFaxes);
+            $(".sk-circle").hide();
+        });
+        request.error(function(data, status, headers, config) {
+            console.log("sendSQL status: "+status+", message: "+data);
+        });
+
+
+        $(window).scroll(function(){
+            if($(window).scrollTop() == $(document).height() - $(window).height()){
+                if ($scope.totalRecords == $scope.outFaxes.length) {
+                    return;
+                }
+                $(".sk-circle").show();
+                $scope.pageToLoad += 1;
+                //alert($scope.totalRecords + " " + $scope.inFaxes.length);
+                var dataString = '[' + $scope.recordsPerPage + ',' + $scope.pageToLoad + ',"ID","desc"]';
+                var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetFaxOutMessages/1');
+                var request = $http.post(url, dataString);
+                request.success(function(data, status, headers, config) {
+                    $scope.totalRecords = data.result[0].records;
+                    $scope.outFaxes.push.apply($scope.outFaxes, data.result[0].rows);
+                    console.log(data.result[0].rows)
+                    $(".sk-circle").hide();
+                });
+                request.error(function(data, status, headers, config) {
+                    console.log("sendSQL status: "+status+", message: "+data);
+                });
+            }   
+        });
+        
+        $scope.openOutJobs = function (index) {
+             log($scope.outFaxes[index]);
+             if((typeof($scope.outFaxes[index].JOBS) == 'undefined') || $scope.outFaxes[index].JOBS.length < 1)
+                return;
+                $scope.outFaxes[index].expandRow = !$scope.outFaxes[index].expandRow      
+        };  
+
+            try
+            {
+            var socket;
+            var nickname; 
+            if(typeof(socket) == 'undefined'){
+                
+                socket = new WebSocket(WEBSOCKET_URL,"synopsejson");
+
+            }
+            
+            console.log('WebSocket - status '+socket.readyState);
+            socket.onopen = function(event){ 
+                console.log("WebSocket - status " + this.readyState); 
+                //getTimeStamp();
+                Join();
+            };
+            socket.onmessage = function(event){ 
+                var data = JSON.parse(event.data);
+                console.log(event); 
+                if(data.request[5][0] == "OutJob"){
+                    var jobToUpdate = data.request[5][1];
+                    /*  if(data.request[5][0] == "OutJob"){
+                        console.log("OutJobId="+data.request[5][1]);
+                    }*/
+                     var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUpdatedJobOutMessage/1');
+                     var dataString = '[' + jobToUpdate + ']';
+                     var request = $http.post(url, dataString);
+                     request.success(function(data) {
+                        var updatedJob = data.result[0].rows[0];
+                        //updatedJob.JOBSTATE = "Error";
+                        for (var i=0; i<$scope.outFaxes.length; i++) {
+                         for(var j =0; j<$scope.outFaxes[i].JOBS.length; j++){
+                            if ($scope.outFaxes[i].JOBS[j].ID === jobToUpdate) {
+                                //console.log($scope.outFaxes[i].JOBS[j]);
+                                $scope.outFaxes[i].JOBS[j] = updatedJob;
+                                //$scope.outFaxes[i].JOBS[j].JOBSTATE = jobstate;
+                                //$scope.$apply();
+                                return;
+                            }   
+                        }
+                     }
+                    });
+                    request.error(function(data, status) {
+                        log("sendSQL status: "+status+", message: "+data);
+                    });                 
+                    //alert($("body").find("[jobid='" + 509 + "']").text('Ok'));            
+                }
+                if(data.request[5][0] == "OutFaxMessage"){
+                     var faxToUpdate = data.request[5][1];
+
+                     var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUpdatedFaxOutMessage/1');
+                     var dataString = '[' + faxToUpdate + ']';
+                     var request = $http.post(url, dataString);
+                     request.success(function(data) {
+                        var updatedFax = data.result[0].rows[0];
+
+                     for (var i=0; i<$scope.outFaxes.length; i++) {
+                        if ($scope.outFaxes[i].ID === faxToUpdate) {
+                            //console.log($scope.outFaxes[i].JOBS[j]);
+                            $scope.outFaxes[i] = updatedFax;
+                            //$scope.outFaxes[i].JOBS[j].JOBSTATE = jobstate;
+                            //$scope.$apply();
+                            return;
+                        }   
+                     }
+                    });
+                    request.error(function(data, status) {
+                        console.log("sendSQL status: "+status+", message: "+data);
+                    });                        
+                }
+
+
+                //log("onmessage: ("+msg.data.length+" bytes): " + (msg.data.length < 5000 ? msg.data : (msg.data.substr(0, 30) + '...'))); 
+                //log(msg.data);
+            };
+            socket.onerror   = function(event){ 
+                console.log(event); 
+                //log("onerror - code:" + msg.code + ", reason:" + msg.reason + ", wasClean:" + msg.wasClean + ", status:" + this.readyState); 
+            };
+            socket.onclose   = function(event){ 
+                console.log(event); 
+                //log("onclose - code:" + msg.code + ", reason:" + msg.reason + ", wasClean:" + msg.wasClean + ", status:" + this.readyState); 
+                };
+            }
+            catch(ex) {
+                console.log(ex);
+            } 
+
+            function Join(){
+                var msg = JSON.stringify(makerequest("","root/FaxGwiseInfo.Join",[Number(getLocalStorageParam('SESSION_ID')),1]));
+                 try{ 
+                    socket.send(msg); 
+                    console.log('Sent ('+msg.length+" bytes): " + msg.length < 5000 ? msg : (msg.substr(0, 100) + '...')); 
+                } catch(ex){ 
+                    console.log(ex);
+                }
+            }
+
+            function makerequest(method,uri,data){
+                var req = {
+                    request:[method,uri,"",0,"",data]
+                };
+                 return req;
+            }
+
+
+});
+
+
+
+
+
+		//InitOutFaxes_ngTable();
         //quit();
-		initWebSocket();
+        //InitSession();
+		//initWebSocket();
         //quit;
 		//var url = MAIN_URL + '/RemoteFax.GetComponentStatus/1';
 	/*	$.ajax({

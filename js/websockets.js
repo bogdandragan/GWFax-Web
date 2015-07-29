@@ -8,19 +8,16 @@ function initWebSocket(){
 	console.log('WebSocket - status '+socket.readyState);
 	socket.onopen = function(event){ 
 		console.log("WebSocket - status " + this.readyState); 
-		getTimeStamp();
+		//getTimeStamp();
 		Join();
-		//quit();
-		//getComponent();
-		//getTimeStamp();
-		//getComponent();		
-		//sgetUpdatedFax();
-		//log("onopen: Welcome - status "+this.readyState); 
-		//getTimeStamp();
-		//Join();
 	};
 	socket.onmessage = function(event){ 
-		console.log(event); 
+		
+		var data = JSON.parse(event.data); 
+		
+			if(data.request[5][0] == "OutJob"){
+				console.log("OutJob="+data.request[5][1]);
+			}
 		//log("onmessage: ("+msg.data.length+" bytes): " + (msg.data.length < 5000 ? msg.data : (msg.data.substr(0, 30) + '...'))); 
 		//log(msg.data);
 	};
@@ -37,7 +34,6 @@ function initWebSocket(){
 	    console.log(ex);
 	} 
 }
-
 
 function getTimeStamp() {
 	var msg = JSON.stringify(makerequest("GET","root/TimeStamp",""));
@@ -71,17 +67,6 @@ function makerequest(method,uri,data){
 function quit(){
   socket.close(1000, 'Bye bye');
   socket=null;
-}
-
-function getComponent() {
-	var msg = JSON.stringify(makerequest("","root/FaxGwiseCallback.ComponentsNotify",""));
-	try{ 
-		socket.send(msg); 
-		console.log('Sent ('+msg.length+" bytes): " + msg.length < 5000 ? msg : (msg.substr(0, 30) + '...')); 
-	} 
-	catch(ex){ 
-		console.log(ex); 
-	}
 }
 
 

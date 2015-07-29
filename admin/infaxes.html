@@ -284,14 +284,14 @@
         var request = $http.post(url, dataString);
 
         request.success(function(data, status, headers, config) {
-            log(data);
+            console.log(data);
            $scope.totalRecords = data.result[0].records;
             //$("#data").append(JSON.stringify(data.result[0].rows));
             $scope.inFaxes = data.result[0].rows;
             $(".sk-circle").hide();
         });
         request.error(function(data, status, headers, config) {
-            log("sendSQL status: "+status+", message: "+data);
+            console.log("sendSQL status: "+status+", message: "+data);
         });
 
 
@@ -309,15 +309,18 @@
                 request.success(function(data, status, headers, config) {
                     $scope.totalRecords = data.result[0].records;
                     $scope.inFaxes.push.apply($scope.inFaxes, data.result[0].rows);
-                    log(data.result[0].rows)
+                    console.log(data.result[0].rows)
                     $(".sk-circle").hide();
                 });
                 request.error(function(data, status, headers, config) {
-                    log("sendSQL status: "+status+", message: "+data);
+                    console.log("sendSQL status: "+status+", message: "+data);
                 });
             }   
         });
         
+
+    
+
        /*$scope.loadMoreFaxes = function (index) {           
         if ($scope.totalRecords == $scope.inFaxes.length) {
             return;
@@ -346,7 +349,7 @@
              log($scope.inFaxes[index]);
              if((typeof($scope.inFaxes[index].FAXES) == 'undefined') || $scope.inFaxes[index].FAXES.length < 1)
                 return;
-                $scope.inFaxes[index].expandRow = !$scope.inFaxes[index].expandRow      
+                $scope.inFaxes[index].expandRow = !$scope.inFaxes[index].expandRow;      
         };  
 
     });

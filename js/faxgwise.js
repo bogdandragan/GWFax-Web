@@ -481,7 +481,7 @@ function init() {
 	//InitSession();
 	
 	//AuthorizeUser("User", "synopse");
-	initWebSocket();
+	//initWebSocket();
 	
 	//InitOutFaxMessagesTable();
 	

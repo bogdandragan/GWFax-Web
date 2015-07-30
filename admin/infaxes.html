@@ -137,14 +137,24 @@
                                                 <b>Pages: {{currInFax.COUNTOFPAGES}}</b>                                                        
                                             </td>                                                                                   
                                             
-                                            <td class="infax-fasxstates">                                             
+                                           <!-- <td class="infax-fasxstates">                                             
                                                 <span ng-repeat="currStage in currInFax.FAXES">
                                                     <img alt="Image" class="img-circle" src="../assets/images/{{currStage.PROCESSINGSTAGE}}.png"></img>
                                                 </span>                                             
                                                 <br/>                                                                                               
                                                 <span class="text-danger">{{currInFax.ERRMESSAGE}}</span>
-                                            </td>
+                                            </td>-->
                                             
+                                            <td class="infax-fasxstates">                                             
+                                                <span ng-repeat="currFaxState in currInFax.FAXES">
+                                                    <img ng-if="currFaxState.FAXSTATE == 'Ok'" alt="Image" class="img-circle" src="../assets/images/6.png"></img>
+                                                    <img ng-if="currFaxState.FAXSTATE == 'Error'" alt="Image" class="img-circle" src="../assets/images/12.png"></img>
+                                                </span>                                             
+                                                <br/>                                                                                               
+                                                <span class="text-danger">{{currInFax.ERRMESSAGE}}</span>
+                                            </td>
+
+
                                             <td  class="infax-status">
                                                 <span ng-if="currInFax.JOBSTATE == 'Ok'"  class="label label-success">{{currInFax.JOBSTATE}}</span>
                                                 <span ng-if="currInFax.JOBSTATE == 'Error'" class="label label-danger">{{currInFax.JOBSTATE}}</span>
@@ -317,33 +327,7 @@
                 });
             }   
         });
-        
-
     
-
-       /*$scope.loadMoreFaxes = function (index) {           
-        if ($scope.totalRecords == $scope.inFaxes.length) {
-            return;
-        }
-        // alert($scope.pageToLoad);   
-        $scope.pageToLoad += 1;
-
-        var dataString = '[' + $scope.recordsPerPage + ',' + $scope.pageToLoad + ',"ID","desc"]';
-        var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetFaxInMessages/1');
-        var request = $http.post(url, dataString);
-
-        request.success(function(data, status, headers, config) {
-            //log(data);
-            $scope.totalRecords = data.result[0].records;
-            $scope.inFaxes.push.apply($scope.inFaxes, data.result[0].rows);
-            //$("#data").append(JSON.stringify(data.result[0].rows));
-            log(data.result[0].rows);
-        });
-        request.error(function(data, status, headers, config) {
-            log("sendSQL status: "+status+", message: "+data);
-        });
-                                                
-        };*/
 
         $scope.openInFaxes = function (index) {
              log($scope.inFaxes[index]);
@@ -352,10 +336,120 @@
                 $scope.inFaxes[index].expandRow = !$scope.inFaxes[index].expandRow;      
         };  
 
+         try
+            {
+            var socket;
+            var nickname; 
+            if(typeof(socket) == 'undefined'){
+                
+                socket = new WebSocket(WEBSOCKET_URL,"synopsejson");
+
+            }
+            
+            console.log('WebSocket - status '+socket.readyState);
+            socket.onopen = function(event){ 
+                console.log("WebSocket - status " + this.readyState); 
+                //getTimeStamp();
+                Join();
+            };
+            socket.onmessage = function(event){ 
+                var data = JSON.parse(event.data);
+                console.log(event); 
+               /* if(data.request[5][0] == "InJob"){
+                    var jobToUpdate = data.request[5][1];
+
+                     var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUpdatedJobINMessage/1');
+                     var dataString = '[' + jobToUpdate + ']';
+                     var request = $http.post(url, dataString);
+                     request.success(function(data) {
+                        var updatedJob = data.result[0].rows[0];
+                        //updatedJob.JOBSTATE = "Error";
+                        for (var i=0; i<$scope.outFaxes.length; i++) {
+                         for(var j =0; j<$scope.outFaxes[i].JOBS.length; j++){
+                            if ($scope.outFaxes[i].JOBS[j].ID === jobToUpdate) {
+                                //console.log($scope.outFaxes[i].JOBS[j]);
+                                $scope.outFaxes[i].JOBS[j] = updatedJob;
+                                return;
+                            }   
+                        }
+                     }
+                    });
+                    request.error(function(data, status) {
+                        log("sendSQL status: "+status+", message: "+data);
+                    });                 
+                    //alert($("body").find("[jobid='" + 509 + "']").text('Ok'));            
+                }
+                if(data.request[5][0] == "InFaxMessage"){
+                     var faxToUpdate = data.request[5][1];
+
+                     var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUpdatedFaxINMessage/1');
+                     var dataString = '[' + faxToUpdate + ']';
+                     var request = $http.post(url, dataString);
+                     request.success(function(data) {
+                        var updatedFax = data.result[0].rows[0];
+
+                     for (var i=0; i<$scope.outFaxes.length; i++) {
+                        if ($scope.outFaxes[i].ID === faxToUpdate) {
+                            //console.log($scope.outFaxes[i].JOBS[j]);
+                            $scope.outFaxes[i] = updatedFax;
+                            return;
+                        }   
+                     }
+                    });
+                    request.error(function(data, status) {
+                        console.log("sendSQL status: "+status+", message: "+data);
+                    });                        
+                }
+                if(data.request[5][0] == "NewInFaxMessage"){
+                     var faxToAdd = data.request[5][1];
+
+                     var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUpdatedFaxINMessage/1');
+                     var dataString = '[' + faxToAdd + ']';
+                     var request = $http.post(url, dataString);
+                     request.success(function(data) {
+                        var newFax = data.result[0].rows[0];
+                        //console.log(newFax);
+                        //console.log($scope.outFaxes);
+                        $scope.outFaxes.unshift(newFax);
+                    });
+                    request.error(function(data, status) {
+                        console.log("sendSQL status: "+status+", message: "+data);
+                    });                        
+                }*/
+            };
+            socket.onerror   = function(event){ 
+                console.log(event); 
+                //log("onerror - code:" + msg.code + ", reason:" + msg.reason + ", wasClean:" + msg.wasClean + ", status:" + this.readyState); 
+            };
+            socket.onclose   = function(event){ 
+                console.log(event); 
+                //log("onclose - code:" + msg.code + ", reason:" + msg.reason + ", wasClean:" + msg.wasClean + ", status:" + this.readyState); 
+                };
+            }
+            catch(ex) {
+                console.log(ex);
+            } 
+
+            function Join(){
+                var msg = JSON.stringify(makerequest("","root/FaxGwiseInfo.Join",[Number(getLocalStorageParam('SESSION_ID')),1]));
+                 try{ 
+                    socket.send(msg); 
+                    console.log('Sent ('+msg.length+" bytes): " + msg.length < 5000 ? msg : (msg.substr(0, 100) + '...')); 
+                } catch(ex){ 
+                    console.log(ex);
+                }
+            }
+
+            function makerequest(method,uri,data){
+                var req = {
+                    request:[method,uri,"",0,"",data]
+                };
+                 return req;
+            }
+
     });
             
             $(document).on("click", ".faxpreview", function() {
-          //$("#expTable").css("display","none");
            slideShow.ID = $(this).attr('id');
            slideShow.count = 1;
            slideShow.display(0);

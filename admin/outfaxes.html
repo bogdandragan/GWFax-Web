@@ -152,10 +152,6 @@
 	                                        	<br/>	                                        		                                        	
 	                                            <span class="text-danger">{{currOutFax.ERRMESSAGE}}</span>
 	                                        </td>
-	                                        <!--td class="project-actions">
-	                                            <a href="#" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> View </a>
-	                                            <a href="#" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> Edit </a>
-	                                        </td-->
 	                                        
 	                                        <td  class="outfax-status">
 	                                            <span ng-if="currOutFax.FAXSTATE == 'Ok'" class="label label-success">{{currOutFax.FAXSTATE}}</span>
@@ -308,32 +304,7 @@
 	<script src="../js/faxgwise.js"></script>
 	<script src="../js/slideshow.js"></script>
     <script>
-   /*     $(document).ready(function(){
 
-            $('#loading-example-btn').click(function () {
-                btn = $(this);
-                simpleLoad(btn, true)
-
-                // Ajax example
-//                $.ajax().always(function () {
-//                    simpleLoad($(this), false)
-//                });
-
-                simpleLoad(btn, false)
-            });
-        });
-
-        function simpleLoad(btn, state) {
-            if (state) {
-                btn.children().addClass('fa-spin');
-                btn.contents().last().replaceWith(" Loading");
-            } else {
-                setTimeout(function () {
-                    btn.children().removeClass('fa-spin');
-                    btn.contents().last().replaceWith(" Refresh");
-                }, 2000);
-            }
-        }*/
     </script>    
     <script>
     var FaxGWiseApp = angular.module('FaxGWiseApp', []);  
@@ -412,9 +383,7 @@
                 console.log(event); 
                 if(data.request[5][0] == "OutJob"){
                     var jobToUpdate = data.request[5][1];
-                    /*  if(data.request[5][0] == "OutJob"){
-                        console.log("OutJobId="+data.request[5][1]);
-                    }*/
+
                      var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUpdatedJobOutMessage/1');
                      var dataString = '[' + jobToUpdate + ']';
                      var request = $http.post(url, dataString);
@@ -426,8 +395,6 @@
                             if ($scope.outFaxes[i].JOBS[j].ID === jobToUpdate) {
                                 //console.log($scope.outFaxes[i].JOBS[j]);
                                 $scope.outFaxes[i].JOBS[j] = updatedJob;
-                                //$scope.outFaxes[i].JOBS[j].JOBSTATE = jobstate;
-                                //$scope.$apply();
                                 return;
                             }   
                         }
@@ -451,8 +418,6 @@
                         if ($scope.outFaxes[i].ID === faxToUpdate) {
                             //console.log($scope.outFaxes[i].JOBS[j]);
                             $scope.outFaxes[i] = updatedFax;
-                            //$scope.outFaxes[i].JOBS[j].JOBSTATE = jobstate;
-                            //$scope.$apply();
                             return;
                         }   
                      }
@@ -472,23 +437,11 @@
                         //console.log(newFax);
                         //console.log($scope.outFaxes);
                         $scope.outFaxes.unshift(newFax);
-                    /* for (var i=0; i<$scope.outFaxes.length; i++) {
-                        if ($scope.outFaxes[i].ID === faxToUpdate) {
-                            //console.log($scope.outFaxes[i].JOBS[j]);
-                            $scope.outFaxes[i] = updatedFax;
-                            //$scope.outFaxes[i].JOBS[j].JOBSTATE = jobstate;
-                            //$scope.$apply();
-                            return;
-                        }   
-                     }*/
                     });
                     request.error(function(data, status) {
                         console.log("sendSQL status: "+status+", message: "+data);
                     });                        
                 }
-
-                //log("onmessage: ("+msg.data.length+" bytes): " + (msg.data.length < 5000 ? msg.data : (msg.data.substr(0, 30) + '...'))); 
-                //log(msg.data);
             };
             socket.onerror   = function(event){ 
                 console.log(event); 
@@ -523,29 +476,6 @@
 
 });
 
-
-
-
-
-		//InitOutFaxes_ngTable();
-        //quit();
-        //InitSession();
-		//initWebSocket();
-        //quit;
-		//var url = MAIN_URL + '/RemoteFax.GetComponentStatus/1';
-	/*	$.ajax({
-		type: "GET",
-		url: url,
-		dataType: "json",
-		contentType: "application/json",
-		success: function(data) {
-		   console.log(data);
-		},
-		error: function (jqXHR, textStatus, errorThrown) {
-			
-			log("send query status: "+textStatus+", message: "+errorThrown);
-		}
-	}); */
 		$(document).on("click", ".faxpreview", function() {
   		  //$("#expTable").css("display","none");
 		   slideShow.ID = $(this).attr('id');

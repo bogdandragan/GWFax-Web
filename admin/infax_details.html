@@ -145,7 +145,7 @@
                                 <div class="col-lg-7" id="cluster_info">
                                     <dl class="dl-horizontal" >
 
-                                        <dt>Created:</dt> <dd>{{inFax.CREATIONTIME}}</dd>
+                                        <dt>Created:</dt> <dd>{{formatDate(inFax.CREATIONTIME)}}</dd>
                                         
                                         <dt>Delayed delivery:</dt> <dd> - </dd>
                                         
@@ -199,7 +199,7 @@
                                         <tbody ng-repeat="currFax in inFax.FAXES">
 	                                        <tr class="cursor-pointer" ng-click="openTasks($index)">
 	                                            <td>{{currFax.ID}}</td>                                            
-	                                            <td>{{currFax.CREATIONTIME}}</td>
+	                                            <td>{{formatDate(currFax.CREATIONTIME)}}</td>
 	                                            <td>{{currFax.EMAIL}}</td>
 	                                            <td>{{currFax.NAME}}</td>
 	                                            <td>{{currFax.COMPANY}}</td>
@@ -293,9 +293,18 @@
             log($scope.inFax);    
         });
         request.error(function(data, status, headers, config) {
+            if(status == 403){
+                window.location.replace("../login.html");
+            }
             log("sendSQL status: "+status+", message: "+data);
         });
 
+        $scope.formatDate = function(date){
+            if(typeof(date)=='undefined')
+                return;
+            var newDate = date.replace("T", " ");
+            return newDate;
+        } 
     });
 
             $(document).on("click", ".faxpreview", function() {

@@ -145,7 +145,7 @@
                                 <div class="col-lg-7" id="cluster_info">
                                     <dl class="dl-horizontal" >
 
-                                        <dt>Created:</dt> <dd>{{outFax.CREATIONTIME}}</dd>
+                                        <dt>Created:</dt> <dd>{{formatDate(outFax.CREATIONTIME)}}</dd>
                                         
                                         <dt>Delayed delivery:</dt> <dd> - </dd>
                                         
@@ -225,7 +225,7 @@
                                         <tbody ng-repeat="currOutJob in outFax.JOBS">
 	                                        <tr class="cursor-pointer" ng-click="openTasks($index)">
 	                                            <td>{{currOutJob.ID}}</td>                                            
-	                                            <td>{{currOutJob.CREATIONTIME}}</td>
+	                                            <td>{{formatDate(currOutJob.CREATIONTIME)}}</td>
 	                                            <td>{{currOutJob.FAX}}</td>
 	                                            <td>{{currOutJob.NAME}}</td>
 	                                            <td>{{currOutJob.COMPANY}}</td>

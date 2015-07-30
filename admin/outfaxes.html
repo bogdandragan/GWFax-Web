@@ -137,7 +137,7 @@
 	                                            <br/>
 	                                            <span>{{currOutFax.SENDEREMAIL}}</span>
 	                                            <br/>
-	                                            <small>Created {{currOutFax.CREATIONTIME}}</small>
+	                                            <small>Created {{formatDate(currOutFax.CREATIONTIME)}}</small>
 	                                        </td>	                                        
 	                                        <td class="outfax-pages">
 	                                        	<b>Pages: {{currOutFax.COUNTOFPAGES}}</b>                                                        
@@ -166,7 +166,7 @@
                                                         <tr>
                                                             <th>Fax number: {{currOutJob.FAX}}</th>
                                                             <th>Recipient: {{currOutJob.NAME}}</th>
-                                                            <th>Created {{currOutJob.CREATIONTIME}}</th>
+                                                            <th>Created {{formatDate(currOutJob.CREATIONTIME)}}</th>
                                                             <th>
                                                                 <span ng-if="currOutJob.JOBSTATE == 'Error'" class="label label-danger"><i class="fa fa-times"></i> {{currOutJob.JOBSTATE}}</span>
                                                                 <span ng-if="currOutJob.JOBSTATE == 'Ok'" class="label label-success"><i class="fa fa-check"></i> {{currOutJob.JOBSTATE}}</span>
@@ -310,7 +310,6 @@
     var FaxGWiseApp = angular.module('FaxGWiseApp', []);  
     FaxGWiseApp.controller('outFaxesCtrl', function ($scope, $http) {
 
-        //openOutJobs
         $scope.recordsPerPage = 10;
         $scope.pageToLoad = 1;
        // $scope.expandTable = false;
@@ -328,6 +327,9 @@
             $(".sk-circle").hide();
         });
         request.error(function(data, status, headers, config) {
+            if(status == 403){
+                window.location.replace("../login.html");
+            }
             console.log("sendSQL status: "+status+", message: "+data);
         });
 
@@ -362,6 +364,11 @@
                 $scope.outFaxes[index].expandRow = !$scope.outFaxes[index].expandRow      
         };  
 
+        $scope.formatDate = function(date){
+            var newDate = date.replace("T", " ");
+            return newDate;
+        }    
+
             try
             {
             var socket;
@@ -381,7 +388,7 @@
             socket.onmessage = function(event){ 
                 var data = JSON.parse(event.data);
                 console.log(event); 
-                if(data.request[5][0] == "OutJob"){
+                if(typeof(data.request) != 'undefined' && data.request[5][0] == "OutJob"){
                     var jobToUpdate = data.request[5][1];
 
                      var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUpdatedJobOutMessage/1');
@@ -405,7 +412,7 @@
                     });                 
                     //alert($("body").find("[jobid='" + 509 + "']").text('Ok'));            
                 }
-                if(data.request[5][0] == "OutFaxMessage"){
+                if(typeof(data.request) != 'undefined' && data.request[5][0] == "OutFaxMessage"){
                      var faxToUpdate = data.request[5][1];
 
                      var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUpdatedFaxOutMessage/1');
@@ -426,7 +433,7 @@
                         console.log("sendSQL status: "+status+", message: "+data);
                     });                        
                 }
-                if(data.request[5][0] == "NewOutFaxMessage"){
+                if(typeof(data.request) != 'undefined' && data.request[5][0] == "NewOutFaxMessage"){
                      var faxToAdd = data.request[5][1];
 
                      var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUpdatedFaxOutMessage/1');

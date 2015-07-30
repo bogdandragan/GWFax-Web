@@ -744,9 +744,7 @@ function InitOutFaxDetails_ngApplication (faxQueueID) {
 	    	if ((typeof dataToCheck != 'undefined') && (dataToCheck.length > 0)) {	    		        
 	        	$scope.outFax['JOBS'][index]['childTableExpanded'] = !$scope.outFax['JOBS'][index]['childTableExpanded'];
 	        }         
-	    };
-		
-		
+	    }; 
 									   	   		
 		var dataString = '[' + faxQueueID + ']';
 		var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUpdatedFaxOutMessage/1');
@@ -760,8 +758,18 @@ function InitOutFaxDetails_ngApplication (faxQueueID) {
         	var p = data.result[0]; 	
 			ShowFaxMessageDetails(p, $scope);
     	}).error(function(data, status, headers, config) {
+    		if(status == 403){
+                window.location.replace("../login.html");
+            }
 		    log("sendSQL status: "+status+", message: "+data);
 		});
+
+		$scope.formatDate = function(date){
+			if(typeof(date)=='undefined')
+                return;
+            var newDate = date.replace("T", " ");
+            return newDate;
+        } 
 	});
 }
 

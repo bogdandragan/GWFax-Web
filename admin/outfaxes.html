@@ -164,11 +164,35 @@
 	                                        </td>	                                        
 	                                    </tr>
 	                                    <tr data-ng-show="currOutFax.expandRow">
-	                                    	<td></td>
-	                                    	<td colspan="10">
-	                                    		<table class="table table-striped">
-	                                    			<tr ng-repeat="currOutJob in currOutFax.JOBS">
-	                                    				<td class="outjob-title">
+                                        <td></td>
+	                                    	<td >
+	                                    		<table class="table table-striped" ng-repeat="currOutJob in currOutFax.JOBS">
+                                                        <tr>
+                                                            <th>Fax number: {{currOutJob.FAX}}</th>
+                                                            <th>Recipient: {{currOutJob.NAME}}</th>
+                                                            <th>Created {{currOutJob.CREATIONTIME}}</th>
+                                                            <th>
+                                                                <span ng-if="currOutJob.JOBSTATE == 'Error'" class="label label-danger"><i class="fa fa-times"></i> {{currOutJob.JOBSTATE}}</span>
+                                                                <span ng-if="currOutJob.JOBSTATE == 'Ok'" class="label label-success"><i class="fa fa-check"></i> {{currOutJob.JOBSTATE}}</span>
+                                                                <span ng-if="(currOutJob.JOBSTATE == 'Sending')||(currOutJob.JOBSTATE == 'Unsent')" class="label label-default">{{currOutJob.JOBSTATE}}</span>
+                                                                <br/>
+                                                                <span class="text-danger">{{currOutJob.ERRMESSAGE}}</span>
+                                                            </th>
+                                                        </tr>        
+                                                        <tr ng-repeat="currTask in currOutJob.TASKS">
+                                                            <td colspan="4">
+                                                            <span ng-if="currTask.TASKSTATE == 2" class="label label-danger"><i class="fa fa-times"></i> Error</span>
+                                                                <span ng-if="currTask.TASKSTATE == 1" class="label label-success"><i class="fa fa-check"></i> Success</span>
+                                                                <span ng-if="currTask.TASKSTATE == 0" class="label label-default">Unsent</span>
+                                                                <span ng-if="currTask.TASKSTATE == 3" class="label label-info"><i class="fa fa-trash-o"></i> Cancelled</span>
+                                                                
+                                                                <small ng-if="currTask.TASKSTATE == 2"> {{currTask.CONTROLLERNAME}} ({{currTask.ONLINETIME}} s): 
+                                                                    <span class="text-danger">{{currTask.ERRMESSAGE}}</span>                                                                        
+                                                                </small>
+                                                                <small ng-if="currTask.TASKSTATE != 2"> {{currTask.CONTROLLERNAME}} ({{currTask.ONLINETIME}} s)</small>
+                                                            </td>
+                                                        </tr>
+	                                    				<!--<td class="outjob-title">
 				                                            <span>Fax number: {{currOutJob.FAX}}  {{currOutJob.ID}}</span>
 				                                            <br/>
 				                                            <span>Recipient: {{currOutJob.NAME}}</span>
@@ -199,8 +223,8 @@
 				                                        </td>
 				                                        <td>
 				                                        	<a class="faxpreview btn btn-primary btn-sm" id="{{currOutJob.ID}}" data-toggle="modal" data-target="#faxpreview">Preview</a>
-				                                        </td>				                                        				                                        
-	                                    			</tr>
+				                                        </td>	-->			                                        				                                        
+	                                    			
 	                                    		</table>
 	                                    	</td>
 	                                    </tr>
@@ -437,7 +461,31 @@
                         console.log("sendSQL status: "+status+", message: "+data);
                     });                        
                 }
+                if(data.request[5][0] == "NewOutFaxMessage"){
+                     var faxToAdd = data.request[5][1];
 
+                     var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUpdatedFaxOutMessage/1');
+                     var dataString = '[' + faxToAdd + ']';
+                     var request = $http.post(url, dataString);
+                     request.success(function(data) {
+                        var newFax = data.result[0].rows[0];
+                        //console.log(newFax);
+                        //console.log($scope.outFaxes);
+                        $scope.outFaxes.unshift(newFax);
+                    /* for (var i=0; i<$scope.outFaxes.length; i++) {
+                        if ($scope.outFaxes[i].ID === faxToUpdate) {
+                            //console.log($scope.outFaxes[i].JOBS[j]);
+                            $scope.outFaxes[i] = updatedFax;
+                            //$scope.outFaxes[i].JOBS[j].JOBSTATE = jobstate;
+                            //$scope.$apply();
+                            return;
+                        }   
+                     }*/
+                    });
+                    request.error(function(data, status) {
+                        console.log("sendSQL status: "+status+", message: "+data);
+                    });                        
+                }
 
                 //log("onmessage: ("+msg.data.length+" bytes): " + (msg.data.length < 5000 ? msg.data : (msg.data.substr(0, 30) + '...'))); 
                 //log(msg.data);

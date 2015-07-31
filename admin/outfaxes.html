@@ -140,7 +140,16 @@
 	                                            <small>Created {{formatDate(currOutFax.CREATIONTIME)}}</small>
 	                                        </td>
                                             <td>
-                                                <button id="{{currOutFax.ID}}" ng-click="sendFaxAgain($event)" class="sendFaxAgain btn btn-primary btn-xs">Send again</button>
+                                            <div class="dropdown profile-element">
+                                                <a data-toggle="dropdown" class="dropdown-toggle" href="" ng-click="showDropdown()">
+                                                     <strong><span class="text-muted text-xs block" class="font-bold">Actions <b class="caret"></b></span></strong> </a>
+                                                <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                                    <li ng-if="currOutFax.FAXSTATE == 'Delay'"><a href="javascript:return false;">Send now</a></li>
+                                                    <li ng-click="sendFaxAgain(currOutFax.ID)" ng-if="currOutFax.FAXSTATE != 'Delay'"><a href="javascript:return false;">Send again</a></li>
+                                                    <li ng-click="CancelFax(currOutFax.ID)" ng-if="(currOutFax.FAXSTATE != 'Delay') && (currOutFax.FAXSTATE == 'Unsent')"><a href="javascript:return false;">Cancel</a></li>
+                                                </ul>
+                                            </div>
+                                               <!-- <button ng-if="currOutFax.FAXSTATE != 'Delay'" id="{{currOutFax.ID}}" ng-click="sendFaxAgain($event)" class="sendFaxAgain btn btn-primary btn-xs">Send again</button>-->
                                             </td>    
 	                                        <td class="outfax-pages">
 	                                        	<b>Pages: {{currOutFax.COUNTOFPAGES}}</b>                                                        
@@ -160,7 +169,7 @@
 	                                            <span ng-if="currOutFax.FAXSTATE == 'Ok'" class="label label-success">{{currOutFax.FAXSTATE}}</span>
 	                                            <span ng-if="currOutFax.FAXSTATE == 'Error'" class="label label-danger">{{currOutFax.FAXSTATE}}</span>
 	                                            <span ng-if="currOutFax.FAXSTATE == 'Unsent'" class="label label-default">{{currOutFax.FAXSTATE}}</span>
-                                                 <span ng-if="currOutFax.FAXSTATE == 'Delay'" class="label label-primary">{{currOutFax.FAXSTATE}}</span>
+                                                 <span ng-if="currOutFax.FAXSTATE == 'Delay'" class="label label-primary">{{checkPending(currOutFax.DELAYEDDELIVERYTIME)}}</span>
 	                                        </td>	                                        
 	                                    </tr>
 	                                    <tr data-ng-show="currOutFax.expandRow">
@@ -318,6 +327,8 @@
     var FaxGWiseApp = angular.module('FaxGWiseApp', []);  
     FaxGWiseApp.controller('outFaxesCtrl', function ($scope, $http) {
 
+        $scope.isRowClicked = true;
+
         $scope.recordsPerPage = 10;
         $scope.pageToLoad = 1;
        // $scope.expandTable = false;
@@ -385,22 +396,59 @@
         });
         
         $scope.openOutJobs = function (index) {
-             log($scope.outFaxes[index]);
+            if($scope.isRowClicked == false){
+                return;
+            }
+                
+             console.log($scope.outFaxes[index]);
              if((typeof($scope.outFaxes[index].JOBS) == 'undefined') || $scope.outFaxes[index].JOBS.length < 1)
                 return;
                 $scope.outFaxes[index].expandRow = !$scope.outFaxes[index].expandRow      
         };  
+
+        $('html').on('show.bs.dropdown', function () {
+            $scope.isRowClicked = false;
+        });
+
+        $('html').on('hidden.bs.dropdown', function () {
+            $scope.isRowClicked = true;
+        });
+
+        $scope.showDropdown = function(){
+            $scope.isRowClicked = false;
+        } 
 
         $scope.formatDate = function(date){
             var newDate = date.replace("T", " ");
             return newDate;
         }    
 
-        $scope.sendFaxAgain = function(event){
-            var id = event.target.id;
-            alert(id);
+        $scope.checkPending = function(date){
+            if(date.contains("2050")){
+                return "Pending";
+            }
+            else{
+                return "Delay";
+            }
+        }    
+
+
+        $scope.sendFaxAgain = function(id){
             var dataString = '[' + 0 + ',' + id + ']';
             var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.sendAgainFax/1');
+            var request = $http.post(url, dataString);
+            request.success(function(data) {
+                //console.log(data);
+
+            });
+            request.error(function(data, status) {
+                console.log("sendSQL status: "+status+", message: "+data);
+            });
+        }
+
+        $scope.CancelFax = function(id){
+            var dataString = '[' + 0 + ',' + id + ']';
+            var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.CancelFax/1');
             var request = $http.post(url, dataString);
             request.success(function(data) {
                 console.log(data);
@@ -410,7 +458,6 @@
                 console.log("sendSQL status: "+status+", message: "+data);
             });
         }
-
 
 
 

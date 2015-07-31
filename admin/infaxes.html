@@ -127,7 +127,7 @@
                                             </td>                                         
                                                                                                                                                                   
                                             <td class="infax-title">
-                                                <a href="infax_details.html?infaxid={{currInFax.ID}}">{{currInFax.SUBJECT}}</a>
+                                                <a href="infax_details.html?infaxid={{currInFax.ID}}" ng-click="getscrollpos()"s>{{currInFax.SUBJECT}}</a>
                                                 <br/>
                                                 <span>{{currInFax.SENDERFAX}}</span>
                                                 <br/>
@@ -300,6 +300,16 @@
             //$("#data").append(JSON.stringify(data.result[0].rows));
             $scope.inFaxes = data.result[0].rows;
             $(".sk-circle").hide();
+
+            $('html, body').animate({
+                scrollTop: 0
+                }, 100); 
+            if(localStorage.getItem("scrollpos") != null){
+                $('html, body').animate({
+                scrollTop: localStorage.getItem("scrollpos")
+                }, 2000);   
+                localStorage.removeItem("scrollpos");
+            }
         });
         request.error(function(data, status, headers, config) {
             if(status == 403){
@@ -308,6 +318,10 @@
             console.log("sendSQL status: "+status+", message: "+data);
         });
 
+
+        $scope.getscrollpos = function(){
+            localStorage.setItem("scrollpos", window.pageYOffset);
+        }
 
         $(window).scroll(function(){
             if($(window).scrollTop() == $(document).height() - $(window).height()){

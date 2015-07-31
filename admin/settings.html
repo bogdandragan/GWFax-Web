@@ -124,8 +124,68 @@
         <div class="col-lg-8">
                     <div class="ibox">
                         <div class="ibox-content">                           
-                            <div class="clients-list" ng-app="FaxGWiseApp" ng-controller="usersCtrl">
-
+                            <div class="settings-list" ng-app="FaxGWiseApp" ng-controller="settingsCtrl">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a data-toggle="tab" href="#faxconverter">Fax Converter</a></li>
+                                    <li class=""><a data-toggle="tab" href="#isdncontroller">ISDN Controller</a></li>
+                                    <li class=""><a data-toggle="tab" href="#t38controller">T38 Controller</a></li>
+                                    <li class=""><a data-toggle="tab" href="#gwcommunicator">GW Communicator</a></li>
+                                    <li class=""><a data-toggle="tab" href="#secondcommunicator">Second Communicator</a></li>
+                                    <li class=""><a data-toggle="tab" href="#reporter">Reporter</a></li>
+                                    <li class=""><a data-toggle="tab" href="#faxrouter">Fax Router</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div id="faxconverter" class="tab-pane active">
+                                        <div class="panel panel-default" style="margin-top: 20px;">
+                                            <div class="panel-heading">General</div>
+                                            <div class="panel-body">
+                                                <div class="form-group">
+                                                    <label for="filetypes">Supported file types</label>
+                                                    <input type="text" class="form-control" id="filetypes" placeholder="">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label> <input type="checkbox" class="i-checks">Converter enabled</label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="timeout">Converter timeout</label>
+                                                    <input type="text" class="form-control" id="timeout" placeholder="">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="compress">In job compress</label>
+                                                    <input type="text" class="form-control" id="compress" placeholder="">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="compress">In job format</label>
+                                                    <input type="text" class="form-control" id="format" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">Fax header</div>
+                                            <div class="panel-body">
+                                                Fax Converter
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="isdncontroller" class="tab-pane">
+                                        ISDN Controller
+                                    </div>
+                                    <div id="t38controller" class="tab-pane">
+                                        T38 Controller
+                                    </div>
+                                    <div id="gwcommunicator" class="tab-pane">
+                                        GW Communicator
+                                    </div>
+                                    <div id="secondcommunicator" class="tab-pane">
+                                        Second Communicator
+                                    </div>
+                                    <div id="reporter" class="tab-pane">
+                                        Reporter
+                                    </div>
+                                    <div id="faxrouter" class="tab-pane">
+                                        Fax Router
+                                    </div>
+                                </div>
                              </div>
                     </div>
                 </div>
@@ -156,26 +216,26 @@
 
     <script>
         var FaxGWiseApp = angular.module('FaxGWiseApp', []);   
-    FaxGWiseApp.controller('usersCtrl', function ($scope, $http) {
+    FaxGWiseApp.controller('settingsCtrl', function ($scope, $http) {
 
-        $scope.recordsPerPage = 10;
-        $scope.pageToLoad = 1;
+        //$scope.recordsPerPage = 10;
+        //$scope.pageToLoad = 1;
        // $scope.expandTable = false;
 
-        var dataString = '['+$scope.recordsPerPage+','+$scope.pageToLoad+',"ID","asc"]';
-        var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUsers/1');
-        var request = $http.post(url, dataString);
+        //var dataString = '['+$scope.recordsPerPage+','+$scope.pageToLoad+',"ID","asc"]';
+        var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetSettings/1');
+        var request = $http.post(url);
 
         request.success(function(data, status, headers, config) {
-            log(data);
-            //$("#data").append(JSON.stringify(data));
-            $scope.users = data.result[0].rows;
+            console.log(data);
+
+            //$scope.users = data.result[0].rows;
             //$scope.totalRecords = data.result[0].records;
             //$("#data").append(JSON.stringify(data.result[0].rows));
             //$scope.inFaxes = data.result[0].rows;
         });
         request.error(function(data, status, headers, config) {
-            log("sendSQL status: "+status+", message: "+data);
+            console.log("sendSQL status: "+status+", message: "+data);
         });
 
     });
@@ -184,5 +244,4 @@
 
 </body>
 
-<!-- Site: hackforums.ru | E-mail: abuse@hackforums.ru | Skype: h2osancho -->
 </html>

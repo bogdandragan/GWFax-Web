@@ -352,6 +352,26 @@
 		   slideShow.display(0);
 		});
 
+			try
+            {
+            var socket;                     
+            socket = new WebSocket(WEBSOCKET_URL,"synopsejson");     
+            console.log('WebSocket - status '+socket.readyState);
+            socket.onopen = function(event){ 
+            };
+            socket.onmessage = function(event){ 
+            };
+            socket.onerror   = function(event){ 
+            };
+            socket.onclose   = function(event){ 
+            }
+        	}
+            catch(ex) {
+                console.log(ex);
+            } 
+
+
+
 	</script>
 </body>
 </html>

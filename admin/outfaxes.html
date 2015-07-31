@@ -133,12 +133,15 @@
 	                                        </td>	                                        	
 	                                                                                                                                                              
 	                                        <td class="outfax-title">
-	                                            <a id="{{currOutFax.ID}}" href="outfax_details.html?outfaxid={{currOutFax.ID}}" ng-click="getscrollpos($event)">{{currOutFax.SUBJECT}}</a>
+	                                            <a id="{{currOutFax.ID}}" href="outfax_details.html?outfaxid={{currOutFax.ID}}" ng-click="getscrollpos()">{{currOutFax.SUBJECT}}</a>
 	                                            <br/>
 	                                            <span>{{currOutFax.SENDEREMAIL}}</span>
 	                                            <br/>
 	                                            <small>Created {{formatDate(currOutFax.CREATIONTIME)}}</small>
-	                                        </td>	                                        
+	                                        </td>
+                                            <td>
+                                                <button id="{{currOutFax.ID}}" ng-click="sendFaxAgain($event)" class="sendFaxAgain btn btn-primary btn-xs">Send again</button>
+                                            </td>    
 	                                        <td class="outfax-pages">
 	                                        	<b>Pages: {{currOutFax.COUNTOFPAGES}}</b>                                                        
 	                                        </td>	                                       	                                        
@@ -334,7 +337,7 @@
             $('html, body').animate({
                 scrollTop: 0
                 }, 100);  
-            if(localStorage.getItem("scrollpos") != null){
+            if(localStorage.getItem("scrollpos") != null ){
                // alert(localStorage.getItem("scrollpos"));               
                 $('html, body').animate({
                 scrollTop: localStorage.getItem("scrollpos")
@@ -352,10 +355,10 @@
             console.log("sendSQL status: "+status+", message: "+data);
         });
 
-        $scope.getscrollpos = function(event){
+        $scope.getscrollpos = function(){
            // alert(localStorage.getItem("scrollpos"));
             localStorage.setItem("scrollpos", window.pageYOffset);
-            localStorage.setItem("scrollid", event.target.id);
+          //  localStorage.setItem("scrollid", event.target.id);
         }
 
         $(window).scroll(function(){
@@ -392,6 +395,25 @@
             var newDate = date.replace("T", " ");
             return newDate;
         }    
+
+        $scope.sendFaxAgain = function(event){
+            var id = event.target.id;
+            alert(id);
+            var dataString = '[' + 0 + ',' + id + ']';
+            var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.sendAgainFax/1');
+            var request = $http.post(url, dataString);
+            request.success(function(data) {
+                console.log(data);
+
+            });
+            request.error(function(data, status) {
+                console.log("sendSQL status: "+status+", message: "+data);
+            });
+        }
+
+
+
+
 
             try
             {

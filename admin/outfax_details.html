@@ -121,9 +121,10 @@
                                     <dl class="dl-horizontal">
                                     	<dt>Status:</dt>
                                     	<dd>
-                                        	<span ng-if="outFax.collectiveStatus == 1" class="label label-success">{{outFax.FAXSTATE}}</span>
-                                        	<span ng-if="outFax.collectiveStatus == 2" class="label label-danger">{{outFax.FAXSTATE}}</span>
-                                        	<span ng-if="outFax.collectiveStatus == 0" class="label label-default">{{outFax.FAXSTATE}}</span>
+                                    		<span ng-if="outFax.FAXSTATE == 'Ok'" class="label label-success">{{outFax.FAXSTATE}}</span>
+	                                        <span ng-if="outFax.FAXSTATE == 'Error'" class="label label-danger">{{outFax.FAXSTATE}}</span>
+	                                        <span ng-if="outFax.FAXSTATE == 'Unsent'" class="label label-default">{{outFax.FAXSTATE}}</span>
+                                            <span ng-if="outFax.FAXSTATE == 'Delay'" class="label label-primary">{{outFax.FAXSTATE}}</span>
                                         </dd>
                                     </dl>
                                     <dl class="dl-horizontal">
@@ -147,7 +148,7 @@
 
                                         <dt>Created:</dt> <dd>{{formatDate(outFax.CREATIONTIME)}}</dd>
                                         
-                                        <dt>Delayed delivery:</dt> <dd> - </dd>
+                                        <dt>Delayed delivery:</dt> <dd>{{formatDate(outFax.DELAYEDDELIVERYTIME)}}</dd>
                                         
                                         <dt>Resolution:</dt> <dd> {{GetResolutionAsText(outFax.RESOLUTION)}} </dd>
                                         <dt>Count of page:</dt> <dd>{{outFax.COUNTOFPAGES}}</dd>

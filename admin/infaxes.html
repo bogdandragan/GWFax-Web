@@ -163,42 +163,46 @@
                                         </tr>
                                         <tr data-ng-show="currInFax.expandRow">
                                             <td></td>
-                                            <td colspan="10">
+                                            <td >
                                                 <table class="table table-striped">
                                                     <tr ng-repeat="currInFax in currInFax.FAXES">
-                                                        <td class="infax-title">
+                                                        <th>Email: {{currInFax.EMAIL}}</th>
+                                                        <th>Sender: {{currInFax.NAME}}</th>
+                                                        <th>Created {{formatDate(currInFax.CREATIONTIME)}}</th>
+                                                        <th>
+                                                            <!--  <span ng-if="currInFax.FAXSTATE == 'Error'" class="label label-danger"><i class="fa fa-times"></i> {{currInJob.JOBSTATE}}</span> -->
+                                                            <span ng-if="currInFax.FAXSTATE == 'Ok'" class="label label-success"><i class="fa fa-check"></i> {{currInFax.FAXSTATE}}</span>
+                                                            <span ng-if="currInFax.FAXSTATE == 'Error'" class="label label-danger"><i class="fa fa-times"></i> {{currInFax.FAXSTATE}}</span>
+                                                            <!--<span ng-if="(currInFax.FAXSTATE == 'Sending')||(currOutJob.JOBSTATE == 'Unsent')" class="label label-default">{{currInJob.JOBSTATE}}</span>-->
+                                                            <br/>
+                                                            <span class="text-danger">{{currInJob.ERRMESSAGE}}</span>
+                                                        </th>
+                                                        <th>
+                                                            <a class="faxpreview btn btn-primary btn-xs" id="{{currInFax.ID}}" data-toggle="modal" data-target="#faxpreview">Preview</a>
+                                                        </th>
+                                                        
+
+                                                        <!--<td class="infax-title">
                                                             <span>Email: {{currInFax.EMAIL}}</span>
                                                             <br/>
                                                             <span>Sender: {{currInFax.NAME}}</span>
                                                             <br/>
                                                             <small>Created {{formatDate(currInFax.CREATIONTIME)}}</small>
-                                                        </td>
+                                                        </td>-->
                                                         
-                                                        <td  class="infax-state">
+                                                       <!-- <td  class="infax-state">-->
                                                           <!--  <span ng-if="currInFax.FAXSTATE == 'Error'" class="label label-danger"><i class="fa fa-times"></i> {{currInJob.JOBSTATE}}</span> -->
-                                                            <span ng-if="currInFax.FAXSTATE == 'Ok'" class="label label-primary"><i class="fa fa-check"></i> {{currInFax.FAXSTATE}}</span>
+                                                            <!--<span ng-if="currInFax.FAXSTATE == 'Ok'" class="label label-primary"><i class="fa fa-check"></i> {{currInFax.FAXSTATE}}</span>
                                                             <span ng-if="currInFax.FAXSTATE == 'Error'" class="label label-danger"><i class="fa fa-times"></i> {{currInFax.FAXSTATE}}</span>
+                                                            -->
                                                             <!--<span ng-if="(currInFax.FAXSTATE == 'Sending')||(currOutJob.JOBSTATE == 'Unsent')" class="label label-default">{{currInJob.JOBSTATE}}</span>-->
-                                                            <br/>
+                                                       <!--     <br/>
                                                             <span class="text-danger">{{currInJob.ERRMESSAGE}}</span>
-                                                        </td>
+                                                        </td>-->
                                                         
-                                                        <td class="outjob-tasks">
-                                                            <div ng-repeat="currTask in currOutJob.TASKS">
-                                                                <span ng-if="currTask.TASKSTATE == 2" class="label label-danger"><i class="fa fa-times"></i> Error</span>
-                                                                <span ng-if="currTask.TASKSTATE == 1" class="label label-success"><i class="fa fa-check"></i> Success</span>
-                                                                <span ng-if="currTask.TASKSTATE == 0" class="label label-default">Unsent</span>
-                                                                <span ng-if="currTask.TASKSTATE == 3" class="label label-info"><i class="fa fa-trash-o"></i> Cancelled</span>
-                                                                
-                                                                <small ng-if="currTask.TASKSTATE == 2"> {{currTask.CONTROLLERNAME}} ({{currTask.ONLINETIME}} s): 
-                                                                    <span class="text-danger">{{currTask.ERRMESSAGE}}</span>                                                                        
-                                                                </small>
-                                                                <small ng-if="currTask.TASKSTATE != 2"> {{currTask.CONTROLLERNAME}} ({{currTask.ONLINETIME}} s)</small>
-                                                            </div>                                                                                              
-                                                        </td>  
-                                                        <td>
+                                                       <!-- <td>
                                                              <a class="faxpreview btn btn-primary btn-sm" id="{{currInFax.ID}}" data-toggle="modal" data-target="#faxpreview">Preview</a>
-                                                        </td>                                                                                                               
+                                                        </td> -->                                                                                                              
                                                     </tr>
                                                 </table>
                                             </td>

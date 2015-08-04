@@ -190,6 +190,10 @@
                                                             <th>
                                                             <a class="faxpreview btn btn-primary btn-xs" id="{{currOutJob.ID}}" data-toggle="modal" data-target="#faxpreview">Preview</a>
                                                             </th>
+                                                            <th>
+                                                                <button ng-if="(currOutJob.JOBSTATE != 'Sending')||(currOutJob.JOBSTATE != 'Unsent')" ng-click="sendJobAgain(currOutJob.ID)" class="btn btn-default btn-xs">Send again</button>
+                                                                <button ng-if="(currOutJob.JOBSTATE == 'Sending')||(currOutJob.JOBSTATE == 'Unsent')" ng-click="CancelJob(currOutJob.ID)" class="btn btn-danger btn-xs">Cancel</button>
+                                                            </th>
                                                         </tr>        
                                                         <tr ng-repeat="currTask in currOutJob.TASKS">
                                                             <td colspan="4">
@@ -459,6 +463,31 @@
             });
         }
 
+        $scope.sendJobAgain = function(id){
+            var dataString = '[' + 1 + ',' + id + ']';
+            var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.sendAgainFax/1');
+            var request = $http.post(url, dataString);
+            request.success(function(data) {
+                //console.log(data);
+
+            });
+            request.error(function(data, status) {
+                console.log("sendSQL status: "+status+", message: "+data);
+            });
+        }
+
+        $scope.CancelJob = function(id){
+            var dataString = '[' + 1 + ',' + id + ']';
+            var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.CancelFax/1');
+            var request = $http.post(url, dataString);
+            request.success(function(data) {
+                console.log(data);
+
+            });
+            request.error(function(data, status) {
+                console.log("sendSQL status: "+status+", message: "+data);
+            });
+        }
 
 
 

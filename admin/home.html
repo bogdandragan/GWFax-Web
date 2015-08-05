@@ -156,13 +156,50 @@
 <script src="js/plugins/pace/pace.min.js"></script>
 
 <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-
+<script src="../js/config.js"></script>
+<script src="../js/faxgwise_tools.js"></script>
 
 <script>
     $(document).ready(function(){
 
-
+        
     });
+
+    try
+    {
+        var socket;                     
+        socket = new WebSocket(WEBSOCKET_URL,"synopsejson");     
+        console.log('WebSocket - status '+socket.readyState);
+        socket.onopen = function(event){ 
+            Join();
+        };
+        socket.onmessage = function(event){ 
+        };
+        socket.onerror   = function(event){ 
+        };
+        socket.onclose   = function(event){ 
+        }
+        }
+        catch(ex) {
+            console.log(ex);
+        } 
+
+         function Join(){
+            var msg = JSON.stringify(makerequest("","root/FaxGwiseInfo.Join",[Number(getLocalStorageParam('SESSION_ID')),1]));
+            try{ 
+                socket.send(msg); 
+                //console.log('Sent ('+msg.length+" bytes): " + msg.length < 5000 ? msg : (msg.substr(0, 100) + '...')); 
+            } catch(ex){ 
+                console.log(ex);
+            }
+        }
+
+        function makerequest(method,uri,data){
+            var req = {
+            request:[method,uri,"",0,"",data]
+            };
+            return req;
+        }
 </script>
 
 

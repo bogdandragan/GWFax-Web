@@ -191,7 +191,7 @@
                                                             <a class="faxpreview btn btn-primary btn-xs" id="{{currOutJob.ID}}" data-toggle="modal" data-target="#faxpreview">Preview</a>
                                                             </th>
                                                             <th>
-                                                                <button ng-if="(currOutJob.JOBSTATE != 'Sending')||(currOutJob.JOBSTATE != 'Unsent')" ng-click="sendJobAgain(currOutJob.ID)" class="btn btn-default btn-xs">Send again</button>
+                                                                <button ng-if="(currOutJob.JOBSTATE == 'Ok')||(currOutJob.JOBSTATE == 'Error')" ng-click="sendJobAgain(currOutJob.ID)" class="btn btn-default btn-xs">Send again</button>
                                                                 <button ng-if="(currOutJob.JOBSTATE == 'Sending')||(currOutJob.JOBSTATE == 'Unsent')" ng-click="CancelJob(currOutJob.ID)" class="btn btn-danger btn-xs">Cancel</button>
                                                             </th>
                                                         </tr>        
@@ -289,6 +289,7 @@
                                <!-- <button type="button" id="button_showMore" class="btn btn-white btn-sm" ng-click="loadMoreFaxes($index)">
                                 	<i class="fa fa-refresh"></i> Show more
                                 </button>-->
+                                
                             </div>
                         </div>
                     </div>
@@ -306,7 +307,7 @@
 
         </div>
         </div>
-
+         <a href="#0" class="cd-top">Top</a>
     <!-- Mainly scripts -->
     <script src="js/jquery-2.1.1.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -321,6 +322,7 @@
     <script src="../js/config.js"></script>
 	<script src="../js/faxgwise_tools.js"></script>
 	<!--<script src="../js/websockets.js"></script>-->
+    <script src="../js/backtotop.js"></script>
 	<script src="../js/faxgwise.js"></script>
 	<script src="../js/slideshow.js"></script>
     <script>
@@ -356,7 +358,7 @@
                // alert(localStorage.getItem("scrollpos"));               
                 $('html, body').animate({
                 scrollTop: localStorage.getItem("scrollpos")
-                }, 2000);  
+                }, 3000);  
                 //document.getElementById(localStorage.getItem("scrollid")).scrollIntoView();
                 localStorage.removeItem("scrollpos");
                 //localStorage.removeItem("scrollid");

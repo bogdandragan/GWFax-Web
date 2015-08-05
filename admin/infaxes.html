@@ -268,7 +268,7 @@
 
         </div>
         </div>
-
+        <a href="#0" class="cd-top">Top</a>
     <!-- Mainly scripts -->
     <script src="js/jquery-2.1.1.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -282,7 +282,8 @@
     
     <script src="../js/config.js"></script>
 	<script src="../js/faxgwise_tools.js"></script>
-	<script src="../js/websockets.js"></script>
+	<!--<script src="../js/websockets.js"></script>-->
+    <script src="../js/backtotop.js"></script>
 	<script src="../js/faxgwise.js"></script>
         <script src="../js/slideshow.js"></script>
     <script>
@@ -311,7 +312,7 @@
             if(localStorage.getItem("scrollpos") != null){
                 $('html, body').animate({
                 scrollTop: localStorage.getItem("scrollpos")
-                }, 2000);   
+                }, 3000);   
                 localStorage.removeItem("scrollpos");
             }
         });

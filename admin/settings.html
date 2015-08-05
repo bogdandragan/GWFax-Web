@@ -18,7 +18,7 @@
 
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-
+    <link href="css/loading.css" rel="stylesheet">
 
 
 </head>
@@ -141,33 +141,58 @@
                                             <div class="panel-heading">General</div>
                                             <div class="panel-body">
                                              <form id ="convertergeneral">
-                                                <div class="form-group has-feedback">
-                                                    <label for="filetypes" class="control-label">Supported file types</label>
-                                                    <input type="text" name="filetypes" id="filetypes" valueId="{{faxConverter[0].VALUEID}}" settId="{{faxConverter[0].ID}}" class="form-control" placeholder="" value="{{faxConverter[0].OPTIONVALUE}}" />
-                                                    <span class="glyphicon form-control-feedback" id="filetypes1"></span>
-                                                </div>
+                                                <div class="left col-md-6">
                                                 <div class="form-group">
                                                     <label> 
                                                         <input type="checkbox" id="convEnabled" valueId="{{faxConverter[1].VALUEID}}" settId="{{faxConverter[1].ID}}" name="convEnabled" class="i-checks" ng-if="faxConverter[1].OPTIONVALUE == 1" ng-checked="true" />
                                                          <input type="checkbox" id="convEnabled" valueId="{{faxConverter[1].VALUEID}}" settId="{{faxConverter[1].ID}}" name="convEnabled" class="i-checks" ng-if="faxConverter[1].OPTIONVALUE == 0" ng-checked="false" />  
                                                         Converter enabled</label>
                                                 </div>
+
+                                                <div class="form-group has-feedback">
+                                                    <label for="filetypes" class="control-label">Supported file types</label>
+                                                    <input type="text" name="filetypes" id="filetypes" valueId="{{faxConverter[0].VALUEID}}" settId="{{faxConverter[0].ID}}" class="form-control" placeholder="" value="{{faxConverter[0].OPTIONVALUE}}" />
+                                                    <span class="glyphicon form-control-feedback" id="filetypes1"></span>
+                                                </div>
+
                                                 <div class="form-group has-feedback">
                                                     <label for="timeout" class="control-label">Converter timeout</label>
                                                     <input type="text" class="form-control" id="timeout" valueId="{{faxConverter[2].VALUEID}}" settId="{{faxConverter[2].ID}}" name="timeout" placeholder="" value="{{faxConverter[2].OPTIONVALUE}}">
                                                     <span class="glyphicon form-control-feedback" id="timeout1"></span>
                                                 </div>
+
+                                                </div>
+                                                <div class="right col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label for="compress" class="control-label">In job compress</label>
                                                     <input type="text" class="form-control" id="compress" valueId="{{faxConverter[3].VALUEID}}" settId="{{faxConverter[3].ID}}" name="compress" placeholder="" value="{{faxConverter[3].OPTIONVALUE}}">
                                                     <span class="glyphicon form-control-feedback" id="compress1"></span>
                                                 </div>
+
                                                 <div class="form-group has-feedback">
                                                     <label for="compress" class="control-label">In job format</label>
                                                     <input type="text" class="form-control" id="format" valueId="{{faxConverter[4].VALUEID}}" settId="{{faxConverter[4].ID}}" name="format" placeholder="" value="{{faxConverter[4].OPTIONVALUE}}">
                                                     <span class="glyphicon form-control-feedback" id="format1"></span>
                                                 </div>
+
+                                                <div class="sk-circle saving" style="width:20px; height:20px; float: left; margin-left: 50%; margin-top: 5px; display: none;">
+                                                    <div class="sk-circle1 sk-child"></div>
+                                                    <div class="sk-circle2 sk-child"></div>
+                                                    <div class="sk-circle3 sk-child"></div>
+                                                    <div class="sk-circle4 sk-child"></div>
+                                                    <div class="sk-circle5 sk-child"></div>
+                                                    <div class="sk-circle6 sk-child"></div>
+                                                    <div class="sk-circle7 sk-child"></div>
+                                                    <div class="sk-circle8 sk-child"></div>
+                                                    <div class="sk-circle9 sk-child"></div>
+                                                    <div class="sk-circle10 sk-child"></div>
+                                                    <div class="sk-circle11 sk-child"></div>
+                                                    <div class="sk-circle12 sk-child"></div>
+                                                </div>
+                                                <div id="convertergeneralerror" style="float: left; color: red; display: none; margin-top: 5px;" class="col-md-offset-4"><span class="glyphicon glyphicon-remove"></span> An error occured while saving</div>
+                                                <div id="convertergeneralsuccess" style="float: left; color: green; display: none; margin-top: 5px;" class="col-md-offset-4"><span class="glyphicon glyphicon-ok"></span> Saved successfully</div>
                                                 <input type="submit" class="btn btn-primary" style="float: right;" value="Save" />
+                                                </div>
                                             </form>
                                             </div>
                                         </div>
@@ -178,90 +203,107 @@
                                                 <div class="left col-md-6">
                                                     <div class="form-group has-feedback">
                                                         <label for="headertext" class="control-label">Header text</label>
-                                                        <input type="text" name="headertext" id="headertext" class="form-control" placeholder="" value="{{faxConverter[5].OPTIONVALUE}}" />
+                                                        <input type="text" name="headertext" id="headertext" valueId="{{faxConverter[5].VALUEID}}" settId="{{faxConverter[5].ID}}" class="form-control" placeholder="" value="{{faxConverter[5].OPTIONVALUE}}" />
                                                         <span class="glyphicon form-control-feedback" id="headertext1"></span>
                                                     </div>
 
                                                     <div class="form-group has-feedback">
                                                         <label for="headeroffright" class="control-label">Header offset right</label>
-                                                        <input type="text" name="headeroffright" id="headeroffright" class="form-control" placeholder="" value="{{faxConverter[6].OPTIONVALUE}}" />
+                                                        <input type="text" name="headeroffright" id="headeroffright" valueId="{{faxConverter[6].VALUEID}}" settId="{{faxConverter[6].ID}}" class="form-control" placeholder="" value="{{faxConverter[6].OPTIONVALUE}}" />
                                                         <span class="glyphicon form-control-feedback" id="headeroffright1"></span>
                                                     </div>
 
                                                     <div class="form-group has-feedback">
                                                         <label for="headeroffleft" class="control-label">Header offset left</label>
-                                                        <input type="text" name="headeroffleft" id="headeroffleft" class="form-control" placeholder="" value="{{faxConverter[7].OPTIONVALUE}}" />
+                                                        <input type="text" name="headeroffleft" id="headeroffleft" valueId="{{faxConverter[7].VALUEID}}" settId="{{faxConverter[7].ID}}" class="form-control" placeholder="" value="{{faxConverter[7].OPTIONVALUE}}" />
                                                         <span class="glyphicon form-control-feedback" id="headeroffleft1"></span>
                                                     </div>
 
                                                     <div class="form-group has-feedback">
                                                         <label for="headerofftop" class="control-label">Header offset top</label>
-                                                        <input type="text" name="headerofftop" id="headerofftop" class="form-control" placeholder="" value="{{faxConverter[8].OPTIONVALUE}}" />
+                                                        <input type="text" name="headerofftop" id="headerofftop" valueId="{{faxConverter[8].VALUEID}}" settId="{{faxConverter[8].ID}}" class="form-control" placeholder="" value="{{faxConverter[8].OPTIONVALUE}}" />
                                                         <span class="glyphicon form-control-feedback" id="headerofftop1"></span>
                                                     </div>
 
                                                     <div class="form-group has-feedback">
                                                         <label for="headerborder" class="control-label">Header border</label>
-                                                        <input type="text" name="headerborder" id="headerborder" class="form-control" placeholder="" value="{{faxConverter[9].OPTIONVALUE}}" />
+                                                        <input type="text" name="headerborder" id="headerborder" valueId="{{faxConverter[9].VALUEID}}" settId="{{faxConverter[9].ID}}" class="form-control" placeholder="" value="{{faxConverter[9].OPTIONVALUE}}" />
                                                         <span class="glyphicon form-control-feedback" id="headerborder1"></span>
                                                     </div>
 
                                                     <div class="form-group has-feedback">
                                                         <label for="headertextright" class="control-label">Header text right</label>
-                                                        <input type="text" name="headertextright" id="headertextright" class="form-control" placeholder="" value="{{faxConverter[10].OPTIONVALUE}}" />
+                                                        <input type="text" name="headertextright" id="headertextright" valueId="{{faxConverter[10].VALUEID}}" settId="{{faxConverter[10].ID}}" class="form-control" placeholder="" value="{{faxConverter[10].OPTIONVALUE}}" />
                                                         <span class="glyphicon form-control-feedback" id="headertextright1"></span>
                                                     </div>
 
                                                     <div class="form-group has-feedback">
                                                         <label for="headertextleft" class="control-label">Header text left</label>
-                                                        <input type="text" name="headertextleft" id="headertextleft" class="form-control" placeholder="" value="{{faxConverter[11].OPTIONVALUE}}" />
+                                                        <input type="text" name="headertextleft" id="headertextleft" valueId="{{faxConverter[11].VALUEID}}" settId="{{faxConverter[11].ID}}" class="form-control" placeholder="" value="{{faxConverter[11].OPTIONVALUE}}" />
                                                         <span class="glyphicon form-control-feedback" id="headertextleft1"></span>
                                                     </div>
                                                 </div>
                                                 <div class="right col-md-6">
                                                     <div class="form-group">
                                                         <label> 
-                                                        <input type="checkbox" id="headerbold" name="headerbold" class="i-checks" ng-if="faxConverter[12].OPTIONVALUE == 1" ng-checked="true" />
-                                                        <input type="checkbox" id="headerbold" name="headerbold" class="i-checks" ng-if="faxConverter[12].OPTIONVALUE == 0" ng-checked="false" />  
+                                                        <input type="checkbox" id="headerbold" valueId="{{faxConverter[12].VALUEID}}" settId="{{faxConverter[12].ID}}" name="headerbold" class="i-checks" ng-if="faxConverter[12].OPTIONVALUE == 1" ng-checked="true" />
+                                                        <input type="checkbox" id="headerbold" valueId="{{faxConverter[12].VALUEID}}" settId="{{faxConverter[12].ID}}" name="headerbold" class="i-checks" ng-if="faxConverter[12].OPTIONVALUE == 0" ng-checked="false" />  
                                                         Header bold</label>
                                                     </div>
 
                                                     <div class="form-group has-feedback">
                                                         <label for="headersize" class="control-label">Header size</label>
-                                                        <input type="text" name="headersize" id="headersize" class="form-control" placeholder="" value="{{faxConverter[13].OPTIONVALUE}}" />
+                                                        <input type="text" name="headersize" id="headersize" valueId="{{faxConverter[13].VALUEID}}" settId="{{faxConverter[13].ID}}" class="form-control" placeholder="" value="{{faxConverter[13].OPTIONVALUE}}" />
                                                         <span class="glyphicon form-control-feedback" id="headersize1"></span>
                                                     </div>
 
                                                     <div class="form-group has-feedback">
                                                         <label for="headerfont" class="control-label">Header font</label>
-                                                        <input type="text" name="headerfont" id="headerfont" class="form-control" placeholder="" value="{{faxConverter[14].OPTIONVALUE}}" />
+                                                        <input type="text" name="headerfont" id="headerfont" valueId="{{faxConverter[14].VALUEID}}" settId="{{faxConverter[14].ID}}" class="form-control" placeholder="" value="{{faxConverter[14].OPTIONVALUE}}" />
                                                         <span class="glyphicon form-control-feedback" id="headerfont1"></span>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label> 
-                                                        <input type="checkbox" id="headerlogo" name="headerbold" class="i-checks" ng-if="faxConverter[15].OPTIONVALUE == 1" ng-checked="true" />
-                                                        <input type="checkbox" id="headerlogo" name="headerlogo" class="i-checks" ng-if="faxConverter[15].OPTIONVALUE == 0" ng-checked="false" />  
+                                                        <input type="checkbox" id="headerlogo" valueId="{{faxConverter[15].VALUEID}}" settId="{{faxConverter[15].ID}}" name="headerbold" class="i-checks" ng-if="faxConverter[15].OPTIONVALUE == 1" ng-checked="true" />
+                                                        <input type="checkbox" id="headerlogo" valueId="{{faxConverter[15].VALUEID}}" settId="{{faxConverter[15].ID}}" name="headerlogo" class="i-checks" ng-if="faxConverter[15].OPTIONVALUE == 0" ng-checked="false" />  
                                                         Header use logo</label>
                                                     </div>
 
                                                     <div class="form-group has-feedback">
                                                         <label for="headerlogoX" class="control-label">Header logo X</label>
-                                                        <input type="text" name="headerlogoX" id="headerlogoX" class="form-control" placeholder="" value="{{faxConverter[16].OPTIONVALUE}}" />
+                                                        <input type="text" name="headerlogoX" id="headerlogoX" valueId="{{faxConverter[16].VALUEID}}" settId="{{faxConverter[16].ID}}" class="form-control" placeholder="" value="{{faxConverter[16].OPTIONVALUE}}" />
                                                         <span class="glyphicon form-control-feedback" id="headerlogoX1"></span>
                                                     </div>
 
                                                     <div class="form-group has-feedback">
                                                         <label for="headerlogoY" class="control-label">Header logo Y</label>
-                                                        <input type="text" name="headerlogoY" id="headerlogoY" class="form-control" placeholder="" value="{{faxConverter[17].OPTIONVALUE}}" />
+                                                        <input type="text" name="headerlogoY" id="headerlogoY" valueId="{{faxConverter[17].VALUEID}}" settId="{{faxConverter[17].ID}}" class="form-control" placeholder="" value="{{faxConverter[17].OPTIONVALUE}}" />
                                                         <span class="glyphicon form-control-feedback" id="headerlogoY1"></span>
                                                     </div>
 
                                                     <div class="form-group has-feedback">
                                                         <label for="headerlogoFile" class="control-label">Header logo file</label>
-                                                        <input type="text" name="headerlogoFile" id="headerlogoFile" class="form-control" placeholder="" value="{{faxConverter[18].OPTIONVALUE}}" />
+                                                        <input type="text" name="headerlogoFile" id="headerlogoFile" valueId="{{faxConverter[18].VALUEID}}" settId="{{faxConverter[18].ID}}" class="form-control" placeholder="" value="{{faxConverter[18].OPTIONVALUE}}" />
                                                         <span class="glyphicon form-control-feedback" id="headerlogoFile1"></span>
                                                     </div>
+
+                                                    <div class="sk-circle saving" style="width:20px; height:20px; float: left; margin-left: 50%; margin-top: 5px; display: none;">
+                                                        <div class="sk-circle1 sk-child"></div>
+                                                        <div class="sk-circle2 sk-child"></div>
+                                                        <div class="sk-circle3 sk-child"></div>
+                                                        <div class="sk-circle4 sk-child"></div>
+                                                        <div class="sk-circle5 sk-child"></div>
+                                                        <div class="sk-circle6 sk-child"></div>
+                                                        <div class="sk-circle7 sk-child"></div>
+                                                        <div class="sk-circle8 sk-child"></div>
+                                                        <div class="sk-circle9 sk-child"></div>
+                                                        <div class="sk-circle10 sk-child"></div>
+                                                        <div class="sk-circle11 sk-child"></div>
+                                                        <div class="sk-circle12 sk-child"></div>
+                                                    </div>
+                                                    <div id="converterheadererror" style="float: left; color: red; display: none; margin-top: 5px;" class="col-md-offset-4"><span class="glyphicon glyphicon-remove"></span> An error occured while saving</div>
+                                                    <div id="converterheadersuccess" style="float: left; color: green; display: none; margin-top: 5px;" class="col-md-offset-4"><span class="glyphicon glyphicon-ok"></span> Saved successfully</div>
                                                     <input type="submit" class="btn btn-primary" style="float: right;" value="Save" />
                                                 </div>
                                                 </form>
@@ -278,61 +320,62 @@
                                             <div class="left col-md-6">
                                                 <div class="form-group">
                                                     <label> 
-                                                    <input type="checkbox" id="enabled" name="enabled" class="i-checks" ng-if="isdnController[10].OPTIONVALUE == 1" ng-checked="true" />
-                                                    <input type="checkbox" id="enabled" name="enabled" class="i-checks" ng-if="isdnController[10].OPTIONVALUE == 0" ng-checked="false" />  
+                                                    <input type="checkbox" id="enabled" valueId="{{isdnController[10].VALUEID}}" settId="{{isdnController[10].ID}}" name="enabled" class="i-checks" ng-if="isdnController[10].OPTIONVALUE == 1" ng-checked="true" />
+                                                    <input type="checkbox" id="enabled" valueId="{{isdnController[10].VALUEID}}" settId="{{isdnController[10].ID}}" name="enabled" class="i-checks" ng-if="isdnController[10].OPTIONVALUE == 0" ng-checked="false" />  
                                                     Enabled</label>
                                                 </div>
 
                                                 <div class="form-group has-feedback">
                                                     <label for="excludedfiles" class="control-label">Excluded files</label>
-                                                    <input type="text" name="excludedfiles" id="excludedfiles" class="form-control" placeholder="" value="{{isdnController[0].OPTIONVALUE}}" />
+                                                    <input type="text" name="excludedfiles" valueId="{{isdnController[0].VALUEID}}" settId="{{isdnController[0].ID}}" id="excludedfiles" class="form-control" placeholder="" value="{{isdnController[0].OPTIONVALUE}}" />
                                                     <span class="glyphicon form-control-feedback" id="excludedfiles1"></span>
                                                 </div>
 
                                                 <div class="form-group has-feedback">
                                                     <label for="channelsreceive" class="control-label">Channels receive</label>
-                                                    <!--<select class="form-control">
-                                                        <option value="0" ng-if="isdnController[1].OPTIONVALUE == 0" selected>0</option>
-                                                        <option value="1" ng-if="isdnController[1].OPTIONVALUE == 1" selected>1</option>
-                                                        <option value="2" ng-if="isdnController[1].OPTIONVALUE == 2" selected>2</option>
-                                                    </select>-->
-                                                    <input type="text" name="channelsreceive" id="channelsreceive" class="form-control" placeholder="" value="{{isdnController[1].OPTIONVALUE}}" />
+                                                    <select class="form-control" id="channelsreceive" valueId="{{isdnController[1].VALUEID}}" settId="{{isdnController[1].ID}}">
+                                                        <option ng-repeat="number in numbers" value="{{number}}" ng-if="isdnController[1].OPTIONVALUE == number" selected>{{number}}</option>
+                                                        <option ng-repeat="number in numbers" value="{{number}}" ng-if="isdnController[1].OPTIONVALUE != number">{{number}}</option>
+                                                    </select>
                                                     <span class="glyphicon form-control-feedback" id="channelsreceive1"></span>
                                                 </div>  
 
                                                 <div class="form-group has-feedback">
                                                     <label for="channelssend" class="control-label">Channels send</label>
-                                                    <input type="text" name="channelssend" id="channelssend" class="form-control" placeholder="" value="{{isdnController[2].OPTIONVALUE}}" />
+                                                    <select class="form-control" id="channelssend" valueId="{{isdnController[2].VALUEID}}" settId="{{isdnController[2].ID}}">
+                                                        <option ng-repeat="number in numbers" value="{{number}}" ng-if="isdnController[2].OPTIONVALUE == number" selected>{{number}}</option>
+                                                        <option ng-repeat="number in numbers" value="{{number}}" ng-if="isdnController[2].OPTIONVALUE != number">{{number}}</option>
+                                                    </select>
                                                     <span class="glyphicon form-control-feedback" id="channelssend1"></span>
                                                 </div>
 
                                                 <div class="form-group has-feedback">
                                                     <label for="presentationmode" class="control-label">Presentation mode</label>
-                                                    <input type="text" name="presentationmode" id="presentationmode" class="form-control" placeholder="" value="{{isdnController[3].OPTIONVALUE}}" />
+                                                    <input type="text" name="presentationmode" id="presentationmode" valueId="{{isdnController[3].VALUEID}}" settId="{{isdnController[3].ID}}" class="form-control" placeholder="" value="{{isdnController[3].OPTIONVALUE}}" />
                                                     <span class="glyphicon form-control-feedback" id="presentationmode1"></span>
                                                 </div>
 
                                                 <div class="form-group has-feedback">
                                                     <label for="maxmsnlength" class="control-label">Max MSN Length</label>
-                                                    <input type="text" name="maxmsnlength" id="maxmsnlength" class="form-control" placeholder="" value="{{isdnController[4].OPTIONVALUE}}" />
+                                                    <input type="text" name="maxmsnlength" id="maxmsnlength" valueId="{{isdnController[4].VALUEID}}" settId="{{isdnController[4].ID}}" class="form-control" placeholder="" value="{{isdnController[4].OPTIONVALUE}}" />
                                                     <span class="glyphicon form-control-feedback" id="maxmsnlength1"></span>
                                                 </div>
 
                                                 <div class="form-group has-feedback">
                                                     <label for="retryperiod" class="control-label">Retry period</label>
-                                                    <input type="text" name="retryperiod" id="retryperiod" class="form-control" placeholder="" value="{{isdnController[5].OPTIONVALUE}}" />
+                                                    <input type="text" name="retryperiod" id="retryperiod" valueId="{{isdnController[5].VALUEID}}" settId="{{isdnController[5].ID}}" class="form-control" placeholder="" value="{{isdnController[5].OPTIONVALUE}}" />
                                                     <span class="glyphicon form-control-feedback" id="retryperiod1"></span>
                                                 </div>
 
                                                 <div class="form-group has-feedback">
                                                     <label for="retrycount" class="control-label">Retry count</label>
-                                                    <input type="text" name="retrycount" id="retrycount" class="form-control" placeholder="" value="{{isdnController[6].OPTIONVALUE}}" />
+                                                    <input type="text" name="retrycount" id="retrycount" valueId="{{isdnController[6].VALUEID}}" settId="{{isdnController[6].ID}}" class="form-control" placeholder="" value="{{isdnController[6].OPTIONVALUE}}" />
                                                     <span class="glyphicon form-control-feedback" id="retrycount1"></span>
                                                 </div>
 
                                                 <div class="form-group has-feedback">
                                                     <label for="maxrecipients" class="control-label">Max recipients</label>
-                                                    <input type="text" name="maxrecipients" id="maxrecipients" class="form-control" placeholder="" value="{{isdnController[7].OPTIONVALUE}}" />
+                                                    <input type="text" name="maxrecipients" id="maxrecipients" valueId="{{isdnController[7].VALUEID}}" settId="{{isdnController[7].ID}}" class="form-control" placeholder="" value="{{isdnController[7].OPTIONVALUE}}" />
                                                     <span class="glyphicon form-control-feedback" id="maxrecipients1"></span>
                                                 </div>     
 
@@ -340,59 +383,76 @@
                                             <div class="right col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label for="dialprefix" class="control-label">Dial prefix</label>
-                                                    <input type="text" name="dialprefix" id="dialprefix" class="form-control" placeholder="" value="{{isdnController[8].OPTIONVALUE}}" />
+                                                    <input type="text" name="dialprefix" id="dialprefix" valueId="{{isdnController[8].VALUEID}}" settId="{{isdnController[10].ID}}" class="form-control" placeholder="" value="{{isdnController[8].OPTIONVALUE}}" />
                                                     <span class="glyphicon form-control-feedback" id="dialprefix1"></span>
                                                 </div> 
 
                                                 <div class="form-group">
                                                     <label> 
-                                                    <input type="checkbox" id="checkresolution" name="checkresolution" class="i-checks" ng-if="isdnController[9].OPTIONVALUE == 1" ng-checked="true" />
-                                                    <input type="checkbox" id="checkresolution" name="checkresolution" class="i-checks" ng-if="isdnController[9].OPTIONVALUE == 0" ng-checked="false" />  
+                                                    <input type="checkbox" id="checkresolution" valueId="{{isdnController[9].VALUEID}}" settId="{{isdnController[9].ID}}" name="checkresolution" class="i-checks" ng-if="isdnController[9].OPTIONVALUE == 1" ng-checked="true" />
+                                                    <input type="checkbox" id="checkresolution" valueId="{{isdnController[9].VALUEID}}" settId="{{isdnController[9].ID}}" name="checkresolution" class="i-checks" ng-if="isdnController[9].OPTIONVALUE == 0" ng-checked="false" />  
                                                     Check resolution</label>
                                                 </div>
 
                                                 <div class="form-group has-feedback">
                                                     <label for="maxfaxfilesize" class="control-label">Max fax file size</label>
-                                                    <input type="text" name="maxfaxfilesize" id="maxfaxfilesize" class="form-control" placeholder="" value="{{isdnController[11].OPTIONVALUE}}" />
+                                                    <input type="text" name="maxfaxfilesize" id="maxfaxfilesize" valueId="{{isdnController[11].VALUEID}}" settId="{{isdnController[11].ID}}" class="form-control" placeholder="" value="{{isdnController[11].OPTIONVALUE}}" />
                                                     <span class="glyphicon form-control-feedback" id="maxfaxfilesize1"></span>
                                                 </div>
 
                                                 <div class="form-group has-feedback">
                                                     <label for="ownmsn" class="control-label">Own MSN</label>
-                                                    <input type="text" name="ownmsn" id="ownmsn" class="form-control" placeholder="" value="{{isdnController[12].OPTIONVALUE}}" />
+                                                    <input type="text" name="ownmsn" id="ownmsn" valueId="{{isdnController[12].VALUEID}}" settId="{{isdnController[12].ID}}" class="form-control" placeholder="" value="{{isdnController[12].OPTIONVALUE}}" />
                                                     <span class="glyphicon form-control-feedback" id="ownmsn1"></span>
                                                 </div>
 
                                                 <div class="form-group has-feedback">
                                                     <label for="owncsid" class="control-label">Own CSID</label>
-                                                    <input type="text" name="owncsid" id="owncsid" class="form-control" placeholder="" value="{{isdnController[13].OPTIONVALUE}}" />
+                                                    <input type="text" name="owncsid" id="owncsid" valueId="{{isdnController[13].VALUEID}}" settId="{{isdnController[13].ID}}" class="form-control" placeholder="" value="{{isdnController[13].OPTIONVALUE}}" />
                                                     <span class="glyphicon form-control-feedback" id="owncsid1"></span>
                                                 </div>
 
                                                 <div class="form-group has-feedback">
                                                     <label for="portname" class="control-label">Port name</label>
-                                                    <input type="text" name="portname" id="portname" class="form-control" placeholder="" value="{{isdnController[14].OPTIONVALUE}}" />
+                                                    <input type="text" name="portname" id="portname" valueId="{{isdnController[14].VALUEID}}" settId="{{isdnController[14].ID}}" class="form-control" placeholder="" value="{{isdnController[14].OPTIONVALUE}}" />
                                                     <span class="glyphicon form-control-feedback" id="portname1"></span>
                                                 </div>
 
                                                 <div class="form-group has-feedback">
                                                     <label for="channelssendreceive" class="control-label">Channels send receive</label>
-                                                    <input type="text" name="channelssendreceive" id="channelssendreceive" class="form-control" placeholder="" value="{{isdnController[15].OPTIONVALUE}}" />
+                                                    <input type="text" name="channelssendreceive" id="channelssendreceive" valueId="{{isdnController[15].VALUEID}}" settId="{{isdnController[10].ID}}" class="form-control" placeholder="" value="{{isdnController[15].OPTIONVALUE}}" />
                                                     <span class="glyphicon form-control-feedback" id="channelssendreceive1"></span>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label> 
-                                                    <input type="checkbox" id="ddi" name="ddi" class="i-checks" ng-if="isdnController[16].OPTIONVALUE == 1" ng-checked="true" />
-                                                    <input type="checkbox" id="ddi" name="ddi" class="i-checks" ng-if="isdnController[16].OPTIONVALUE == 0" ng-checked="false" />  
+                                                    <input type="checkbox" id="ddi" valueId="{{isdnController[16].VALUEID}}" settId="{{isdnController[10].ID}}" name="ddi" class="i-checks" ng-if="isdnController[16].OPTIONVALUE == 1" ng-checked="true" />
+                                                    <input type="checkbox" id="ddi" valueId="{{isdnController[16].VALUEID}}" settId="{{isdnController[10].ID}}" name="ddi" class="i-checks" ng-if="isdnController[16].OPTIONVALUE == 0" ng-checked="false" />  
                                                     DDI</label>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label> 
-                                                    <input type="checkbox" id="runstart" name="runstart" class="i-checks" ng-if="isdnController[17].OPTIONVALUE == 1" ng-checked="true" />
-                                                    <input type="checkbox" id="runstart" name="runstart" class="i-checks" ng-if="isdnController[17].OPTIONVALUE == 0" ng-checked="false" />  Run start</label>
+                                                    <input type="checkbox" id="runstart" valueId="{{isdnController[17].VALUEID}}" settId="{{isdnController[10].ID}}" name="runstart" class="i-checks" ng-if="isdnController[17].OPTIONVALUE == 1" ng-checked="true" />
+                                                    <input type="checkbox" id="runstart" valueId="{{isdnController[17].VALUEID}}" settId="{{isdnController[10].ID}}" name="runstart" class="i-checks" ng-if="isdnController[17].OPTIONVALUE == 0" ng-checked="false" />  Run start</label>
                                                 </div>
+
+                                                <div class="sk-circle saving" style="width:20px; height:20px; float: left; margin-left: 50%; margin-top: 5px; display: none;">
+                                                    <div class="sk-circle1 sk-child"></div>
+                                                    <div class="sk-circle2 sk-child"></div>
+                                                    <div class="sk-circle3 sk-child"></div>
+                                                    <div class="sk-circle4 sk-child"></div>
+                                                    <div class="sk-circle5 sk-child"></div>
+                                                    <div class="sk-circle6 sk-child"></div>
+                                                    <div class="sk-circle7 sk-child"></div>
+                                                    <div class="sk-circle8 sk-child"></div>
+                                                    <div class="sk-circle9 sk-child"></div>
+                                                    <div class="sk-circle10 sk-child"></div>
+                                                    <div class="sk-circle11 sk-child"></div>
+                                                    <div class="sk-circle12 sk-child"></div>
+                                                </div>
+                                                <div id="isdnerror" style="float: left; color: red; display: none; margin-top: 5px;" class="col-md-offset-4"><span class="glyphicon glyphicon-remove"></span> An error occured while saving</div>
+                                                <div id="isdnsuccess" style="float: left; color: green; display: none; margin-top: 5px;" class="col-md-offset-4"><span class="glyphicon glyphicon-ok"></span> Saved successfully</div>
                                                 <input type="submit" class="btn btn-primary" style="float: right;" value="Save" />       
                                             </div>
                                         </form>
@@ -408,33 +468,33 @@
                                             <div class="left col-md-6">
                                                 <div class="form-group">
                                                     <label> 
-                                                    <input type="checkbox" id="t38enabled" name="t38enabled" class="i-checks" ng-if="t38Controller[2].OPTIONVALUE == 1" ng-checked="true" />
-                                                    <input type="checkbox" id="t38enabled" name="t38enabled" class="i-checks" ng-if="t38Controller[2].OPTIONVALUE == 0" ng-checked="false" />  
+                                                    <input type="checkbox" id="t38enabled" valueId="{{t38Controller[2].VALUEID}}" settId="{{t38Controller[2].ID}}" name="t38enabled" class="i-checks" ng-if="t38Controller[2].OPTIONVALUE == 1" ng-checked="true" />
+                                                    <input type="checkbox" id="t38enabled" valueId="{{t38Controller[2].VALUEID}}" settId="{{t38Controller[2].ID}}" name="t38enabled" class="i-checks" ng-if="t38Controller[2].OPTIONVALUE == 0" ng-checked="false" />  
                                                     Enabled</label>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label> 
-                                                    <input type="checkbox" id="t38runstart" name="t38runstart" class="i-checks" ng-if="t38Controller[8].OPTIONVALUE == 1" ng-checked="true" />
-                                                    <input type="checkbox" id="t38runstart" name="t38runstart" class="i-checks" ng-if="t38Controller[8].OPTIONVALUE == 0" ng-checked="false" />  
+                                                    <input type="checkbox" id="t38runstart" valueId="{{t38Controller[8].VALUEID}}" settId="{{t38Controller[8].ID}}" name="t38runstart" class="i-checks" ng-if="t38Controller[8].OPTIONVALUE == 1" ng-checked="true" />
+                                                    <input type="checkbox" id="t38runstart" valueId="{{t38Controller[8].VALUEID}}" settId="{{t38Controller[8].ID}}" name="t38runstart" class="i-checks" ng-if="t38Controller[8].OPTIONVALUE == 0" ng-checked="false" />  
                                                     Run start</label>
                                                 </div>
 
                                                 <div class="form-group has-feedback">
                                                     <label for="t38retryperiod" class="control-label">Retry period</label>
-                                                    <input type="text" name="t38retryperiod" id="t38retryperiod" class="form-control" placeholder="" value="{{t38Controller[0].OPTIONVALUE}}" />
+                                                    <input type="text" name="t38retryperiod" id="t38retryperiod" valueId="{{t38Controller[0].VALUEID}}" settId="{{t38Controller[0].ID}}" class="form-control" placeholder="" value="{{t38Controller[0].OPTIONVALUE}}" />
                                                     <span class="glyphicon form-control-feedback" id="t38retryperiod1"></span>
                                                 </div>
 
                                                 <div class="form-group has-feedback">
                                                     <label for="t38retrycount" class="control-label">Retry count</label>
-                                                    <input type="text" name="t38retrycount" id="t38retrycount" class="form-control" placeholder="" value="{{t38Controller[1].OPTIONVALUE}}" />
+                                                    <input type="text" name="t38retrycount" id="t38retrycount" valueId="{{t38Controller[1].VALUEID}}" settId="{{t38Controller[1].ID}}" class="form-control" placeholder="" value="{{t38Controller[1].OPTIONVALUE}}" />
                                                     <span class="glyphicon form-control-feedback" id="t38retrycount1"></span>
                                                 </div>
 
                                                 <div class="form-group has-feedback">
                                                     <label for="t38maxfaxfilesize" class="control-label">Max fax file size</label>
-                                                    <input type="text" name="t38maxfaxfilesize" id="t38maxfaxfilesize" class="form-control" placeholder="" value="{{t38Controller[3].OPTIONVALUE}}" />
+                                                    <input type="text" name="t38maxfaxfilesize" id="t38maxfaxfilesize" valueId="{{t38Controller[3].VALUEID}}" settId="{{t38Controller[3].ID}}" class="form-control" placeholder="" value="{{t38Controller[3].OPTIONVALUE}}" />
                                                     <span class="glyphicon form-control-feedback" id="t38maxfaxfilesize1"></span>
                                                 </div>
 
@@ -442,27 +502,44 @@
                                             <div class="right col-md-6">      
                                                 <div class="form-group has-feedback">
                                                     <label for="defaultsendertelephone" class="control-label">Default sender telephone</label>
-                                                    <input type="text" name="defaultsendertelephone" id="defaultsendertelephone" class="form-control" placeholder="" value="{{t38Controller[4].OPTIONVALUE}}" />
+                                                    <input type="text" name="defaultsendertelephone" id="defaultsendertelephone" valueId="{{t38Controller[4].VALUEID}}" settId="{{t38Controller[4].ID}}" class="form-control" placeholder="" value="{{t38Controller[4].OPTIONVALUE}}" />
                                                     <span class="glyphicon form-control-feedback" id="defaultsendertelephone1"></span>
                                                 </div>
 
                                                  <div class="form-group has-feedback">
                                                     <label for="defaultsenderfax" class="control-label">Default sender fax</label>
-                                                    <input type="text" name="defaultsenderfax" id="defaultsenderfax" class="form-control" placeholder="" value="{{t38Controller[5].OPTIONVALUE}}" />
+                                                    <input type="text" name="defaultsenderfax" id="defaultsenderfax" valueId="{{t38Controller[5].VALUEID}}" settId="{{t38Controller[5].ID}}" class="form-control" placeholder="" value="{{t38Controller[5].OPTIONVALUE}}" />
                                                     <span class="glyphicon form-control-feedback" id="defaultsenderfax1"></span>
                                                 </div>
 
                                                 <div class="form-group has-feedback">
                                                     <label for="defaultsendername" class="control-label">Default sender name</label>
-                                                    <input type="text" name="defaultsendername" id="defaultsendername" class="form-control" placeholder="" value="{{t38Controller[6].OPTIONVALUE}}" />
+                                                    <input type="text" name="defaultsendername" id="defaultsendername" valueId="{{t38Controller[6].VALUEID}}" settId="{{t38Controller[6].ID}}" class="form-control" placeholder="" value="{{t38Controller[6].OPTIONVALUE}}" />
                                                     <span class="glyphicon form-control-feedback" id="defaultsendername1"></span>
                                                 </div>
 
                                                 <div class="form-group has-feedback">
                                                     <label for="defaultsendercompany" class="control-label">Default sender name</label>
-                                                    <input type="text" name="defaultsendercompany" id="defaultsendercompany" class="form-control" placeholder="" value="{{t38Controller[7].OPTIONVALUE}}" />
+                                                    <input type="text" name="defaultsendercompany" id="defaultsendercompany" valueId="{{t38Controller[7].VALUEID}}" settId="{{t38Controller[7].ID}}" class="form-control" placeholder="" value="{{t38Controller[7].OPTIONVALUE}}" />
                                                     <span class="glyphicon form-control-feedback" id="defaultsendercompany1"></span>
                                                 </div>
+
+                                                <div class="sk-circle saving" style="width:20px; height:20px; float: left; margin-left: 50%; margin-top: 5px; display: none;">
+                                                    <div class="sk-circle1 sk-child"></div>
+                                                    <div class="sk-circle2 sk-child"></div>
+                                                    <div class="sk-circle3 sk-child"></div>
+                                                    <div class="sk-circle4 sk-child"></div>
+                                                    <div class="sk-circle5 sk-child"></div>
+                                                    <div class="sk-circle6 sk-child"></div>
+                                                    <div class="sk-circle7 sk-child"></div>
+                                                    <div class="sk-circle8 sk-child"></div>
+                                                    <div class="sk-circle9 sk-child"></div>
+                                                    <div class="sk-circle10 sk-child"></div>
+                                                    <div class="sk-circle11 sk-child"></div>
+                                                    <div class="sk-circle12 sk-child"></div>
+                                                </div>
+                                                <div id="t38error" style="float: left; color: red; display: none; margin-top: 5px;" class="col-md-offset-4"><span class="glyphicon glyphicon-remove"></span> An error occured while saving</div>
+                                                <div id="t38success" style="float: left; color: green; display: none; margin-top: 5px;" class="col-md-offset-4"><span class="glyphicon glyphicon-ok"></span> Saved successfully</div>
                                                 <input type="submit" class="btn btn-primary" style="float: right;" value="Save" />
                                             </div>
                                         </form>
@@ -478,33 +555,33 @@
                                             <div class="left col-md-6">
                                                 <div class="form-group">
                                                     <label> 
-                                                    <input type="checkbox" id="gwenabled" name="gwenabled" class="i-checks" ng-if="gwCommunicator[1].OPTIONVALUE == 1" ng-checked="true" />
-                                                    <input type="checkbox" id="gwenabled" name="gwenabled" class="i-checks" ng-if="gwCommunicator[1].OPTIONVALUE == 0" ng-checked="false" />  
+                                                    <input type="checkbox" id="gwenabled" valueId="{{gwCommunicator[1].VALUEID}}" settId="{{gwCommunicator[1].ID}}" name="gwenabled" class="i-checks" ng-if="gwCommunicator[1].OPTIONVALUE == 1" ng-checked="true" />
+                                                    <input type="checkbox" id="gwenabled" valueId="{{gwCommunicator[1].VALUEID}}" settId="{{gwCommunicator[1].ID}}" name="gwenabled" class="i-checks" ng-if="gwCommunicator[1].OPTIONVALUE == 0" ng-checked="false" />  
                                                     Enabled</label>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label> 
-                                                    <input type="checkbox" id="gwrunstart" name="gwrunstart" class="i-checks" ng-if="gwCommunicator[7].OPTIONVALUE == 1" ng-checked="true" />
-                                                    <input type="checkbox" id="gwrunstart" name="gwrunstart" class="i-checks" ng-if="gwCommunicator[7].OPTIONVALUE == 0" ng-checked="false" />  
+                                                    <input type="checkbox" id="gwrunstart" valueId="{{gwCommunicator[7].VALUEID}}" settId="{{gwCommunicator[7].ID}}" name="gwrunstart" class="i-checks" ng-if="gwCommunicator[7].OPTIONVALUE == 1" ng-checked="true" />
+                                                    <input type="checkbox" id="gwrunstart" valueId="{{gwCommunicator[7].VALUEID}}" settId="{{gwCommunicator[7].ID}}" name="gwrunstart" class="i-checks" ng-if="gwCommunicator[7].OPTIONVALUE == 0" ng-checked="false" />  
                                                     Run start</label>
                                                 </div>
 
                                                 <div class="form-group has-feedback">
                                                     <label for="processedmessagescount" class="control-label">Processed messages count</label>
-                                                    <input type="text" name="processedmessagescount" id="processedmessagescount" class="form-control" placeholder="" value="{{gwCommunicator[0].OPTIONVALUE}}" />
+                                                    <input type="text" name="processedmessagescount" id="processedmessagescount" valueId="{{gwCommunicator[0].VALUEID}}" settId="{{gwCommunicator[0].ID}}" class="form-control" placeholder="" value="{{gwCommunicator[0].OPTIONVALUE}}" />
                                                     <span class="glyphicon form-control-feedback" id="processedmessagescount1"></span>
                                                 </div>
 
                                                 <div class="form-group has-feedback">
                                                     <label for="emailfaxstarttag" class="control-label">Email fax start tag</label>
-                                                    <input type="text" name="emailfaxstarttag" id="emailfaxstarttag" class="form-control" placeholder="" value="{{gwCommunicator[5].OPTIONVALUE}}" />
+                                                    <input type="text" name="emailfaxstarttag" id="emailfaxstarttag" valueId="{{gwCommunicator[5].VALUEID}}" settId="{{gwCommunicator[5].ID}}" class="form-control" placeholder="" value="{{gwCommunicator[5].OPTIONVALUE}}" />
                                                     <span class="glyphicon form-control-feedback" id="emailfaxstarttag1"></span>
                                                 </div>
 
                                                 <div class="form-group has-feedback">
                                                     <label for="emailfaxendtag" class="control-label">Email fax end tag</label>
-                                                    <input type="text" name="emailfaxendtag" id="emailfaxendtag" class="form-control" placeholder="" value="{{gwCommunicator[6].OPTIONVALUE}}" />
+                                                    <input type="text" name="emailfaxendtag" id="emailfaxendtag" valueId="{{gwCommunicator[6].VALUEID}}" settId="{{gwCommunicator[6].ID}}" class="form-control" placeholder="" value="{{gwCommunicator[6].OPTIONVALUE}}" />
                                                     <span class="glyphicon form-control-feedback" id="emailfaxendtag1"></span>
                                                 </div>
 
@@ -512,29 +589,46 @@
                                             <div class="right col-md-6">      
                                                 <div class="form-group">
                                                     <label> 
-                                                    <input type="checkbox" id="emailtofaxenabled" name="emailtofaxenabled" class="i-checks" ng-if="gwCommunicator[2].OPTIONVALUE == 1" ng-checked="true" />
-                                                    <input type="checkbox" id="emailtofaxenabled" name="emailtofaxenabled" class="i-checks" ng-if="gwCommunicator[2].OPTIONVALUE == 0" ng-checked="false" />  
+                                                    <input type="checkbox" id="emailtofaxenabled" valueId="{{gwCommunicator[2].VALUEID}}" settId="{{gwCommunicator[2].ID}}" name="emailtofaxenabled" class="i-checks" ng-if="gwCommunicator[2].OPTIONVALUE == 1" ng-checked="true" />
+                                                    <input type="checkbox" id="emailtofaxenabled" valueId="{{gwCommunicator[2].VALUEID}}" settId="{{gwCommunicator[2].ID}}" name="emailtofaxenabled" class="i-checks" ng-if="gwCommunicator[2].OPTIONVALUE == 0" ng-checked="false" />  
                                                     Email to fax enabled</label>
                                                 </div>
 
                                                 <div class="form-group has-feedback">
                                                     <label for="mailboxscaninterval" class="control-label">Mailbox scan interval</label>
-                                                    <input type="text" name="mailboxscaninterval" id="mailboxscaninterval" class="form-control" placeholder="" value="{{gwCommunicator[4].OPTIONVALUE}}" />
+                                                    <input type="text" name="mailboxscaninterval" id="mailboxscaninterval" valueId="{{gwCommunicator[4].VALUEID}}" settId="{{gwCommunicator[4].ID}}" class="form-control" placeholder="" value="{{gwCommunicator[4].OPTIONVALUE}}" />
                                                     <span class="glyphicon form-control-feedback" id="mailboxscaninterval1"></span>
                                                 </div>
 
                                                 <div class="form-group has-feedback">
                                                     <label for="password" class="control-label">Password</label>
-                                                    <input type="text" name="password" id="password" class="form-control" placeholder="" value="{{gwCommunicator[3].OPTIONVALUE}}" />
+                                                    <input type="text" name="password" id="password" valueId="{{gwCommunicator[3].VALUEID}}" settId="{{gwCommunicator[3].ID}}" class="form-control" placeholder="" value="{{gwCommunicator[3].OPTIONVALUE}}" />
                                                     <span class="glyphicon form-control-feedback" id="password1"></span>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label> 
-                                                    <input type="checkbox" id="deletefaxmessage" name="deletefaxmessage" class="i-checks" ng-if="gwCommunicator[8].OPTIONVALUE == 1" ng-checked="true" />
-                                                    <input type="checkbox" id="deletefaxmessage" name="deletefaxmessage" class="i-checks" ng-if="gwCommunicator[8].OPTIONVALUE == 0" ng-checked="false" />  
+                                                    <input type="checkbox" id="deletefaxmessage" valueId="{{gwCommunicator[8].VALUEID}}" settId="{{gwCommunicator[8].ID}}" name="deletefaxmessage" class="i-checks" ng-if="gwCommunicator[8].OPTIONVALUE == 1" ng-checked="true" />
+                                                    <input type="checkbox" id="deletefaxmessage" valueId="{{gwCommunicator[8].VALUEID}}" settId="{{gwCommunicator[8].ID}}" name="deletefaxmessage" class="i-checks" ng-if="gwCommunicator[8].OPTIONVALUE == 0" ng-checked="false" />  
                                                     Delete fax message</label>
                                                 </div>
+
+                                                <div class="sk-circle saving" style="width:20px; height:20px; float: left; margin-left: 50%; margin-top: 5px; display: none;">
+                                                    <div class="sk-circle1 sk-child"></div>
+                                                    <div class="sk-circle2 sk-child"></div>
+                                                    <div class="sk-circle3 sk-child"></div>
+                                                    <div class="sk-circle4 sk-child"></div>
+                                                    <div class="sk-circle5 sk-child"></div>
+                                                    <div class="sk-circle6 sk-child"></div>
+                                                    <div class="sk-circle7 sk-child"></div>
+                                                    <div class="sk-circle8 sk-child"></div>
+                                                    <div class="sk-circle9 sk-child"></div>
+                                                    <div class="sk-circle10 sk-child"></div>
+                                                    <div class="sk-circle11 sk-child"></div>
+                                                    <div class="sk-circle12 sk-child"></div>
+                                                </div>
+                                                <div id="gwerror" style="float: left; color: red; display: none; margin-top: 5px;" class="col-md-offset-4"><span class="glyphicon glyphicon-remove"></span> An error occured while saving</div>
+                                                <div id="gwsuccess" style="float: left; color: green; display: none; margin-top: 5px;" class="col-md-offset-4"><span class="glyphicon glyphicon-ok"></span> Saved successfully</div>
                                                 <input type="submit" class="btn btn-primary" style="float: right;" value="Save" />
                                             </div>
                                         </form>
@@ -543,15 +637,281 @@
                                     </div>
                                     <!--/////////////////////////////////////////////Second Communicator tab/////////////////////////////////////////////////////-->
                                     <div id="secondcommunicator" class="tab-pane">
-                                        Second Communicator
+                                        <div class="panel panel-default" style="margin-top: 20px;">
+                                        <div class="panel-heading">Second Communicator</div>
+                                        <div class="panel-body">
+                                        <form id="second">
+                                            <div class="left col-md-6">
+                                                <div class="form-group">
+                                                    <label> 
+                                                    <input type="checkbox" id="secondenabled" valueId="{{secondCommunicator[1].VALUEID}}" settId="{{secondCommunicator[1].ID}}" name="secondenabled" class="i-checks" ng-if="secondCommunicator[1].OPTIONVALUE == 1" ng-checked="true" />
+                                                    <input type="checkbox" id="secondenabled" valueId="{{secondCommunicator[1].VALUEID}}" settId="{{secondCommunicator[1].ID}}" name="secondenabled" class="i-checks" ng-if="secondCommunicator[1].OPTIONVALUE == 0" ng-checked="false" />  
+                                                    Enabled</label>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label> 
+                                                    <input type="checkbox" id="secondrunstart" valueId="{{secondCommunicator[7].VALUEID}}" settId="{{secondCommunicator[7].ID}}" name="secondrunstart" class="i-checks" ng-if="secondCommunicator[7].OPTIONVALUE == 1" ng-checked="true" />
+                                                    <input type="checkbox" id="secondrunstart" valueId="{{secondCommunicator[7].VALUEID}}" settId="{{secondCommunicator[7].ID}}" name="secondrunstart" class="i-checks" ng-if="secondCommunicator[7].OPTIONVALUE == 0" ng-checked="false" />  
+                                                    Run start</label>
+                                                </div>
+
+                                                <div class="form-group has-feedback">
+                                                    <label for="secondprocessedmessagescount" class="control-label">Processed messages count</label>
+                                                    <input type="text" name="secondprocessedmessagescount" id="secondprocessedmessagescount" valueId="{{secondCommunicator[0].VALUEID}}" settId="{{secondCommunicator[0].ID}}" class="form-control" placeholder="" value="{{secondCommunicator[0].OPTIONVALUE}}" />
+                                                    <span class="glyphicon form-control-feedback" id="secondprocessedmessagescount1"></span>
+                                                </div>
+
+                                                <div class="form-group has-feedback">
+                                                    <label for="secondemailfaxstarttag" class="control-label">Email fax start tag</label>
+                                                    <input type="text" name="secondemailfaxstarttag" id="secondemailfaxstarttag" valueId="{{secondCommunicator[5].VALUEID}}" settId="{{secondCommunicator[5].ID}}" class="form-control" placeholder="" value="{{secondCommunicator[5].OPTIONVALUE}}" />
+                                                    <span class="glyphicon form-control-feedback" id="secondemailfaxstarttag1"></span>
+                                                </div>
+
+                                                <div class="form-group has-feedback">
+                                                    <label for="secondemailfaxendtag" class="control-label">Email fax end tag</label>
+                                                    <input type="text" name="secondemailfaxendtag" id="secondemailfaxendtag" valueId="{{secondCommunicator[6].VALUEID}}" settId="{{secondCommunicator[6].ID}}" class="form-control" placeholder="" value="{{secondCommunicator[6].OPTIONVALUE}}" />
+                                                    <span class="glyphicon form-control-feedback" id="secondemailfaxendtag1"></span>
+                                                </div>
+
+                                            </div>
+                                            <div class="right col-md-6">      
+                                                <div class="form-group">
+                                                    <label> 
+                                                    <input type="checkbox" id="secondemailtofaxenabled" valueId="{{secondCommunicator[2].VALUEID}}" settId="{{secondCommunicator[2].ID}}" name="secondemailtofaxenabled" class="i-checks" ng-if="secondCommunicator[2].OPTIONVALUE == 1" ng-checked="true" />
+                                                    <input type="checkbox" id="secondemailtofaxenabled" valueId="{{secondCommunicator[2].VALUEID}}" settId="{{secondCommunicator[2].ID}}" name="secondemailtofaxenabled" class="i-checks" ng-if="secondCommunicator[2].OPTIONVALUE == 0" ng-checked="false" />  
+                                                    Email to fax enabled</label>
+                                                </div>
+
+                                                <div class="form-group has-feedback">
+                                                    <label for="secondmailboxscaninterval" class="control-label">Mailbox scan interval</label>
+                                                    <input type="text" name="secondmailboxscaninterval" id="secondmailboxscaninterval" valueId="{{secondCommunicator[4].VALUEID}}" settId="{{secondCommunicator[4].ID}}" class="form-control" placeholder="" value="{{secondCommunicator[4].OPTIONVALUE}}" />
+                                                    <span class="glyphicon form-control-feedback" id="secondmailboxscaninterval1"></span>
+                                                </div>
+
+                                                <div class="form-group has-feedback">
+                                                    <label for="secondpassword" class="control-label">Password</label>
+                                                    <input type="text" name="secondpassword" id="secondpassword" valueId="{{secondCommunicator[3].VALUEID}}" settId="{{secondCommunicator[3].ID}}" class="form-control" placeholder="" value="{{secondCommunicator[3].OPTIONVALUE}}" />
+                                                    <span class="glyphicon form-control-feedback" id="secondpassword1"></span>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label> 
+                                                    <input type="checkbox" id="seconddeletefaxmessage" valueId="{{secondCommunicator[8].VALUEID}}" settId="{{secondCommunicator[8].ID}}" name="seconddeletefaxmessage" class="i-checks" ng-if="secondCommunicator[8].OPTIONVALUE == 1" ng-checked="true" />
+                                                    <input type="checkbox" id="seconddeletefaxmessage" valueId="{{secondCommunicator[8].VALUEID}}" settId="{{secondCommunicator[8].ID}}" name="seconddeletefaxmessage" class="i-checks" ng-if="secondCommunicator[8].OPTIONVALUE == 0" ng-checked="false" />  
+                                                    Delete fax message</label>
+                                                </div>
+                                                
+                                                <div class="sk-circle saving" style="width:20px; height:20px; float: left; margin-left: 50%; margin-top: 5px; display: none;">
+                                                    <div class="sk-circle1 sk-child"></div>
+                                                    <div class="sk-circle2 sk-child"></div>
+                                                    <div class="sk-circle3 sk-child"></div>
+                                                    <div class="sk-circle4 sk-child"></div>
+                                                    <div class="sk-circle5 sk-child"></div>
+                                                    <div class="sk-circle6 sk-child"></div>
+                                                    <div class="sk-circle7 sk-child"></div>
+                                                    <div class="sk-circle8 sk-child"></div>
+                                                    <div class="sk-circle9 sk-child"></div>
+                                                    <div class="sk-circle10 sk-child"></div>
+                                                    <div class="sk-circle11 sk-child"></div>
+                                                    <div class="sk-circle12 sk-child"></div>
+                                                </div>
+                                                <div id="seconderror" style="float: left; color: red; display: none; margin-top: 5px;" class="col-md-offset-4"><span class="glyphicon glyphicon-remove"></span> An error occured while saving</div>
+                                                <div id="secondsuccess" style="float: left; color: green; display: none; margin-top: 5px;" class="col-md-offset-4"><span class="glyphicon glyphicon-ok"></span> Saved successfully</div>
+                                                <input type="submit" class="btn btn-primary" style="float: right;" value="Save" />
+                                            </div>
+                                        </form>
+                                        </div>
+                                    </div>
                                     </div>
                                     <!--/////////////////////////////////////////////Reporter tab/////////////////////////////////////////////////////-->
                                     <div id="reporter" class="tab-pane">
-                                        Reporter
+                                    <div class="panel panel-default" style="margin-top: 20px;">
+                                        <div class="panel-heading">Reporter</div>
+                                        <div class="panel-body">
+                                        <form id="report">
+                                            <div class="left col-md-6">
+                                                <div class="form-group has-feedback">
+                                                    <label for="injobformat" class="control-label">In job format</label>
+                                                    <input type="text" name="injobformat" id="injobformat" valueId="{{reporter[0].VALUEID}}" settId="{{reporter[0].ID}}" class="form-control" placeholder="" value="{{reporter[0].OPTIONVALUE}}" />
+                                                    <span class="glyphicon form-control-feedback" id="injobformat1"></span>
+                                                </div>
+
+                                                <div class="form-group has-feedback">
+                                                    <label for="language" class="control-label">Language</label>
+                                                    <input type="text" name="language" id="language" valueId="{{reporter[1].VALUEID}}" settId="{{reporter[1].ID}}" class="form-control" placeholder="" value="{{reporter[1].OPTIONVALUE}}" />
+                                                    <span class="glyphicon form-control-feedback" id="language1"></span>
+                                                </div>
+
+                                                <div class="form-group has-feedback">
+                                                    <label for="journalmonthlydetailed" class="control-label">Journal monthly detailed</label>
+                                                    <input type="text" name="journalmonthlydetailed" id="journalmonthlydetailed" valueId="{{reporter[2].VALUEID}}" settId="{{reporter[2].ID}}" class="form-control" placeholder="" value="{{reporter[2].OPTIONVALUE}}" />
+                                                    <span class="glyphicon form-control-feedback" id="journalmonthlydetailed1"></span>
+                                                </div>
+
+                                                <div class="form-group has-feedback">
+                                                    <label for="journalmonthlycompact" class="control-label">Journal monthly compact</label>
+                                                    <input type="text" name="journalmonthlycompact" id="journalmonthlycompact" valueId="{{reporter[3].VALUEID}}" settId="{{reporter[3].ID}}" class="form-control" placeholder="" value="{{reporter[3].OPTIONVALUE}}" />
+                                                    <span class="glyphicon form-control-feedback" id="journalmonthlycompact1"></span>
+                                                </div>
+
+                                                <div class="form-group has-feedback">
+                                                    <label for="messageadditional" class="control-label">Message additional</label>
+                                                    <input type="text" name="messageadditional" id="messageadditional" valueId="{{reporter[4].VALUEID}}" settId="{{reporter[4].ID}}" class="form-control" placeholder="" value="{{reporter[4].OPTIONVALUE}}" />
+                                                    <span class="glyphicon form-control-feedback" id="messageadditional1"></span>
+                                                </div>
+
+                                            </div>
+                                            <div class="right col-md-6">
+                                                <div class="form-group has-feedback">
+                                                    <label for="messageoutjobsuccesssubject" class="control-label">Message out job success subject</label>
+                                                    <input type="text" name="messageoutjobsuccesssubject" id="messageoutjobsuccesssubject" valueId="{{reporter[5].VALUEID}}" settId="{{reporter[5].ID}}" class="form-control" placeholder="" value="{{reporter[5].OPTIONVALUE}}" />
+                                                    <span class="glyphicon form-control-feedback" id="messageoutjobsuccesssubject1"></span>
+                                                </div>
+
+                                                <div class="form-group has-feedback">
+                                                    <label for="messageoutjoberrorsubject" class="control-label">Message out job error subject</label>
+                                                    <input type="text" name="messageoutjoberrorsubject" id="messageoutjoberrorsubject" valueId="{{reporter[6].VALUEID}}" settId="{{reporter[6].ID}}" class="form-control" placeholder="" value="{{reporter[6].OPTIONVALUE}}" />
+                                                    <span class="glyphicon form-control-feedback" id="messageoutjoberrorsubject1"></span>
+                                                </div>
+
+                                                <div class="form-group has-feedback">
+                                                    <label for="messageroutedinjobsubject" class="control-label">Message routed in job subject</label>
+                                                    <input type="text" name="messageroutedinjobsubject" id="messageroutedinjobsubject" valueId="{{reporter[7].VALUEID}}" settId="{{reporter[7].ID}}" class="form-control" placeholder="" value="{{reporter[7].OPTIONVALUE}}" />
+                                                    <span class="glyphicon form-control-feedback" id="messageroutedinjobsubject1"></span>
+                                                </div>
+
+                                                <div class="form-group has-feedback">
+                                                    <label for="messageinjobsubject" class="control-label">Message in job subject</label>
+                                                    <input type="text" name="messageinjobsubject" id="messageinjobsubject" valueId="{{reporter[8].VALUEID}}" settId="{{reporter[8].ID}}" class="form-control" placeholder="" value="{{reporter[8].OPTIONVALUE}}" />
+                                                    <span class="glyphicon form-control-feedback" id="messageinjobsubject1"></span>
+                                                </div>        
+                                                
+                                                <div class="sk-circle saving" style="width:20px; height:20px; float: left; margin-left: 50%; margin-top: 5px; display: none;">
+                                                    <div class="sk-circle1 sk-child"></div>
+                                                    <div class="sk-circle2 sk-child"></div>
+                                                    <div class="sk-circle3 sk-child"></div>
+                                                    <div class="sk-circle4 sk-child"></div>
+                                                    <div class="sk-circle5 sk-child"></div>
+                                                    <div class="sk-circle6 sk-child"></div>
+                                                    <div class="sk-circle7 sk-child"></div>
+                                                    <div class="sk-circle8 sk-child"></div>
+                                                    <div class="sk-circle9 sk-child"></div>
+                                                    <div class="sk-circle10 sk-child"></div>
+                                                    <div class="sk-circle11 sk-child"></div>
+                                                    <div class="sk-circle12 sk-child"></div>
+                                                </div>
+                                                <div id="reportererror" style="float: left; color: red; display: none; margin-top: 5px;" class="col-md-offset-4"><span class="glyphicon glyphicon-remove"></span> An error occured while saving</div>
+                                                <div id="reportersuccess" style="float: left; color: green; display: none; margin-top: 5px;" class="col-md-offset-4"><span class="glyphicon glyphicon-ok"></span> Saved successfully</div>
+                                                <input type="submit" class="btn btn-primary" style="float: right;" value="Save" />
+                                            </div>
+                                        </form>
+                                        </div>
+                                    </div>
                                     </div>
                                     <!--/////////////////////////////////////////////Fax Router tab/////////////////////////////////////////////////////-->
                                     <div id="faxrouter" class="tab-pane">
-                                        Fax Router
+                                    <div class="panel panel-default" style="margin-top: 20px;">
+                                        <div class="panel-heading">Router</div>
+                                        <div class="panel-body">
+                                        <form id="router">
+                                            <div class="left col-md-6">
+                                                <div class="form-group has-feedback">
+                                                    <label for="citycode" class="control-label">City code</label>
+                                                    <input type="text" name="citycode" id="citycode" valueId="{{router[0].VALUEID}}" settId="{{router[0].ID}}" class="form-control" placeholder="" value="{{router[0].OPTIONVALUE}}" />
+                                                    <span class="glyphicon form-control-feedback" id="citycode1"></span>
+                                                </div>
+
+                                                <div class="form-group has-feedback">
+                                                    <label for="countrycode" class="control-label">City code</label>
+                                                    <input type="text" name="countrycode" id="countrycode" valueId="{{router[1].VALUEID}}" settId="{{router[1].ID}}" class="form-control" placeholder="" value="{{router[1].OPTIONVALUE}}" />
+                                                    <span class="glyphicon form-control-feedback" id="countrycode1"></span>
+                                                </div>
+
+                                                <div class="form-group has-feedback">
+                                                    <label for="nrlengthfordialprefix" class="control-label">Nr length for dial prefix</label>
+                                                    <input type="text" name="nrlengthfordialprefix" id="nrlengthfordialprefix" valueId="{{router[2].VALUEID}}" settId="{{router[2].ID}}" class="form-control" placeholder="" value="{{router[2].OPTIONVALUE}}" />
+                                                    <span class="glyphicon form-control-feedback" id="nrlengthfordialprefix1"></span>
+                                                </div>
+
+                                                <div class="form-group has-feedback">
+                                                    <label for="listenmsn" class="control-label">Listen MSN</label>
+                                                    <input type="text" name="listenmsn" id="listenmsn" valueId="{{router[4].VALUEID}}" settId="{{router[4].ID}}" class="form-control" placeholder="" value="{{router[4].OPTIONVALUE}}" />
+                                                    <span class="glyphicon form-control-feedback" id="listenmsn1"></span>
+                                                </div>
+
+                                                <div class="form-group has-feedback">
+                                                    <label for="adminemail" class="control-label">Admin email</label>
+                                                    <input type="text" name="adminemail" id="adminemail" valueId="{{router[5].VALUEID}}" settId="{{router[5].ID}}" class="form-control" placeholder="" value="{{router[5].OPTIONVALUE}}" />
+                                                    <span class="glyphicon form-control-feedback" id="adminemail1"></span>
+                                                </div>
+
+                                                <div class="form-group has-feedback">
+                                                    <label for="ownphonenumber" class="control-label">Own phone number</label>
+                                                    <input type="text" name="ownphonenumber" id="ownphonenumber" valueId="{{router[6].VALUEID}}" settId="{{router[6].ID}}" class="form-control" placeholder="" value="{{router[6].OPTIONVALUE}}" />
+                                                    <span class="glyphicon form-control-feedback" id="ownphonenumber1"></span>
+                                                </div>
+                                            </div>
+                                            <div class="right col-md-6">
+                                                <div class="form-group">
+                                                    <label> 
+                                                    <input type="checkbox" id="internalfaxrouting" valueId="{{router[3].VALUEID}}" settId="{{router[3].ID}}" name="internalfaxrouting" class="i-checks" ng-if="router[3].OPTIONVALUE == 1" ng-checked="true" />
+                                                    <input type="checkbox" id="internalfaxrouting" valueId="{{router[3].VALUEID}}" settId="{{router[3].ID}}" name="internalfaxrouting" class="i-checks" ng-if="router[3].OPTIONVALUE == 0" ng-checked="false" />  
+                                                    Internal fax routing</label>
+                                                </div>
+
+                                                <div class="form-group has-feedback">
+                                                    <label for="routerdefaultsendertelephone" class="control-label">Default sender telephone</label>
+                                                    <input type="text" name="routerdefaultsendertelephone" id="routerdefaultsendertelephone" valueId="{{router[7].VALUEID}}" settId="{{router[7].ID}}" class="form-control" placeholder="" value="{{router[7].OPTIONVALUE}}" />
+                                                    <span class="glyphicon form-control-feedback" id="routerdefaultsendertelephone1"></span>
+                                                </div>
+
+                                                <div class="form-group has-feedback">
+                                                    <label for="routerdefaultsenderfax" class="control-label">Default sender fax</label>
+                                                    <input type="text" name="routerdefaultsenderfax" id="routerdefaultsenderfax" valueId="{{router[8].VALUEID}}" settId="{{router[8].ID}}" class="form-control" placeholder="" value="{{router[8].OPTIONVALUE}}" />
+                                                    <span class="glyphicon form-control-feedback" id="routerdefaultsenderfax1"></span>
+                                                </div>
+
+                                                <div class="form-group has-feedback">
+                                                    <label for="routerdefaultsendername" class="control-label">Default sender name</label>
+                                                    <input type="text" name="routerdefaultsendername" id="routerdefaultsendername" valueId="{{router[9].VALUEID}}" settId="{{router[9].ID}}" class="form-control" placeholder="" value="{{router[9].OPTIONVALUE}}" />
+                                                    <span class="glyphicon form-control-feedback" id="routerdefaultsendername1"></span>
+                                                </div>
+
+                                                <div class="form-group has-feedback">
+                                                    <label for="routerdefaultsendercompany" class="control-label">Default sender company</label>
+                                                    <input type="text" name="routerdefaultsendercompany" id="routerdefaultsendercompany" valueId="{{router[10].VALUEID}}" settId="{{router[10].ID}}" class="form-control" placeholder="" value="{{router[10].OPTIONVALUE}}" />
+                                                    <span class="glyphicon form-control-feedback" id="routerdefaultsendercompany1"></span>
+                                                </div>
+
+                                                <div class="form-group has-feedback">
+                                                    <label for="defaultsenderemail" class="control-label">Default sender email</label>
+                                                    <input type="text" name="defaultsenderemail" id="defaultsenderemail" valueId="{{router[11].VALUEID}}" settId="{{router[11].ID}}" class="form-control" placeholder="" value="{{router[11].OPTIONVALUE}}" />
+                                                    <span class="glyphicon form-control-feedback" id="defaultsenderemail1"></span>
+                                                </div>
+                                                  
+                                                <div class="sk-circle saving" style="width:20px; height:20px; float: left; margin-left: 50%; margin-top: 5px; display: none;">
+                                                    <div class="sk-circle1 sk-child"></div>
+                                                    <div class="sk-circle2 sk-child"></div>
+                                                    <div class="sk-circle3 sk-child"></div>
+                                                    <div class="sk-circle4 sk-child"></div>
+                                                    <div class="sk-circle5 sk-child"></div>
+                                                    <div class="sk-circle6 sk-child"></div>
+                                                    <div class="sk-circle7 sk-child"></div>
+                                                    <div class="sk-circle8 sk-child"></div>
+                                                    <div class="sk-circle9 sk-child"></div>
+                                                    <div class="sk-circle10 sk-child"></div>
+                                                    <div class="sk-circle11 sk-child"></div>
+                                                    <div class="sk-circle12 sk-child"></div>
+                                                </div>
+                                                <div id="routererror" style="float: left; color: red; display: none; margin-top: 5px;" class="col-md-offset-4"><span class="glyphicon glyphicon-remove"></span> An error occured while saving</div>
+                                                <div id="routersuccess" style="float: left; color: green; display: none; margin-top: 5px;" class="col-md-offset-4"><span class="glyphicon glyphicon-ok"></span> Saved successfully</div>
+                                                <input type="submit" class="btn btn-primary" style="float: right;" value="Save" />
+                                                
+                                            </div>
+                                        </form>
+                                        </div>
+                                    </div>
                                     </div>
                                 </div>
                              </div>
@@ -582,197 +942,14 @@
     <script src="../js/faxgwise.js"></script>
     <script src="../js/url.js"></script>
     <script src="../js/jquery.validate.min.js"></script>
+    <script src="../js/settingsvalidation.js"></script>
 
     <script>
-$(document).ready(function () {
-    $('#convertergeneral').validate({
-        rules:{
-            filetypes:"required",
-            timeout:{
-                digits:true
-            },
-            format:"required"
-        },
-        highlight: function(element) {
-            var id_attr = "#" + $( element ).attr("id") + "1";
-            $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
-            $(id_attr).removeClass('glyphicon-ok').addClass('glyphicon-remove');         
-        },
-        unhighlight: function(element) {
-            var id_attr = "#" + $( element ).attr("id") + "1";
-            $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
-            $(id_attr).removeClass('glyphicon-remove').addClass('glyphicon-ok');        
-        },
-        errorElement: 'span',
-        errorClass: 'help-block',
-        errorPlacement: function(error, element) {
-            if(element.length) {
-                error.insertAfter(element);
-            } else {
-            error.insertAfter(element);
-            }
-        } 
-    });
-
-    $('#converterheader').validate({
-        rules:{
-            filetypes:"required",
-            headeroffright:{
-                digits:true
-            },
-            headeroffleft:{
-                digits:true
-            },
-            headerofftop:{
-                digits:true
-            },
-            headerborder:{
-                digits:true
-            },
-            headersize:{
-                digits:true
-            },
-            headerlogoX:{
-                digits:true
-            },
-            headerlogoY:{
-                digits:true
-            }
-        },
-        highlight: function(element) {
-            var id_attr = "#" + $( element ).attr("id") + "1";
-            $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
-            $(id_attr).removeClass('glyphicon-ok').addClass('glyphicon-remove');         
-        },
-        unhighlight: function(element) {
-            var id_attr = "#" + $( element ).attr("id") + "1";
-            $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
-            $(id_attr).removeClass('glyphicon-remove').addClass('glyphicon-ok');        
-        },
-        errorElement: 'span',
-        errorClass: 'help-block',
-        errorPlacement: function(error, element) {
-            if(element.length) {
-                error.insertAfter(element);
-            } else {
-            error.insertAfter(element);
-            }
-        } 
-    });
-
-    $('#isdn').validate({
-        rules:{
-            maxmsnlength:{
-                digits:true
-            },
-            retryperiod:{
-                digits:true
-            },
-            retrycount:{
-                digits:true
-            },
-            maxrecipients:{
-                digits:true
-            },
-            maxfaxfilesize:{
-                digits:true
-            }
-        },
-        highlight: function(element) {
-            var id_attr = "#" + $( element ).attr("id") + "1";
-            $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
-            $(id_attr).removeClass('glyphicon-ok').addClass('glyphicon-remove');         
-        },
-        unhighlight: function(element) {
-            var id_attr = "#" + $( element ).attr("id") + "1";
-            $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
-            $(id_attr).removeClass('glyphicon-remove').addClass('glyphicon-ok');        
-        },
-        errorElement: 'span',
-        errorClass: 'help-block',
-        errorPlacement: function(error, element) {
-            if(element.length) {
-                error.insertAfter(element);
-            } else {
-            error.insertAfter(element);
-            }
-        } 
-    });
-
-    $('#t38').validate({
-        rules:{
-            t38retryperiod:{
-                digits:true
-            },
-            t38retrycount:{
-                digits:true
-            },
-            t38maxfaxfilesize:{
-                digits:true
-            }
-        },
-        highlight: function(element) {
-            var id_attr = "#" + $( element ).attr("id") + "1";
-            $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
-            $(id_attr).removeClass('glyphicon-ok').addClass('glyphicon-remove');         
-        },
-        unhighlight: function(element) {
-            var id_attr = "#" + $( element ).attr("id") + "1";
-            $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
-            $(id_attr).removeClass('glyphicon-remove').addClass('glyphicon-ok');        
-        },
-        errorElement: 'span',
-        errorClass: 'help-block',
-        errorPlacement: function(error, element) {
-            if(element.length) {
-                error.insertAfter(element);
-            } else {
-            error.insertAfter(element);
-            }
-        } 
-    });
-
-    $('#gw').validate({
-        rules:{
-            processedmessagescount:{
-                digits:true
-            },
-            mailboxscaninterval:{
-                digits:true
-            }
-        },
-        highlight: function(element) {
-            var id_attr = "#" + $( element ).attr("id") + "1";
-            $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
-            $(id_attr).removeClass('glyphicon-ok').addClass('glyphicon-remove');         
-        },
-        unhighlight: function(element) {
-            var id_attr = "#" + $( element ).attr("id") + "1";
-            $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
-            $(id_attr).removeClass('glyphicon-remove').addClass('glyphicon-ok');        
-        },
-        errorElement: 'span',
-        errorClass: 'help-block',
-        errorPlacement: function(error, element) {
-            if(element.length) {
-                error.insertAfter(element);
-            } else {
-            error.insertAfter(element);
-            }
-        } 
-    });
-});
-
-
-
         var FaxGWiseApp = angular.module('FaxGWiseApp', []);   
         FaxGWiseApp.controller('settingsCtrl', function ($scope, $http) {
 
-        //$scope.recordsPerPage = 10;
-        //$scope.pageToLoad = 1;
-       // $scope.expandTable = false;
+        $scope.numbers = [0,1,2];
 
-        //var dataString = '['+$scope.recordsPerPage+','+$scope.pageToLoad+',"ID","asc"]';
         var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetSettings/1');
         var request = $http.post(url);
 
@@ -783,21 +960,20 @@ $(document).ready(function () {
             $scope.isdnController = data[1].Options;
             $scope.t38Controller = data[2].Options;
             $scope.gwCommunicator = data[3].Options;
-            //console.log($scope.faxConverter[0].OPTIONVALUE);
-
-            //$scope.users = data.result[0].rows;
-            //$scope.totalRecords = data.result[0].records;
-            //$("#data").append(JSON.stringify(data.result[0].rows));
-            //$scope.inFaxes = data.result[0].rows;
+            $scope.secondCommunicator = data[4].Options;
+            $scope.reporter = data[5].Options;
+            $scope.router = data[6].Options;
         });
         request.error(function(data, status, headers, config) {
             console.log("sendSQL status: "+status+", message: "+data);
+            if(status == 403){
+                window.location.replace("../login.html");
+            }
         });
-
-        $("#convertergeneral").submit(function(event){
-            event.preventDefault();
-            var params = ['filetypes','convEnabled','timeout','compress','format'];
-            
+        
+        function saveSettings(params, errorCallback, successCallback){
+            $(".saving").show();
+            var count = 0;
             for(var i=0; i<params.length; i++){
                 var value;
                 // check if an element is checkbox
@@ -820,20 +996,115 @@ $(document).ready(function () {
                 var request = $http.post(url, dataString);
 
                 request.success(function(data){
-                    console.log(data);
+                    count++;
+                    if(count == params.length){
+                        successCallback();
+                    }
                 });
                 request.error(function(data, status){
                     console.log("sendSQL status: "+status+", message: "+data);
+                    errorCallback();
+                    return;
                 });
-
             }
-          /*  var params = {
-                i:$("#filetypes").val()
-            }*/
-            //console.log(params);
+        }
 
+        $("#convertergeneral").submit(function(event){
+            event.preventDefault();
+            var params = ['filetypes','convEnabled','timeout','compress','format'];
+            saveSettings(params, function(){
+                $(".saving").hide();
+                 $("#convertergeneralerror").show().delay(3000).fadeOut("slow");
+            }, function(){
+                $(".saving").hide();
+                 $("#convertergeneralsuccess").show().delay(3000).fadeOut("slow");
+            });
+        });
+        
+        $("#converterheader").submit(function(event){
+            event.preventDefault();
+            var params = ['headertext','headeroffright','headeroffleft','headerofftop','headerborder','headertextright','headertextleft','headerbold','headersize','headerfont','headerlogo','headerlogoX', 'headerlogoY','headerlogoFile'];
+            saveSettings(params, function(){
+                $(".saving").hide();
+                 $("#converterheadererror").show().delay(3000).fadeOut("slow");
+            }, function(){
+                $(".saving").hide();
+                 $("#converterheadersuccess").show().delay(3000).fadeOut("slow");
+            });
         });
 
+        $("#isdn").submit(function(event){
+            event.preventDefault();
+            var params = ['enabled','excludedfiles','channelsreceive','channelssend','presentationmode','maxmsnlength','retryperiod','retrycount','maxrecipients','dialprefix','checkresolution','maxfaxfilesize','ownmsn','owncsid','portname','channelssendreceive','ddi','runstart'];
+            saveSettings(params, function(){
+                $(".saving").hide();
+                 $("#isdnerror").show().delay(3000).fadeOut("slow");
+            }, function(){
+                $(".saving").hide();
+                 $("#isdnsuccess").show().delay(3000).fadeOut("slow");
+            });
+        });
+
+        $("#t38").submit(function(event){
+            event.preventDefault();
+            var params = ['t38enabled','t38runstart','t38retryperiod','t38retrycount','t38maxfaxfilesize','defaultsendertelephone','defaultsenderfax','defaultsendername','defaultsendercompany'];
+            saveSettings(params, function(){
+                $(".saving").hide();
+                 $("#t38error").show().delay(3000).fadeOut("slow");
+            }, function(){
+                $(".saving").hide();
+                 $("#t38success").show().delay(3000).fadeOut("slow");
+            });
+        });
+
+        $("#gw").submit(function(event){
+            event.preventDefault();
+            var params = ['gwenabled','gwrunstart','processedmessagescount','emailfaxstarttag','emailfaxendtag','emailtofaxenabled','mailboxscaninterval','password','deletefaxmessage'];
+            saveSettings(params, function(){
+                $(".saving").hide();
+                 $("#gwerror").show().delay(3000).fadeOut("slow");
+            }, function(){
+                $(".saving").hide();
+                 $("#gwsuccess").show().delay(3000).fadeOut("slow");
+            });
+        });
+
+        $("#second").submit(function(event){
+            event.preventDefault();
+            var params = ['secondenabled','secondrunstart','secondprocessedmessagescount','secondemailfaxstarttag','secondemailfaxendtag','secondemailtofaxenabled','secondmailboxscaninterval','secondpassword','seconddeletefaxmessage'];
+            saveSettings(params, function(){
+                $(".saving").hide();
+                 $("#seconderror").show().delay(3000).fadeOut("slow");
+            }, function(){
+                $(".saving").hide();
+                 $("#secondsuccess").show().delay(3000).fadeOut("slow");
+            });
+        });
+
+        $("#report").submit(function(event){
+            event.preventDefault();
+            var params = ['injobformat','language','journalmonthlydetailed','journalmonthlycompact','messageadditional','messageoutjobsuccesssubject','messageoutjoberrorsubject','messageroutedinjobsubject','messageinjobsubject'];
+            
+            saveSettings(params, function(){
+                $(".saving").hide();
+                 $("#reportererror").show().delay(3000).fadeOut("slow");
+            }, function(){
+                $(".saving").hide();
+                 $("#reportersuccess").show().delay(3000).fadeOut("slow");
+            });
+        });
+
+        $("#router").submit(function(event){
+            event.preventDefault();
+            var params = ['citycode','countrycode','nrlengthfordialprefix','internalfaxrouting','listenmsn','adminemail','ownphonenumber','routerdefaultsendertelephone','routerdefaultsenderfax','routerdefaultsendername','routerdefaultsendercompany','defaultsenderemail'];
+            saveSettings(params, function(){
+                $(".saving").hide();
+                 $("#routererror").show().delay(3000).fadeOut("slow");
+            }, function(){
+                $(".saving").hide();
+                 $("#routersuccess").show().delay(3000).fadeOut("slow");
+            });
+        });
 
         });
 

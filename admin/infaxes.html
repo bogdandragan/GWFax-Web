@@ -353,7 +353,7 @@
     
 
         $scope.openInFaxes = function (index) {
-             log($scope.inFaxes[index]);
+             console.log($scope.inFaxes[index]);
              if((typeof($scope.inFaxes[index].FAXES) == 'undefined') || $scope.inFaxes[index].FAXES.length < 1)
                 return;
                 $scope.inFaxes[index].expandRow = !$scope.inFaxes[index].expandRow;      

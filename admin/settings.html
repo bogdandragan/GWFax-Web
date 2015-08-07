@@ -65,6 +65,34 @@
                 <li class="active">
                     <a href="settings.html"><i class="fa fa-flask"></i> <span class="nav-label">Settings</span> <span></span></a>
                 </li>
+                <li>
+                    <span class="controller-name" class="nav-label">ISDN Controller
+                    <span style="margin-left: 10px" class="label label-info">Stopped</span>
+
+                    </span>
+                    <a href="#isdncontroller" id="settings-label" class="glyphicon glyphicon-cog settings-label"></a>
+                </li>
+                <li>
+                    <span class="controller-name" class="nav-label">T38 Controller
+                    <span style="margin-left: 10px" class="label label-primary">Enabled</span>
+
+                    </span>
+                    <a href="#t38controller" id="settings-label" class="glyphicon glyphicon-cog settings-label"></a>
+                </li>
+                <li>
+                    <span class="controller-name" class="nav-label">GW Communicator
+                    <span style="margin-left: 10px" class="label label-primary">Enabled</span>
+
+                    </span>
+                    <a href="#gwcommunicator" id="settings-label" class="glyphicon glyphicon-cog settings-label"></a>
+                </li>
+                <li>
+                    <span class="controller-name" class="nav-label">Second Communic.
+                    <span style="margin-left: 10px" class="label label-info">Stopped</span>
+
+                    </span>
+                    <a href="#secondcommunicator" id="settings-label" class="glyphicon glyphicon-cog settings-label"></a>
+                </li>
                 <li class="landing_link">
                     <a target="_blank" href="Landing_page/index.html"><i class="fa fa-star"></i> <span class="nav-label">Landing Page</span> <span class="label label-warning pull-right">NEW</span></a>
                 </li>
@@ -1143,6 +1171,19 @@
             };
             return req;
         }
+
+        $(document).ready(function() {
+            var tab = url('#');
+            //console.log(tab);
+            document.querySelector('.nav-tabs li a[href='+'"'+"#"+tab+'"'+']').click();
+
+            $(".settings-label").click (function () {
+                tab = $(this).attr("href");
+                document.querySelector('.nav-tabs li a[href='+'"'+tab+'"'+']').click();
+                window.scrollTo(0, 0);
+
+            });
+        });
     </script>
 
 </body>

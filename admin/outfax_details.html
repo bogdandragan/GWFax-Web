@@ -53,10 +53,10 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="users.html"><i class="fa fa-diamond"></i> <span class="nav-label">Users</span> <span></span></a>
+                    <a href="users.html"><i class="fa fa-user"></i> <span class="nav-label">Users</span> <span></span></a>
                 </li>
                 <li>
-                    <a href="settings.html"><i class="fa fa-flask"></i> <span class="nav-label">Settings</span> <span></span></a>
+                    <a href="settings.html"><i class="fa fa-cogs"></i> <span class="nav-label">Settings</span> <span></span></a>
                 </li>
                 <li>
                     <span class="controller-name" class="nav-label">ISDN Controller
@@ -375,7 +375,6 @@
 		InitOutFaxDetails_ngApplication(queryStr['outfaxid']);
 
 		$(document).on("click", ".faxpreview", function() {
-  		  //$("#expTable").css("display","none");
 		   slideShow.ID = $(this).attr('id');
     	   slideShow.count = 1;
 		   slideShow.display(0);

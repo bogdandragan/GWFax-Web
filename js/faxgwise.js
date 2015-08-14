@@ -3,708 +3,768 @@ var globalInJobsData;
 var globalUsers;
 var ngApplication;
 
-function InitDataTable(_jqGridName, _jqGridPagerName, _columnsModel, _getDataFunction, _sortname, _sortorder, _caption, _subGridRowExpandedFunction) {
-	var currGrid = $("#" + _jqGridName)[0].grid;	
-	if  (typeof currGrid == 'undefined') {	
-		var needSubGrid = $.isFunction(_subGridRowExpandedFunction); 
-		
-		$("#" + _jqGridName).jqGrid({
-                colModel: _columnsModel,
-                viewrecords: true, // show the current page, data rang and total records on the toolbar
-                width: 900,
-                height: '100%',
-                rowNum: 10,
-                //scroll: 1,
-                rowList: [10, 20, 100],
-                sortname: _sortname,
-    			sortorder: _sortorder,				
-				subGrid: needSubGrid, // set the subGrid property to true to show expand buttons for each row
-                subGridRowExpanded: _subGridRowExpandedFunction, // javascript function that will take care of showing the child grid               
-				datatype: function(postdata) {	
-					var myGrid = $("#" + _jqGridName);
-					myGrid.clearGridData().setGridParam({page: postdata.page});
-															
-					$("#" + _jqGridName)[0].grid.beginReq();//lock grid
-									        			
-        			_getDataFunction(postdata.rows, postdata.page, postdata.sidx, postdata.sord);
-        		},
-                pager: "#" + _jqGridPagerName,
-				caption: _caption
-		});
-	}
-	else {
-		var myGrid = $("#" + _jqGridName);
-		myGrid.clearGridData().setGridParam({page: 1});
-		myGrid.trigger('reloadGrid');
-	}
-}
+function initUsersTable(){
+	ngApplication = angular.module('FaxGWiseApp', []);   
+    ngApplication.controller('usersCtrl', function ($scope, $http) {
+         $scope.sortType = "EMAIL";
+         $scope.sortReverse  = false;
+         $scope.searchFilter   = '';
 
-function FormatJobsStatuses(cellValue, options, rowObject) {
-	var items = [];
-	var currValue;
-	
-	$.each(cellValue, function(index, value) {
-		switch(value) {
-		    case 0:
-		    case 1:
-		    case 2:
-		    case 3:
-		    case 4:
-		    case 5:
-		    case 6:
-		    case 7:
-		    case 8:
-		    case 9:
-		    case 10:
-		    case 11:
-		    case 12:
-		    case 13:
-		    case 14:
-        		currValue = '<img src="../assets/images/' + value + '.png"/>';
-        		break;
-    		default: 
-    			currValue = '<img src="../assets/images/black.png"/>';        		
-		}		
-		items.push(currValue);
-	});
+        $scope.recordsPerPage = 10;
+        $scope.pageToLoad = 1;
+       // $scope.expandTable = false;
 
-	var htmlCell = items.join("  ");
-	return htmlCell;
-}
+        var dataString = '['+$scope.recordsPerPage+','+$scope.pageToLoad+',"ID","asc"]';
+        var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUsers/1');
+        var request = $http.post(url, dataString);
 
-function unFormatJobsStatuses(cellValue, options, cellObject) {
-	return $(cellObject.html()).attr("originalValue");
-}
+        request.success(function(data, status, headers, config) {
+            console.log(data);
 
-function ShowFaxMessagesTable(data, controllerScope, clearPreviousData) {
-	if (data.rows.length > 0) {		
-		var currData = data.rows;		
-		AdvanceOutFaxMessagesData(currData);
-		
-		if (clearPreviousData) {
-			globalOutFaxMessagesData = currData;
-			//controllerScope.outFaxes = globalOutFaxMessagesData;
-		} else {
-			globalOutFaxMessagesData = globalOutFaxMessagesData.concat(currData);
-			//globalOutFaxMessagesData.push(currData);
-			//controllerScope.outFaxes.push(currData);
-		}
-		controllerScope.outFaxes = globalOutFaxMessagesData;
-		
-		
-		//log(JSON.stringify(data));
-		
-		/*var myGrid = $("#jqGrid_outfaxes-table")[0]; 						
-		myGrid.addJSONData(globalOutFaxMessagesData);
-		
-		//Set pages count
-		var lastPage = Math.floor(data.records / rowsPerPage);
-		if ((data.records % rowsPerPage) > 0) {
-			lastPage++;
-		}
-		
-		myGrid = $("#jqGrid_outfaxes-table");
-		myGrid.setGridParam({lastpage: lastPage});
-    	myGrid.setGridParam({records: data.records});  
-    	myGrid.each(function() {  
-    		if (this.grid) this.updatepager();
-    	});
-		
-		//unlock grid
-		$("#jqGrid_outfaxes-table")[0].grid.endReq();
-		*/
+            $scope.users = data.result[0].rows;
+        });
+        request.error(function(data, status, headers, config) {
+            log("sendSQL status: "+status+", message: "+data);
+            if(status == 403){
+                window.location.replace("../login.html");
+            }
+            alert("error:"+status);
+        });
 
-	}
-}
+        $scope.openUser = function (user, id) {            
+            var dataString = '['+id+','+$scope.recordsPerPage+','+$scope.pageToLoad+',"ID","asc"]';
+            var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUserMSNList/1');
+            var request = $http.post(url, dataString);
 
-function ShowFaxMessageDetails(data, controllerScope) {
-	if (data.rows.length > 0) {		
-		var currFaxMessage = data.rows[0];
-		AdvanceOutFaxMessage(currFaxMessage);				
-		controllerScope.outFax = currFaxMessage;						
-	}
-}
+            request.success(function(data, status, headers, config) {
+                console.log(data.result[0].rows);
+                $scope.msns = data.result[0].rows;
+                var index = $scope.users.indexOf(user);
+               
+                $scope.users[index].expandRow = !$scope.users[index].expandRow; 
 
-function AdvanceOutFaxMessagesData(data) {
-	for (var i = 0 ; i < data.length ; i++)
-	{
-    	AdvanceOutFaxMessage(data[i]);
-	}
-}
+            });
+            request.error(function(data, status, headers, config) {
+                log("sendSQL status: "+status+", message: "+data);
+                if(status == 403){
+                    window.location.replace("../login.html");
+                }
+            	alert("error:"+status);
+            });      
+        };  
 
-function AdvanceOutFaxMessage(messageData) {
-	var currTasks;
-	var currTasksStatuses;
-	var currJobStatus;
-	var currTaskStatus;
-	
-	var currJobs = messageData['JOBS'];
-	
-	var currEmail = messageData['SENDEREMAIL'];
-	messageData['SENDEREMAIL'] = currEmail.trim();
-	
-	var currJobsStatuses = [];
-	var currCollectiveStatus = 1;//all OK
-	
-	if (typeof currJobs != 'undefined') {  	
-    	for (var j = 0 ; j < currJobs.length ; j++) {
-    		currJobStatus = currJobs[j]['PROCESSINGSTAGE'];
-    		currJobsStatuses.push(currJobStatus);    		    		
-    		
-    		currTasks = currJobs[j]['TASKS'];
-    		currTasksStatuses = [];
-    		if (typeof currTasks != 'undefined') {
-	    		for (var k = 0 ; k < currTasks.length ; k++) {
-	    			currTaskStatus = currTasks[k]['TASKSTATE'];
-	    			currTasksStatuses.push(currTaskStatus);
-	    			
-	    			if (currTaskStatus == 2) { // ERROR
-		    			currCollectiveStatus = 2; // ERROR
-		    		} else if ((currCollectiveStatus != 2) && (currTaskStatus == 0)) {
-		    			currCollectiveStatus = 0; // processing
-		    		}    			    			
-		    	}
-	    	}
-	    	messageData['JOBS'][j]['TASKSSTATUSES'] = currTasksStatuses;
-	    	messageData['JOBS'][j]['childTableExpanded'] = false;
-    	}
-	}
-	messageData['JOBSSTATUSES'] = currJobsStatuses;    	
-	messageData['collectiveStatus'] = currCollectiveStatus;
-	messageData['childTableExpanded'] = false;
-}
-
-function ShowFaxJobsTable (parentRowID, parentRowKey) {
-	var childGridID = 'FaxQueue_' + parentRowID + "_ChildTable";
-    var childGridPagerID = 'FaxQueue_' + parentRowID + "_pager";    
-
-    // add a table and pager HTML elements to the parent grid row - we will render the child grid here
-    $('#' + parentRowID).append('<table id=' + childGridID + '></table>' + '<div id=' + childGridPagerID + ' class=scroll></div>');
-    
-    var childData = GetFaxJobsTableData(parentRowKey);
-
-    $("#" + childGridID).jqGrid({
-        datatype: "local",
-        data: childData,
-        colModel: [
-                    { label: 'Job ID', name: 'ID', key: true, width: 30, hidden: true },
-                    { label: 'Receiver\'s fax', name: 'FAX', width: 120 },                    
-                    { label: 'Receiver\'s name', name: 'NAME', width: 120 },
-                    { label: 'Creation time', name: 'CREATIONTIME', width: 140 },
-                    { label: 'Job state', name: 'JOBSTATE', width: 70 },
-                    { label: 'Error message', name: 'ERRMESSAGE', width: 140 },
-                    { label: 'Tasks statuses', name: 'TASKSSTATUSES', width: 150, formatter: FormatTasksStatuses }
-                    
-                ],
-		loadonce: true,
-		viewrecords: true,
-		sortname: 'ID',
-    	sortorder: "asc",				
-		subGrid: true, // set the subGrid property to true to show expand buttons for each row
-        subGridRowExpanded: ShowFaxTasksTable, // javascript function that will take care of showing the child grid 
-        //width: 500,
-        height: '100%',
-        pager: "#" + childGridPagerID
     });
 }
 
-function FormatTasksStatuses(cellValue, options, rowObject) {
-	var currValue;	
-	var items = [];
-	
-	$.each(cellValue, function(index, value) {
-		switch(value) {
-		    case 0:
-		    	currValue = '<img src="../assets/images/yellow.png"></img>';
-        		break;
-		    case 1:
-		    	currValue = '<img src="../assets/images/green.png"></img>';
-        		break;
-		    case 2:
-		    	currValue = '<img src="../assets/images/red.png"></img>';
-        		break;
-		    case 3:		    
-        		currValue = '<img src="../assets/images/silver.png"></img>';
-        		break;
-    		default: 
-    			currValue = '<img src="../assets/images/black.png"></img>';        		
-		}
-							
-		items.push(currValue);				
-	});
-	return items.join("  ");
-}
+function initOutFaxesTable(){
+	ngApplication = angular.module('FaxGWiseApp', []);  
+    ngApplication.controller('outFaxesCtrl', function ($scope, $http) {
 
-function unFormatTasksStatuses(cellValue, options, cellObject) {
-	return $(cellObject.html()).attr("originalValue");
-}
+        $scope.isRowClicked = true;
 
-function GetFaxJobsTableData (faxQueueID) {
-	for (var i=0 ; i < globalOutFaxMessagesData.length ; i++)
-	{
-    	if (globalOutFaxMessagesData[i]['ID'] == faxQueueID) {
-        	return globalOutFaxMessagesData[i]['JOBS'];
-    	}
-   }
-}
+        $scope.recordsPerPage = 10;
+        $scope.pageToLoad = 1;
 
-function ShowFaxTasksTable (parentRowID, parentRowKey) {
-	var childGridID = 'FaxJob_' + parentRowID + "_ChildTable";
-    var childGridPagerID = 'FaxJob_' + parentRowID + "_pager";    
+       $(".sk-circle").show();
+        var dataString = '['+$scope.recordsPerPage+','+$scope.pageToLoad+',"ID","desc"]';
+        var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetFaxOutMessages/1');
+        var request = $http.post(url, dataString);
 
-    // add a table and pager HTML elements to the parent grid row - we will render the child grid here
-    $('#' + parentRowID).append('<table id=' + childGridID + '></table>' + '<div id=' + childGridPagerID + ' class=scroll></div>');
-    
-    var childData = GetFaxTasksTableData(parentRowKey);
+        request.success(function(data, status, headers, config) {
+           // log(data);
+           $scope.totalRecords = data.result[0].records;
+            //$("#data").append(JSON.stringify(data.result[0].rows));
+            $scope.outFaxes = data.result[0].rows;
+            console.log($scope.outFaxes);
+            $(".sk-circle").hide();
 
-    $("#" + childGridID).jqGrid({
-        datatype: "local",
-        data: childData,
-        colModel: [
-                    { label: 'Task ID', name: 'ID', key: true, width: 30, hidden: true },
-                    { label: 'Controller name', name: 'CONTROLLERNAME', width: 150 },                    
-                    { label: 'Online time', name: 'ONLINETIME', width: 150 },
-                    { label: 'State', name: 'TASKSTATE', width: 100 },
-                    { label: 'Error message', name: 'ERRMESSAGE', width: 300 }
-                    
-                ],
-		loadonce: true,
-		viewrecords: true,
-		sortname: 'ID',
-    	sortorder: "asc",				
-        //width: 500,
-        height: '100%',
-        pager: "#" + childGridPagerID
-    });
-}
+            $('html, body').animate({
+                scrollTop: 0
+                }, 100);  
+            if(localStorage.getItem("scrollpos") != null ){
+               // alert(localStorage.getItem("scrollpos"));               
+                $('html, body').animate({
+                scrollTop: localStorage.getItem("scrollpos")
+                }, 3000);  
 
-function GetFaxTasksTableData (faxJobID) {
-	var currJobs;
-	for (var i = 0 ; i < globalOutFaxMessagesData.length ; i++)
-	{
-    	currJobs = globalOutFaxMessagesData[i]['JOBS'];
-    	for (var j = 0 ; j < currJobs.length ; j++) {
-    		if (currJobs[j]['ID'] == faxJobID) {
-        		return currJobs[j]['TASKS'];
-    		}	
-    	}
-   }
-}
+                localStorage.removeItem("scrollpos");
 
-function ShowFaxJobStatuses(data, sender) {
-	if (data.length > 0) {
-		var renderedJobStatuses = renderJobStatuses(data);
-		if (renderedJobStatuses.length != 0) {						
-			$(sender).append(renderedJobStatuses);			
-			renderedJobStatuses.fadeIn();
-		}
-	}
-}
+            }
 
-function ShowFaxTaskStatuses(data, sender) {
-	if (data.length > 0) {
-		var renderedTaskStatuses = renderTaskStatuses(data);
-		if (renderedTaskStatuses.length != 0) {						
-			$(sender).append(renderedTaskStatuses);			
-			renderedTaskStatuses.fadeIn();
-		}
-	}
-}
+        });
+        request.error(function(data, status, headers, config) {
+            if(status == 403){
+                window.location.replace("../login.html");
+            }
+            console.log("sendSQL status: "+status+", message: "+data);
+            alert("error:"+status);
+        });
 
-//-----------------------------------------------------------------------------------
+        $scope.getscrollpos = function(){
+            localStorage.setItem("scrollpos", window.pageYOffset);
+        }
 
-function ShowInJobsTable(data, rowsPerPage) {
-	if (data.rows.length > 0) {		
-		globalInJobsData = data.rows;
-		//log(JSON.stringify(data));
-		
-		var myGrid = $("#jqGrid_infaxes-table")[0]; 						
-		myGrid.addJSONData(globalInJobsData);
-		
-		//Set pages count
-		var lastPage = Math.floor(data.records / rowsPerPage);
-		if ((data.records % rowsPerPage) > 0) {
-			lastPage++;
-		}
-		
-		myGrid = $("#jqGrid_infaxes-table");
-		myGrid.setGridParam({lastpage: lastPage});
-    	myGrid.setGridParam({records: data.records});  
-    	myGrid.each(function() {  
-    		if (this.grid) this.updatepager();
-    	});
-		
-		//unlock grid
-		$("#jqGrid_infaxes-table")[0].grid.endReq();
-
-	}
-}
-
-function ShowInFaxQueueTable (parentRowID, parentRowKey) {
-	var childGridID = 'InJobQueue_' + parentRowID + "_ChildTable";
-    var childGridPagerID = 'InJobQueue_' + parentRowID + "_pager";    
-
-    // add a table and pager HTML elements to the parent grid row - we will render the child grid here
-    $('#' + parentRowID).append('<table id=' + childGridID + '></table>' + '<div id=' + childGridPagerID + ' class=scroll></div>');
-    
-    var childData = GetInFaxQueueTableData(parentRowKey);
-
-    $("#" + childGridID).jqGrid({
-        datatype: "local",
-        data: childData,
-        colModel: [
-                    { label: 'Queue ID', name: 'ID', key: true, width: 30, hidden: true },
-                    { label: 'Receiver\'s email', name: 'EMAIL', width: 220 },                    
-                    { label: 'Receiver\'s name', name: 'NAME', width: 120 },
-                    { label: 'Creation time', name: 'CREATIONTIME', width: 140 },
-                    { label: 'Fax state', name: 'FAXSTATE', width: 70 },
-                    { label: 'Error message', name: 'ERRMESSAGE', width: 140 }
-                    
-                ],
-		loadonce: true,
-		viewrecords: true,
-		sortname: 'ID',
-    	sortorder: "asc",				
-		//subGrid: true, // set the subGrid property to true to show expand buttons for each row
-        //subGridRowExpanded: ShowFaxTasksTable, // javascript function that will take care of showing the child grid 
-        //width: 500,
-        height: '100%',
-        pager: "#" + childGridPagerID
-    });
-}
-
-function GetInFaxQueueTableData (jobQueueID) {
-	for (var i=0 ; i < globalInJobsData.length ; i++)
-	{
-    	if (globalInJobsData[i]['ID'] == jobQueueID) {
-        	return globalInJobsData[i]['FAXES'];
-    	}
-   }
-}
-
-//----------------------------------------------------------------------------------------
-
-function InitUsersTable() {
-	var currGrid = $("#jqGrid_users-table")[0].grid;	
-	if  (typeof currGrid == 'undefined') {	
-		$("#jqGrid_users-table").jqGrid({
-                colModel: [
-                    { label: 'ID', name: 'ID', key: true, width: 30, hidden: true },
-                    { label: 'User\'s name', name: 'USERNAME', width: 220 },
-                    { label: 'User\'s email', name: 'COUNTOFPAGES', width: 50 },                    
-                    { label: 'User\'s phone number', name: 'USERPHONE', width: 220},                    
-                    { label: 'Route group', name: 'ROUTENAME', width: 80 }
-                    
-                ],
-                viewrecords: true, // show the current page, data rang and total records on the toolbar
-                //autowidth: '100%',
-                width: 800,
-                height: '100%',
-                rowNum: 10,
-                //scroll: 1,
-                rowList: [10, 20, 100],
-                sortname: 'ID',
-    			sortorder: "desc",				
-				subGrid: true, // set the subGrid property to true to show expand buttons for each row
-                subGridRowExpanded: ShowMSNTable, // javascript function that will take care of showing the child grid               
-				datatype: function(postdata) {	
-					var myGrid = $("#jqGrid_users-table");
-					myGrid.clearGridData().setGridParam({page: postdata.page});
-					
-					//lock grid					
-					$("#jqGrid_users-table")[0].grid.beginReq();
-									        			
-        			GetUsers(postdata.rows, postdata.page, postdata.sidx, postdata.sord);
-        		},
-                pager: "#jqGridPager_users-table",
-				caption: "Users"
-		});
-	}
-	else {
-		var myGrid = $("#jqGrid_users-table");
-		myGrid.clearGridData().setGridParam({page: 1});
-		myGrid.trigger('reloadGrid');
-	}
-}
-
-function ShowMSNTable (parentRowID, parentRowKey) {
-	var childGridID = 'MSN_' + parentRowID + "_ChildTable";
-    var childGridPagerID = 'MSN_' + parentRowID + "_pager";    
-
-    // add a table and pager HTML elements to the parent grid row - we will render the child grid here
-    $('#' + parentRowID).append('<table id=' + childGridID + '></table>' + '<div id=' + childGridPagerID + ' class=scroll></div>');
-    
-    var childData = GetMSNTableData(parentRowKey);
-
-    $("#" + childGridID).jqGrid({
-        datatype: "local",
-        data: childData,
-        colModel: [
-                    { label: 'MSN ID', name: 'ID', key: true, width: 30, hidden: true },
-                    { label: 'Controller name', name: 'CONTROLLERNAME', width: 220 },                    
-                    { label: 'MSN', name: 'MSN', width: 120 }                    
-                ],
-		loadonce: true,
-		viewrecords: true,
-		sortname: 'ID',
-    	sortorder: "asc",				
-        //width: 500,
-        height: '100%',
-        pager: "#" + childGridPagerID
-    });
-}
-
-function GetMSNTableData (userID) {
-	for (var i=0 ; i < globalUsers.length ; i++)
-	{
-    	if (globalUsers[i]['ID'] == userID) {
-        	return globalUsers[i]['MSNS'];
-    	}
-   }
-}
-
-//----------------------------------------------------------------------------------------
-
-function init() {
-	console.log('init...');
-	/*
-	if ($.parseJSON(outJobs).length > 0) {
-		var res = renderOutJobsTable($.parseJSON(outJobs));
-		$("#faxes-table-body").append(res);
-		$('.doubleScroll').doubleScroll({
-			resetOnWindowResize : true
-		});
-	}
-	*/
-	//parseMainTabEvents();	
-
-	//InitSession();
-	
-	//AuthorizeUser("User", "synopse");
-	//initWebSocket();
-	
-	//InitOutFaxMessagesTable();
-	
-	/*var columnsModel = [
-                    { label: 'ID', name: 'ID', key: true, width: 30, hidden: true },
-                    { label: 'Sender email', name: 'SENDEREMAIL', width: 220 },                    
-                    { label: 'Subject', name: 'SUBJECT', width: 150 },
-                    { label: 'Creation time', name: 'CREATIONTIME', width: 140},
-                    { label: 'Pages', name: 'COUNTOFPAGES', width: 50 },
-                    { label: 'Fax state', name: 'FAXSTATE', width: 80 },
-                    { label: 'Error message', name: 'ERRMESSAGE', width: 100 },
-                    { label: 'Jobs statuses', name: 'JOBSSTATUSES', width: 150, formatter: FormatJobsStatuses }
-                    
-                ];
-	
-	InitDataTable("jqGrid_outfaxes-table", "jqGridPager_outfaxes-table", columnsModel, GetFaxMessages, "ID", "DESC", "Outgoing Fax Messages", ShowFaxJobsTable);
-	*/		
-	//Join();
-}
-/*
-function parseMainTabEvents(){
-	$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-		var tabToggle = $(e.target).attr('aria-controls');
-  		console.log(tabToggle); // newly activated tab
-  		//console.log($(e.relatedTarget).attr('aria-controls')); // previous active tab
-  		switch(tabToggle) {
-  			case "faxes": 
-  			//$('div[role="tabpanel"][id="faxes"]').empty().html("Faxes bla bla bla")
-  				//$('#faxes-table-body').empty();  			
-  				//init();  			
-  				break;
-  			case "outfaxes": 
-  				//$('#outfaxes-table-body').empty();
-  				//InitOutFaxMessagesTable();
-  				var columnsModel = [
-				                { label: 'ID', name: 'ID', key: true, width: 30, hidden: true },
-				                { label: 'Sender email', name: 'SENDEREMAIL', width: 220 },                    
-				                { label: 'Subject', name: 'SUBJECT', width: 150 },
-				                { label: 'Creation time', name: 'CREATIONTIME', width: 140},
-				                { label: 'Pages', name: 'COUNTOFPAGES', width: 50 },
-				                { label: 'Fax state', name: 'FAXSTATE', width: 80 },
-				                { label: 'Error message', name: 'ERRMESSAGE', width: 100 },
-				                { label: 'Jobs statuses', name: 'JOBSSTATUSES', width: 150, formatter: FormatJobsStatuses }
-				                
-				            ];
-				
-				InitDataTable("jqGrid_outfaxes-table", "jqGridPager_outfaxes-table", columnsModel, GetFaxMessages, "ID", "DESC", "Outgoing Fax Messages", ShowFaxJobsTable);  					
-  				break;  				
-  			case "infaxes": 
-  				//$('#infaxes-table-body').empty(); 
-  				//InitInFaxMessagesTable(); 
-  				var columnsModel = [
-					                    { label: 'ID', name: 'ID', key: true, width: 30, hidden: true },
-					                    { label: 'Sender fax', name: 'SENDERFAX', width: 220 },                    
-					                    { label: 'Creation time', name: 'CREATIONTIME', width: 140},
-					                    { label: 'Pages', name: 'COUNTOFPAGES', width: 50 },
-					                    { label: 'Fax state', name: 'FAXSTATE', width: 80 }
-					                    
-					                ];
-				
-				InitDataTable("jqGrid_infaxes-table", "jqGridPager_infaxes-table", columnsModel, GetInJobs, "ID", "DESC", "Incoming jobs", ShowInFaxQueueTable);  					  									
-  				break;
-  			case "users":
-  				$('div[role="tabpanel"][id="users"]').empty().html("Users bla bla bla")
-  				break;
-  			case "templates":
-  				$('div[role="tabpanel"][id="templates"]').empty().html("Templates bla bla bla")
-  				break;
-  			case "settings":
-  				$('div[role="tabpanel"][id="settings"]').empty().html("Settings bla bla bla")
-  				break;
-  			default:
-  				console.log("Unknown id: " + tabToggle);
-  		}
-	})
-}
-*/
-function InitOutFaxes_ngTable() {
-	
-	ngApplication = angular.module('FaxGWiseApp', []);
-	ngApplication.controller('outFaxesCtrl', function($scope, $http) {		
-	
-		$scope.recordsPerPage = 10;
-
-		var dataString = '[' + $scope.recordsPerPage + ',1,"ID","desc"]';
-		var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetFaxOutMessages/1');
-		var request = $http.post(url, dataString);
-
-    	request.success(function(data, status) {
-    		//$("#data").append(JSON.stringify(data));
-        	var p = data.result[0];
-        	$scope.outFaxes = data.result[0].rows;
-        	//log($scope.totalRecords);
-       		$scope.totalRecords = p.records; 	
-       		//log($scope.totalRecords);
-			ShowFaxMessagesTable(p, $scope, true);
-			$(".sk-circle").hide();
-    	});
-    	request.error(function(data, status, headers, config) {
-		    log("sendSQL status: "+status+", message: "+data);
-		});	
-
-    	$scope.openOutJobs = function (index) {
-	    	var dataToCheck = $scope.outFaxes[index]['JOBS'];
-	    	if ((typeof dataToCheck != 'undefined') && (dataToCheck.length > 0)) {	    		        
-	        	$scope.outFaxes[index]['childTableExpanded'] = !$scope.outFaxes[index]['childTableExpanded'];
-	        }         
-	    }
-
-	    $scope.loadMoreFaxes = function (index) {	        
-	    	if ($scope.totalRecords == $scope.outFaxes.length) {
-	    		return;
-	    	}
-	    	
-	    	var pageNumberToLoad = Math.floor($scope.outFaxes.length / $scope.recordsPerPage) + 1;
-	    	var dataString = '[' + $scope.recordsPerPage + ',' + pageNumberToLoad + ',"ID","desc"]';
-			var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetFaxOutMessages/1');
-			var httpRequest = $http({
-	        	method: 'POST',
-	        	url: url,
-				data: dataString
-	
-	    	}).success(function(data, status) {
-	        	var p = data.result[0];
-	       		$scope.totalRecords = p.records; 	
-				ShowFaxMessagesTable(p, $scope, false);
-	    	}).error(function(data, status, headers, config) {
-			    log("sendSQL status: "+status+", message: "+data);
-			});
-	    		    		    		    	
-	    }
-
-
-
-	/*		try
-  		{
-		 socket = new WebSocket(WEBSOCKET_URL,"synopsejson");
-		 console.log('WebSocket - status '+socket.readyState);
-		 socket.onopen    = function(msg){ 
-			console.log("status " + this.readyState); 
-			//sgetUpdatedFax();
-			//log("onopen: Welcome - status "+this.readyState); 
-			//getTimeStamp();
-			//Join();
-		};
-		socket.onmessage = function(msg){ 
-			console.log(msg); 
-			//log("onmessage: ("+msg.data.length+" bytes): " + (msg.data.length < 5000 ? msg.data : (msg.data.substr(0, 30) + '...'))); 
-			//log(msg.data);
-		};
-		socket.onerror   = function(msg){ 
-			console.log(msg); 
-			//log("onerror - code:" + msg.code + ", reason:" + msg.reason + ", wasClean:" + msg.wasClean + ", status:" + this.readyState); 
-		};
-		socket.onclose   = function(msg){ 
-			console.log(msg); 
-			//log("onclose - code:" + msg.code + ", reason:" + msg.reason + ", wasClean:" + msg.wasClean + ", status:" + this.readyState); 
-	    };
-		}
-		catch(ex) {
-	    	console.log(ex);
-		} 
-
-		
-		$scope.recordsPerPage = 10;
-		
-	    
-	    /*$scope.loadMoreFaxes = function (index) {	        
-	    	if ($scope.totalRecords == $scope.outFaxes.length) {
-	    		return;
-	    	}
-	    	
-	    	var pageNumberToLoad = Math.floor($scope.outFaxes.length / $scope.recordsPerPage) + 1;
-	    	var dataString = '[' + $scope.recordsPerPage + ',' + pageNumberToLoad + ',"ID","desc"]';
-			var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetFaxOutMessages/1');
-			var httpRequest = $http({
-	        	method: 'POST',
-	        	url: url,
-				data: dataString
-	
-	    	}).success(function(data, status) {
-	        	var p = data.result[0];
-	       		$scope.totalRecords = p.records; 	
-				ShowFaxMessagesTable(p, $scope, false);
-	    	}).error(function(data, status, headers, config) {
-			    log("sendSQL status: "+status+", message: "+data);
-			});
-	    		    		    		    	
-	    };*/
-
-	    /* $(window).scroll(function(){
+        $(window).scroll(function(){
             if($(window).scrollTop() == $(document).height() - $(window).height()){
-            	 log($scope.totalRecords );
                 if ($scope.totalRecords == $scope.outFaxes.length) {
                     return;
                 }
-
                 $(".sk-circle").show();
                 $scope.pageToLoad += 1;
-               // alert($scope.totalRecords + " " + $scope.outFaxes.length);
-               var pageNumberToLoad = Math.floor($scope.outFaxes.length / $scope.recordsPerPage) + 1;
-                var dataString = '[' + $scope.recordsPerPage + ',' + pageNumberToLoad + ',"ID","desc"]';
-                var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetFaxInMessages/1');
+                //alert($scope.totalRecords + " " + $scope.inFaxes.length);
+                var dataString = '[' + $scope.recordsPerPage + ',' + $scope.pageToLoad + ',"ID","desc"]';
+                var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetFaxOutMessages/1');
                 var request = $http.post(url, dataString);
                 request.success(function(data, status, headers, config) {
-                	var p = data.result[0];
-	       			$scope.totalRecords = p.records; 	
-					ShowFaxMessagesTable(p, $scope, false);
-                    log(data.result[0].rows)
+                    $scope.totalRecords = data.result[0].records;
+                    $scope.outFaxes.push.apply($scope.outFaxes, data.result[0].rows);
+                    console.log(data.result[0].rows)
                     $(".sk-circle").hide();
                 });
                 request.error(function(data, status, headers, config) {
-                    log("sendSQL status: "+status+", message: "+data);
+                    console.log("sendSQL status: "+status+", message: "+data);
+                    alert("error:"+status);
                 });
             }   
-        });*/
+        });
+        
+        $scope.openOutJobs = function (index) {
+            if($scope.isRowClicked == false){
+                return;
+            }
+                
+             console.log($scope.outFaxes[index]);
+             if((typeof($scope.outFaxes[index].JOBS) == 'undefined') || $scope.outFaxes[index].JOBS.length < 1)
+                return;
+                $scope.outFaxes[index].expandRow = !$scope.outFaxes[index].expandRow      
+        };  
+
+        $('html').on('show.bs.dropdown', function () {
+            $scope.isRowClicked = false;
+        });
+
+        $('html').on('hidden.bs.dropdown', function () {
+            $scope.isRowClicked = true;
+        });
+
+        $scope.showDropdown = function(){
+            $scope.isRowClicked = false;
+        } 
+
+        $scope.formatDate = function(date){
+            var newDate = date.replace("T", " ");
+            return newDate;
+        }    
+
+        $scope.checkPending = function(date){
+            if(date.contains("2050")){
+                return "Pending";
+            }
+            else{
+                return "Delay";
+            }
+        }    
+
+        $scope.sendFaxAgain = function(id){
+            var dataString = '[' + 0 + ',' + id + ']';
+            var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.sendAgainFax/1');
+            var request = $http.post(url, dataString);
+            request.success(function(data) {
+                //console.log(data);
+
+            });
+            request.error(function(data, status) {
+                console.log("sendSQL status: "+status+", message: "+data);
+                alert("error:"+status);
+            });
+        }
+
+        $scope.CancelFax = function(id){
+            var dataString = '[' + 0 + ',' + id + ']';
+            var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.CancelFax/1');
+            var request = $http.post(url, dataString);
+            request.success(function(data) {
+                console.log(data);
+
+            });
+            request.error(function(data, status) {
+                console.log("sendSQL status: "+status+", message: "+data);
+                alert("error:"+status);
+            });
+        }
+
+        $scope.sendJobAgain = function(id){
+            var dataString = '[' + 1 + ',' + id + ']';
+            var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.sendAgainFax/1');
+            var request = $http.post(url, dataString);
+            request.success(function(data) {
+                //console.log(data);
+
+            });
+            request.error(function(data, status) {
+                console.log("sendSQL status: "+status+", message: "+data);
+                alert("error:"+status);
+            });
+        }
+
+        $scope.CancelJob = function(id){
+            var dataString = '[' + 1 + ',' + id + ']';
+            var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.CancelFax/1');
+            var request = $http.post(url, dataString);
+            request.success(function(data) {
+                console.log(data);
+
+            });
+            request.error(function(data, status) {
+                console.log("sendSQL status: "+status+", message: "+data);
+                alert("error:"+status);
+            });
+        }
+
+            try
+            {
+            var socket;
+            var nickname; 
+                        
+            socket = new WebSocket(WEBSOCKET_URL,"synopsejson");
+            
+            console.log('WebSocket - status '+socket.readyState);
+            socket.onopen = function(event){ 
+                console.log("WebSocket - status " + this.readyState); 
+                //getTimeStamp();
+                Join();
+
+               /* var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetComponetStatus/1');
+           		var request = $http.post(url);
+
+            	request.success(function(data, status, headers, config) {
+                	console.log(data);
+            	});
+            	request.error(function(data, status, headers, config) {
+                	console.log("sendSQL status: "+status+", message: "+data);
+            	});*/
+            };
+            socket.onmessage = function(event){ 
+                var data = JSON.parse(event.data);
+                console.log(event); 
+                if(typeof(data.request) != 'undefined' && data.request[5][0] == "OutJob"){
+                    var jobToUpdate = data.request[5][1];
+
+                     var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUpdatedJobOutMessage/1');
+                     var dataString = '[' + jobToUpdate + ']';
+                     var request = $http.post(url, dataString);
+                     request.success(function(data) {
+                        var updatedJob = data.result[0].rows[0];
+                        //updatedJob.JOBSTATE = "Error";
+                        for (var i=0; i<$scope.outFaxes.length; i++) {
+                         for(var j =0; j<$scope.outFaxes[i].JOBS.length; j++){
+                            if ($scope.outFaxes[i].JOBS[j].ID === jobToUpdate) {
+                                //console.log($scope.outFaxes[i].JOBS[j]);
+                                $scope.outFaxes[i].JOBS[j] = updatedJob;
+                                return;
+                            }   
+                        }
+                     }
+                    });
+                    request.error(function(data, status) {
+                        log("sendSQL status: "+status+", message: "+data);
+                        alert("error:"+status);
+                    });                 
+                    //alert($("body").find("[jobid='" + 509 + "']").text('Ok'));            
+                }
+                if(typeof(data.request) != 'undefined' && data.request[5][0] == "OutFaxMessage"){
+                     var faxToUpdate = data.request[5][1];
+
+                     var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUpdatedFaxOutMessage/1');
+                     var dataString = '[' + faxToUpdate + ']';
+                     var request = $http.post(url, dataString);
+                     request.success(function(data) {
+                        var updatedFax = data.result[0].rows[0];
+
+                     for (var i=0; i<$scope.outFaxes.length; i++) {
+                        if ($scope.outFaxes[i].ID === faxToUpdate) {
+                            //console.log($scope.outFaxes[i].JOBS[j]);
+                            $scope.outFaxes[i] = updatedFax;
+                            return;
+                        }   
+                     }
+                    });
+                    request.error(function(data, status) {
+                        console.log("sendSQL status: "+status+", message: "+data);
+                        alert("error:"+status);
+                    });                        
+                }
+                if(typeof(data.request) != 'undefined' && data.request[5][0] == "NewOutFaxMessage"){
+                     var faxToAdd = data.request[5][1];
+
+                     var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUpdatedFaxOutMessage/1');
+                     var dataString = '[' + faxToAdd + ']';
+                     var request = $http.post(url, dataString);
+                     request.success(function(data) {
+                        var newFax = data.result[0].rows[0];
+                        $scope.outFaxes.unshift(newFax);
+                    });
+                    request.error(function(data, status) {
+                        console.log("sendSQL status: "+status+", message: "+data);
+                        alert("error:"+status);
+                    });                        
+                }
+            };
+            socket.onerror   = function(event){ 
+                console.log(event); 
+                //log("onerror - code:" + msg.code + ", reason:" + msg.reason + ", wasClean:" + msg.wasClean + ", status:" + this.readyState); 
+            };
+            socket.onclose   = function(event){ 
+                console.log(event); 
+                //log("onclose - code:" + msg.code + ", reason:" + msg.reason + ", wasClean:" + msg.wasClean + ", status:" + this.readyState); 
+                };
+            }
+            catch(ex) {
+                console.log(ex);
+            } 
+
+            function Join(){
+                var msg = JSON.stringify(makerequest("","root/FaxGwiseInfo.Join",[Number(getLocalStorageParam('SESSION_ID')),1]));
+                 try{ 
+                    socket.send(msg); 
+                    console.log('Sent ('+msg.length+" bytes): " + msg.length < 5000 ? msg : (msg.substr(0, 100) + '...')); 
+                } catch(ex){ 
+                    console.log(ex);
+                }
+            }
+
+            function makerequest(method,uri,data){
+                var req = {
+                    request:[method,uri,"",0,"",data]
+                };
+                 return req;
+            }
+
+        $(document).on("click", "#getStatus", function() {
+              var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetComponetStatus/1');
+        var request = $http.post(url);
+
+        request.success(function(data, status, headers, config) {
+          
+            console.log(data);
+        });
+        request.error(function(data, status, headers, config) {
+           
+            console.log("sendSQL status: "+status+", message: "+data);
+            alert("error:"+status);
+        });
+
+        });
+	});
+}
+
+function initInFaxesTable(){
+	    ngApplication = angular.module('FaxGWiseApp', []);  
+    	ngApplication.controller('inFaxesCtrl', function ($scope, $http) {
+
+        $scope.recordsPerPage = 10;
+        $scope.pageToLoad = 1;
+       // $scope.expandTable = false;
+       $(".sk-circle").show();
+        var dataString = '['+$scope.recordsPerPage+','+$scope.pageToLoad+',"ID","desc"]';
+        var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetFaxInMessages/1');
+        var request = $http.post(url, dataString);
+
+        request.success(function(data, status, headers, config) {
+            console.log(data);
+           $scope.totalRecords = data.result[0].records;
+            //$("#data").append(JSON.stringify(data.result[0].rows));
+            $scope.inFaxes = data.result[0].rows;
+            $(".sk-circle").hide();
+
+            $('html, body').animate({
+                scrollTop: 0
+                }, 100); 
+            if(localStorage.getItem("scrollpos") != null){
+                $('html, body').animate({
+                scrollTop: localStorage.getItem("scrollpos")
+                }, 3000);   
+                localStorage.removeItem("scrollpos");
+            }
+        });
+        request.error(function(data, status, headers, config) {
+            if(status == 403){
+                window.location.replace("../login.html");
+            }
+            console.log("sendSQL status: "+status+", message: "+data);
+            alert("error:"+status);
+        });
 
 
+        $scope.getscrollpos = function(){
+            localStorage.setItem("scrollpos", window.pageYOffset);
+        }
 
+        $(window).scroll(function(){
+            if($(window).scrollTop() == $(document).height() - $(window).height()){
+                if ($scope.totalRecords == $scope.inFaxes.length) {
+                    return;
+                }
+                $(".sk-circle").show();
+                $scope.pageToLoad += 1;
+                var dataString = '[' + $scope.recordsPerPage + ',' + $scope.pageToLoad + ',"ID","desc"]';
+                var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetFaxInMessages/1');
+                var request = $http.post(url, dataString);
+                request.success(function(data, status, headers, config) {
+                    $scope.totalRecords = data.result[0].records;
+                    $scope.inFaxes.push.apply($scope.inFaxes, data.result[0].rows);
+                    console.log(data.result[0].rows)
+                    $(".sk-circle").hide();
+                });
+                request.error(function(data, status, headers, config) {
+                    console.log("sendSQL status: "+status+", message: "+data);
+                    alert("error:"+status);
+                });
+            }   
+        });
+    
+        $scope.openInFaxes = function (index) {
+             console.log($scope.inFaxes[index]);
+             if((typeof($scope.inFaxes[index].FAXES) == 'undefined') || $scope.inFaxes[index].FAXES.length < 1)
+                return;
+                $scope.inFaxes[index].expandRow = !$scope.inFaxes[index].expandRow;      
+        };  
 
-});
+        $scope.formatDate = function(date){
+            var newDate = date.replace("T", " ");
+            return newDate;
+        }  
 
-}		
+         try
+            {
+            var socket;
+            var nickname; 
+            if(typeof(socket) == 'undefined'){
+                
+                socket = new WebSocket(WEBSOCKET_URL,"synopsejson");
+
+            }
+            
+            console.log('WebSocket - status '+socket.readyState);
+            socket.onopen = function(event){ 
+                console.log("WebSocket - status " + this.readyState); 
+                //getTimeStamp();
+                Join();
+            };
+            socket.onmessage = function(event){ 
+                var data = JSON.parse(event.data);
+                console.log(event); 
+                if(typeof(data.request) != 'undefined' && data.request[5][0] == "InJob"){
+                	 var jobToUpdate = data.request[5][1];			
+                     var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUpdatedJobINMessage/1');
+                     var dataString = '[' + jobToUpdate + ']';
+                     var request = $http.post(url, dataString);
+                     request.success(function(data) {
+                        var updatedJob = data.result[0].rows[0];
+
+                        for (var i=0; i<$scope.inFaxes.length; i++) {
+                            if($scope.inFaxes[i].ID === jobToUpdate){
+                                $scope.inFaxes[i] = updatedJob;
+                                return;
+                            }
+                      }
+                    });
+                    request.error(function(data, status) {
+                        log("sendSQL status: "+status+", message: "+data);
+                        alert("error:"+status);
+                    });                             
+                }
+                if(typeof(data.request) != 'undefined' && data.request[5][0] == "InFaxMessage"){
+                     var faxToUpdate = data.request[5][1];
+
+                     var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUpdatedFaxINMessage/1');
+                     var dataString = '[' + faxToUpdate + ']';
+                     var request = $http.post(url, dataString);
+                     request.success(function(data) {
+                        var updatedFax = data.result[0][0];
+                        //console.log(updatedFax);                      
+                        for(var i = 0; i<$scope.inFaxes.length; i++){
+                            for(var j = 0; j<$scope.inFaxes[i].FAXES.length; j++){
+                                if($scope.inFaxes[i].FAXES[j].ID === faxToUpdate){
+                                    $scope.inFaxes[i].FAXES[j] = updatedFax;
+                                    return;
+                                }    
+                            }
+                        }
+                    });
+                    request.error(function(data, status) {
+                        console.log("sendSQL status: "+status+", message: "+data);
+                        alert("error:"+status);
+                    });                        
+                }
+                if(typeof(data.request) != 'undefined' && data.request[5][0] == "NewInFaxMessage"){
+                     var faxToAdd = data.request[5][1];
+
+                     var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUpdatedJobINMessage/1');
+                     var dataString = '[' + faxToAdd + ']';
+                     var request = $http.post(url, dataString);
+                     request.success(function(data) {
+                        var newFax = data.result[0].rows[0];
+                        $scope.inFaxes.unshift(newFax);
+                    });
+                    request.error(function(data, status) {
+                        console.log("sendSQL status: "+status+", message: "+data);
+                        alert("error:"+status);
+                    });                        
+                }
+            };
+            socket.onerror   = function(event){ 
+                console.log(event); 
+                //log("onerror - code:" + msg.code + ", reason:" + msg.reason + ", wasClean:" + msg.wasClean + ", status:" + this.readyState); 
+            };
+            socket.onclose   = function(event){ 
+                console.log(event); 
+                //log("onclose - code:" + msg.code + ", reason:" + msg.reason + ", wasClean:" + msg.wasClean + ", status:" + this.readyState); 
+                };
+            }
+            catch(ex) {
+                console.log(ex);
+            } 
+
+            function Join(){
+                var msg = JSON.stringify(makerequest("","root/FaxGwiseInfo.Join",[Number(getLocalStorageParam('SESSION_ID')),1]));
+                 try{ 
+                    socket.send(msg); 
+                    console.log('Sent ('+msg.length+" bytes): " + msg.length < 5000 ? msg : (msg.substr(0, 100) + '...')); 
+                } catch(ex){ 
+                    console.log(ex);
+                }
+            }
+
+            function makerequest(method,uri,data){
+                var req = {
+                    request:[method,uri,"",0,"",data]
+                };
+                 return req;
+            }
+    });
+}
+
+function initInFaxesDetails(){
+	var id = url('?infaxid');
+
+    ngApplication = angular.module('FaxGWiseApp', []);   
+    ngApplication.controller('inFaxDetailsCtrl', function ($scope, $http) {
+
+        var dataString = '['+id+']';
+        var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUpdatedJobINMessage/1');
+        var request = $http.post(url, dataString);
+
+        request.success(function(data, status, headers, config) {
+
+            $scope.inFax = data.result[0].rows[0];
+            log($scope.inFax);    
+        });
+        request.error(function(data, status, headers, config) {
+            if(status == 403){
+                window.location.replace("../login.html");
+            }
+            log("sendSQL status: "+status+", message: "+data);
+            alert("error:"+status);
+        });
+
+        $scope.formatDate = function(date){
+            if(typeof(date)=='undefined')
+                return;
+            var newDate = date.replace("T", " ");
+            return newDate;
+        }
+    });
+}
+
+function initSettings(){
+	ngApplication = angular.module('FaxGWiseApp', []);   
+        ngApplication.controller('settingsCtrl', function ($scope, $http) {
+
+        $scope.numbers = [0,1,2];
+
+        var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetSettings/1');
+        var request = $http.post(url);
+
+        request.success(function(data, status, headers, config) {
+            console.log(data.result[0]);
+            var data = data.result[0];
+            $scope.faxConverter = data[0].Options;
+            $scope.isdnController = data[1].Options;
+            $scope.t38Controller = data[2].Options;
+            $scope.gwCommunicator = data[3].Options;
+            $scope.secondCommunicator = data[4].Options;
+            $scope.reporter = data[5].Options;
+            $scope.router = data[6].Options;
+        });
+        request.error(function(data, status, headers, config) {
+            console.log("sendSQL status: "+status+", message: "+data);
+            if(status == 403){
+                window.location.replace("../login.html");
+            }
+            alert("error:"+status);
+        });
+        
+        function saveSettings(params, showSaving, errorCallback, successCallback){
+            showSaving();
+            var count = 0;
+            for(var i=0; i<params.length; i++){
+                var value;
+                // check if an element is checkbox
+                if($("#"+params[i]).is(':checkbox')){
+                    value = $("#"+params[i]).prop('checked');
+                    if($("#"+params[i]).prop('checked') == true){
+                        value = 1;
+                    }
+                    else{
+                        value = 0;
+                    }
+                }
+                else{
+                     value = $("#"+params[i]).val();
+                }
+
+                var dataString = '['+ $("#"+params[i]).attr("valueId") +','+ $("#"+params[i]).attr("settId")+','+'"'+value +'"'+']';
+                //console.log(dataString);
+                var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.UpdateSettingValue/1');
+                var request = $http.post(url, dataString);
+
+                request.success(function(data){
+                    count++;
+                    if(count == params.length){
+                        successCallback();
+                    }
+                });
+                request.error(function(data, status){
+                    console.log("sendSQL status: "+status+", message: "+data);
+                    errorCallback();
+                    return;
+                });
+            }
+        }
+
+        $("#convertergeneral").submit(function(event){
+            event.preventDefault();
+            var params = ['filetypes','convEnabled','timeout','compress','format'];
+
+            saveSettings(params, function(){
+                $(".saving-conv").show();
+            }, function(){
+                $(".saving-conv").hide();
+                 $("#convertergeneralerror").show().delay(3000).fadeOut("slow");
+            }, function(){
+                $(".saving-conv").hide();
+                 $("#convertergeneralsuccess").show().delay(3000).fadeOut("slow");
+            });
+        });
+        
+        $("#converterheader").submit(function(event){
+            event.preventDefault();
+            var params = ['headertext','headeroffright','headeroffleft','headerofftop','headerborder','headertextright','headertextleft','headerbold','headersize','headerfont','headerlogo','headerlogoX', 'headerlogoY','headerlogoFile'];
+
+            saveSettings(params, function(){
+                $(".saving").show();
+            }, function(){
+                $(".saving").hide();
+                 $("#converterheadererror").show().delay(3000).fadeOut("slow");
+            }, function(){
+                $(".saving").hide();
+                 $("#converterheadersuccess").show().delay(3000).fadeOut("slow");
+            });
+        });
+
+        $("#isdn").submit(function(event){
+            event.preventDefault();
+            var params = ['enabled','excludedfiles','channelsreceive','channelssend','presentationmode','maxmsnlength','retryperiod','retrycount','maxrecipients','dialprefix','checkresolution','maxfaxfilesize','ownmsn','owncsid','portname','channelssendreceive','ddi','runstart'];
+
+            saveSettings(params, function(){
+                $(".saving").show();
+            }, function(){
+                $(".saving").hide();
+                 $("#isdnerror").show().delay(3000).fadeOut("slow");
+            }, function(){
+                $(".saving").hide();
+                 $("#isdnsuccess").show().delay(3000).fadeOut("slow");
+            });
+        });
+
+        $("#t38").submit(function(event){
+            event.preventDefault();
+            var params = ['t38enabled','t38runstart','t38retryperiod','t38retrycount','t38maxfaxfilesize','defaultsendertelephone','defaultsenderfax','defaultsendername','defaultsendercompany'];
+
+            saveSettings(params, function(){
+                $(".saving").show();
+            }, function(){
+                $(".saving").hide();
+                 $("#t38error").show().delay(3000).fadeOut("slow");
+            }, function(){
+                $(".saving").hide();
+                 $("#t38success").show().delay(3000).fadeOut("slow");
+            });
+        });
+
+        $("#gw").submit(function(event){
+            event.preventDefault();
+            var params = ['gwenabled','gwrunstart','processedmessagescount','emailfaxstarttag','emailfaxendtag','emailtofaxenabled','mailboxscaninterval','password','deletefaxmessage'];
+
+            saveSettings(params, function(){
+                $(".saving").show();
+            }, function(){
+                $(".saving").hide();
+                 $("#gwerror").show().delay(3000).fadeOut("slow");
+            }, function(){
+                $(".saving").hide();
+                 $("#gwsuccess").show().delay(3000).fadeOut("slow");
+            });
+        });
+
+        $("#second").submit(function(event){
+            event.preventDefault();
+            var params = ['secondenabled','secondrunstart','secondprocessedmessagescount','secondemailfaxstarttag','secondemailfaxendtag','secondemailtofaxenabled','secondmailboxscaninterval','secondpassword','seconddeletefaxmessage'];
+
+            saveSettings(params, function(){
+                $(".saving").show();
+            }, function(){
+                $(".saving").hide();
+                 $("#seconderror").show().delay(3000).fadeOut("slow");
+            }, function(){
+                $(".saving").hide();
+                 $("#secondsuccess").show().delay(3000).fadeOut("slow");
+            });
+        });
+
+        $("#report").submit(function(event){
+            event.preventDefault();
+            var params = ['injobformat','language','journalmonthlydetailed','journalmonthlycompact','messageadditional','messageoutjobsuccesssubject','messageoutjoberrorsubject','messageroutedinjobsubject','messageinjobsubject'];
+            
+            saveSettings(params, function(){
+                $(".saving").show();
+            }, function(){
+                $(".saving").hide();
+                 $("#reportererror").show().delay(3000).fadeOut("slow");
+            }, function(){
+                $(".saving").hide();
+                 $("#reportersuccess").show().delay(3000).fadeOut("slow");
+            });
+        });
+
+        $("#router").submit(function(event){
+            event.preventDefault();
+            var params = ['citycode','countrycode','nrlengthfordialprefix','internalfaxrouting','listenmsn','adminemail','ownphonenumber','routerdefaultsendertelephone','routerdefaultsenderfax','routerdefaultsendername','routerdefaultsendercompany','defaultsenderemail'];
+
+            saveSettings(params, function(){
+                $(".saving").show();
+            }, function(){
+                $(".saving").hide();
+                 $("#routererror").show().delay(3000).fadeOut("slow");
+            }, function(){
+                $(".saving").hide();
+                 $("#routersuccess").show().delay(3000).fadeOut("slow");
+            });
+        });
+
+        });
+}
 
 
 function InitOutFaxDetails_ngApplication (faxQueueID) {		
@@ -762,6 +822,7 @@ function InitOutFaxDetails_ngApplication (faxQueueID) {
                 window.location.replace("../login.html");
             }
 		    log("sendSQL status: "+status+", message: "+data);
+		    alert("error:"+status);
 		});
 
 		$scope.formatDate = function(date){
@@ -773,226 +834,53 @@ function InitOutFaxDetails_ngApplication (faxQueueID) {
 	});
 }
 
-/*function renderOutJobsTable(json) {
-	var tableObj = $('<table class="table table-bordered" id="data-table"></table>');
-	var tableHeadObj = $('<thead></thead>');
-	var tableHeadRowObj = $('<tr class="active" id="table-head"></tr>');
-	var tableBodyObj = $('<tbody class="table-striped" id="table-body"></tbody>')
-	var headerObj = json[0];
-	var tableHead = [];
-	var statusCell;
-	
-	$.each(headerObj, function(name, value) {
-		tableHead.push('<th class="tableHeader">' + name + '</th>')
-	});
-	
-	tableHead.push('<th class="tableHeader">Job Statuses</th>'); //for children statuses 
-	
-	tableHeadRowObj.append(tableHead.join(""));
-	tableHeadObj.append(tableHeadRowObj)
-	$.each(json, function(it, object) {
-		var items = [];
-		$.each(object, function(key, value) {
-			items.push('<td>' + value + '</td>')
-		})
-		 
-		statusCell = $('<td class="stat_cell"></td>');		
-		
-		var row = $('<tr class="cursor-pointer">' + items.join("") + '</tr>').click(function() {
-			OnFaxRowClick(object['ORDERID'], this)
-		});
-		row.append(statusCell);
-		row.appendTo(tableBodyObj);
-		
-		GetFaxJobs(object['ORDERID'], row);
-		//GetFaxJobStatuses(object['ORDERID'], statusCell);		
-	});
-	tableObj.append(tableHeadObj);
-	tableObj.append(tableBodyObj);
-
-	return tableObj;
-}*/
-
-/*function renderJob(json) {
-	var divObj = $('<div><h3>Fax jobs</h3></div>');
-	var tableObj = $('<table class="table table-bordered table-jobs" id="data-table"></table>');
-	var tableHeadObj = $('<thead></thead>');
-	var tableHeadRowObj = $('<tr class="active" id="table-head"></tr>');
-	var tableBodyObj = $('<tbody class="table-striped" id="table-body"></tbody>')
-	var headerObjArray = json[0];
-	var tableHead = [];
-	var statusCell;
-	
-	$.each(headerObjArray, function(name, value) {
-		tableHead.push('<th class="tableHeader">' + name + '</th>');
-	});
-	
-	tableHead.push('<th class="tableHeader">Task Statuses</th>'); //for children statuses 
-
-	tableHeadRowObj.append(tableHead.join(""));
-	tableHeadObj.append(tableHeadRowObj)
-	$.each(json, function(it, object) {
-		var items = [];
-		$.each(object, function(key, value) {
-			items.push('<td>' + value + '</td>')
-		})
-		
-		statusCell = $('<td class="stat_cell"></td>');
-		
-		var row = $('<tr class="cursor-pointer faxjob_record">' + items.join("") + '</tr>').click(function() {
-			OnFaxJobRowClick(object['JOBID'], this)
-		});
-		row.append(statusCell);
-		row.appendTo(tableBodyObj);
-		
-		GetFaxTasks(object['JOBID'], row);
-		//GetFaxTaskStatuses(object['JOBID'], statusCell);
-	});
-	tableObj.append(tableHeadObj)
-	tableObj.append(tableBodyObj);
-	
-	divObj.append(tableObj);
-	return divObj;
-}*/
-/*
-function renderTask (json) {
-	var divObj = $('<div><h3>Fax tasks</h3></div>');
-	var tableObj = $('<table class="table table-bordered table-jobs" id="data-table"></table>');
-	var tableHeadObj = $('<thead></thead>');
-	var tableHeadRowObj = $('<tr class="active" id="table-head"></tr>');
-	var tableBodyObj = $('<tbody class="table-striped" id="table-body"></tbody>');
-	var headerObj = json[0];
-	var tableHead = [];
-	
-	$.each(headerObj, function(name, value) {
-		tableHead.push('<th class="tableHeader">' + name + '</th>');
-	});
-
-	tableHeadRowObj.append(tableHead.join(""));
-	tableHeadObj.append(tableHeadRowObj)
-	$.each(json, function(it, object) {
-		var items = [];
-		$.each(object, function(key, value) {
-			items.push('<td>' + value + '</td>')
-		})
-		var row = $('<tr class="cursor-pointer faxtask_record">' + items.join("") + '</tr>');
-		row.appendTo(tableBodyObj);
-	});
-	tableObj.append(tableHeadObj)
-	tableObj.append(tableBodyObj);
-	
-	divObj.append(tableObj);
-	return divObj;
-}*/
-
-/*function renderJobStatuses (json) {
-	var divObj = $('<div></div>');
-	
-	var tableObj = $('<table class="table table-borderless"></table>');
-	var tableBodyObj = $('<tbody class="table-striped"></tbody>');	
-	
-	var items = [];
-	
-	var currJobStatus;
-	
-	$.each(json, function(it, object) {
-		currJobStatus = object['PROCESSINGSTAGE'];
-
-		switch(currJobStatus) {
-		    case 0:
-		    case 1:
-		    case 2:
-		    case 3:
-		    case 4:
-		    case 5:
-		    case 6:
-		    case 7:
-		    case 8:
-		    case 9:
-		    case 10:
-		    case 11:
-		    case 12:
-		    case 13:
-		    case 14:
-        		value = '<img src="images/' + currJobStatus + '.png"></img>';
-        		break;
-    		default: 
-    			value = '<img src="images/black.png"></img>';        		
-		}
-							
-		items.push('<td>' + value + '</td>')				
-	});
-	
-	var row = $('<tr class="cursor-pointer">' + items.join("") + '</tr>');
-	row.appendTo(tableBodyObj);
-	
-	tableObj.append(tableBodyObj);
-	divObj.append(tableObj);
-	return divObj;
-}*/
-
-/*function renderTaskStatuses (json) {
-	var divObj = $('<div></div>');
-	
-	var tableObj = $('<table class="table table-borderless"></table>');
-	var tableBodyObj = $('<tbody class="table-striped"></tbody>');	
-	
-	var items = [];
-	
-	var currJobStatus;
-	
-	$.each(json, function(it, object) {
-		currJobStatus = object['TASKSTATE'];
-
-		switch(currJobStatus) {
-		    case 0:
-		    	value = '<img src="images/yellow.png"></img>';
-        		break;
-		    case 1:
-		    	value = '<img src="images/green.png"></img>';
-        		break;
-		    case 2:
-		    	value = '<img src="images/red.png"></img>';
-        		break;
-		    case 3:		    
-        		value = '<img src="images/silver.png"></img>';
-        		break;
-    		default: 
-    			value = '<img src="images/black.png"></img>';        		
-		}
-							
-		items.push('<td>' + value + '</td>')				
-	});
-	
-	var row = $('<tr class="cursor-pointer">' + items.join("") + '</tr>');
-	row.appendTo(tableBodyObj);
-	
-	tableObj.append(tableBodyObj);
-	divObj.append(tableObj);
-	return divObj;
-}*/
-
-/*
-function OnFaxRowClick(orderId, sender) {
-	var item = $('#job-orderId-'+orderId);
-	/*if (item.length == 0){		
-		GetFaxJobs(orderId, sender);
-	} else {
-		item.remove();
-	}*/
-	/*if (item.length > 0){		
-		item.toggle();
-	} 
-}*/
-/*
-function OnFaxJobRowClick(jobId, sender) {
-	var item = $('#job-jobId-'+jobId);
-	/*if (item.length == 0){	
-		GetFaxTasks(jobId, sender);
-	} else {
-		item.remove();
-	}*/
-	/*if (item.length > 0){	
-		item.toggle();
+function ShowFaxMessageDetails(data, controllerScope) {
+	if (data.rows.length > 0) {		
+		var currFaxMessage = data.rows[0];
+		AdvanceOutFaxMessage(currFaxMessage);				
+		controllerScope.outFax = currFaxMessage;						
 	}
-}*/
+}
+
+function AdvanceOutFaxMessage(messageData) {
+	var currTasks;
+	var currTasksStatuses;
+	var currJobStatus;
+	var currTaskStatus;
+	
+	var currJobs = messageData['JOBS'];
+	
+	var currEmail = messageData['SENDEREMAIL'];
+	messageData['SENDEREMAIL'] = currEmail.trim();
+	
+	var currJobsStatuses = [];
+	var currCollectiveStatus = 1;//all OK
+	
+	if (typeof currJobs != 'undefined') {  	
+    	for (var j = 0 ; j < currJobs.length ; j++) {
+    		currJobStatus = currJobs[j]['PROCESSINGSTAGE'];
+    		currJobsStatuses.push(currJobStatus);    		    		
+    		
+    		currTasks = currJobs[j]['TASKS'];
+    		currTasksStatuses = [];
+    		if (typeof currTasks != 'undefined') {
+	    		for (var k = 0 ; k < currTasks.length ; k++) {
+	    			currTaskStatus = currTasks[k]['TASKSTATE'];
+	    			currTasksStatuses.push(currTaskStatus);
+	    			
+	    			if (currTaskStatus == 2) { // ERROR
+		    			currCollectiveStatus = 2; // ERROR
+		    		} else if ((currCollectiveStatus != 2) && (currTaskStatus == 0)) {
+		    			currCollectiveStatus = 0; // processing
+		    		}    			    			
+		    	}
+	    	}
+	    	messageData['JOBS'][j]['TASKSSTATUSES'] = currTasksStatuses;
+	    	messageData['JOBS'][j]['childTableExpanded'] = false;
+    	}
+	}
+	messageData['JOBSSTATUSES'] = currJobsStatuses;    	
+	messageData['collectiveStatus'] = currCollectiveStatus;
+	messageData['childTableExpanded'] = false;
+}
+

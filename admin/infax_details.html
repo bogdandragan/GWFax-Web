@@ -53,10 +53,10 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="users.html"><i class="fa fa-diamond"></i> <span class="nav-label">Users</span> <span></span></a>
+                    <a href="users.html"><i class="fa fa-user"></i> <span class="nav-label">Users</span> <span></span></a>
                 </li>
                 <li>
-                    <a href="settings.html"><i class="fa fa-flask"></i> <span class="nav-label">Settings</span> <span></span></a>
+                    <a href="settings.html"><i class="fa fa-cogs"></i> <span class="nav-label">Settings</span> <span></span></a>
                 </li>
                 <li>
                     <span class="controller-name" class="nav-label">ISDN Controller
@@ -306,33 +306,7 @@
     <script src="../js/slideshow.js"></script>
     <script>
 
-    var id = url('?infaxid');
-
-    var FaxGWiseApp = angular.module('FaxGWiseApp', []);   
-    FaxGWiseApp.controller('inFaxDetailsCtrl', function ($scope, $http) {
-
-        var dataString = '['+id+']';
-        var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUpdatedJobINMessage/1');
-        var request = $http.post(url, dataString);
-
-        request.success(function(data, status, headers, config) {
-
-            $scope.inFax = data.result[0].rows[0];
-            log($scope.inFax);    
-        });
-        request.error(function(data, status, headers, config) {
-            if(status == 403){
-                window.location.replace("../login.html");
-            }
-            log("sendSQL status: "+status+", message: "+data);
-        });
-
-        $scope.formatDate = function(date){
-            if(typeof(date)=='undefined')
-                return;
-            var newDate = date.replace("T", " ");
-            return newDate;
-        }
+        initInFaxesDetails();
 
         try
         {
@@ -369,7 +343,6 @@
             };
             return req;
         } 
-    });
 
             $(document).on("click", ".faxpreview", function() {
           //$("#expTable").css("display","none");

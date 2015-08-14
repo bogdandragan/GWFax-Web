@@ -60,10 +60,10 @@
                     </ul>
                 </li>
                 <li class="active">
-                    <a href="users.html"><i class="fa fa-diamond"></i> <span class="nav-label">Users</span> <span></span></a>
+                    <a href="users.html"><i class="fa fa-user"></i> <span class="nav-label">Users</span> <span></span></a>
                 </li>
                 <li>
-                    <a href="settings.html"><i class="fa fa-flask"></i> <span class="nav-label">Settings</span> <span></span></a>
+                    <a href="settings.html"><i class="fa fa-cogs"></i> <span class="nav-label">Settings</span> <span></span></a>
                 </li>
                 <li>
                     <span class="controller-name" class="nav-label">ISDN Controller
@@ -255,58 +255,7 @@
     <script src="../js/url.js"></script>
 
     <script>
-        var FaxGWiseApp = angular.module('FaxGWiseApp', []);   
-    FaxGWiseApp.controller('usersCtrl', function ($scope, $http) {
-         $scope.sortType = "EMAIL";
-         $scope.sortReverse  = false;
-         $scope.searchFilter   = '';
-
-        $scope.recordsPerPage = 10;
-        $scope.pageToLoad = 1;
-       // $scope.expandTable = false;
-
-        var dataString = '['+$scope.recordsPerPage+','+$scope.pageToLoad+',"ID","asc"]';
-        var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUsers/1');
-        var request = $http.post(url, dataString);
-
-        request.success(function(data, status, headers, config) {
-            console.log(data);
-
-            $scope.users = data.result[0].rows;
-        });
-        request.error(function(data, status, headers, config) {
-            log("sendSQL status: "+status+", message: "+data);
-            if(status == 403){
-                window.location.replace("../login.html");
-            }
-        });
-
-        
-
-
-        $scope.openUser = function (user, id) {
-             
-            var dataString = '['+id+','+$scope.recordsPerPage+','+$scope.pageToLoad+',"ID","asc"]';
-            var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUserMSNList/1');
-            var request = $http.post(url, dataString);
-
-            request.success(function(data, status, headers, config) {
-                console.log(data.result[0].rows);
-                $scope.msns = data.result[0].rows;
-                var index = $scope.users.indexOf(user);
-               
-                $scope.users[index].expandRow = !$scope.users[index].expandRow; 
-
-            });
-            request.error(function(data, status, headers, config) {
-                log("sendSQL status: "+status+", message: "+data);
-                if(status == 403){
-                    window.location.replace("../login.html");
-                }
-            });      
-        };  
-
-    });
+       initUsersTable();
 
     try
     {

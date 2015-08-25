@@ -1013,8 +1013,9 @@
 
         $(document).ready(function() {
             var tab = url('#');
-            //console.log(tab);
-            document.querySelector('.nav-tabs li a[href='+'"'+"#"+tab+'"'+']').click();
+                 
+            if(tab != "")
+                document.querySelector('.nav-tabs li a[href='+'"'+"#"+tab+'"'+']').click();
         });
 
         $(".settings-label").click (function () {
@@ -1031,3 +1032,6 @@
 </body>
 
 </html>
+
+
+создать страничку програмно   чтоб был эндпоинт...переводы, локализация кастомный штмл вставлять

@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/asf/!svn/ver/1154885/apr/apr-util/branches/1.3.x/build
+END
+apu-conf.m4
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/1154885/apr/apr-util/branches/1.3.x/build/apu-conf.m4
+END
+apu-hints.m4
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/661006/apr/apr-util/branches/1.3.x/build/apu-hints.m4
+END
+dbd.m4
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/asf/!svn/ver/1100853/apr/apr-util/branches/1.3.x/build/dbd.m4
+END
+mkdir.sh
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/asf/!svn/ver/647687/apr/apr-util/branches/1.3.x/build/mkdir.sh
+END
+apu-iconv.m4
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/661006/apr/apr-util/branches/1.3.x/build/apu-iconv.m4
+END
+dbm.m4
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/asf/!svn/ver/1003788/apr/apr-util/branches/1.3.x/build/dbm.m4
+END
+nw_apu_export.inc
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/asf/!svn/ver/1088201/apr/apr-util/branches/1.3.x/build/nw_apu_export.inc
+END
+w32locatedb.pl
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/asf/!svn/ver/647687/apr/apr-util/branches/1.3.x/build/w32locatedb.pl
+END
+dso.m4
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/asf/!svn/ver/1003377/apr/apr-util/branches/1.3.x/build/dso.m4
+END
+find_apu.m4
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/979231/apr/apr-util/branches/1.3.x/build/find_apu.m4
+END

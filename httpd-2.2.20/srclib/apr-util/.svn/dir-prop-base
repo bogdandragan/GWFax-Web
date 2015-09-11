@@ -1,0 +1,57 @@
+K 10
+svn:ignore
+V 426
+.libs
+.deps
+Makefile
+aclocal.m4
+config.cache
+config.log
+config.status
+config.nice
+configure
+libtool
+libaprutil*.la
+aprutil.exp
+exports.c
+export_vars.[ch]
+export_vars.sh
+apu-config
+apu-*-config
+apu-config.out
+Debug
+Release
+LibD
+LibR
+aprutil.opt
+aprutil.ncb
+*.
+libaprutil.rc
+*.aps
+*.plg
+*.dep
+*.mak
+*.rc
+BuildLog.htm
+*.stc
+*.stt
+*.sto
+*.vcproj
+*.vcproj.*
+autom4te.cache
+build-outputs.mk
+.make.dirs
+apr-util*.pc
+apr-util.spec
+
+
+
+
+K 13
+svn:mergeinfo
+V 278
+/apr/apr/trunk:781403,784592,789965,794508,1402870,1402897
+/apr/apr-util/branches/1.3.x:692751
+/apr/apr-util/branches/1.5.x:1002504,1002584-1002585,1002620,1002622-1002623,1002628,1002647,1002975
+/apr/apr-util/trunk:692751,731225,743986,744009,745771,747612,747623,747630,781403
+END

@@ -1,0 +1,38 @@
+K 10
+svn:ignore
+V 75
+_chm
+_off
+_tools
+_dist
+build
+*.tex
+*.aux
+*.out
+*.log
+*.pdf
+*.toc
+.outdated*
+K 25
+svnmailer:content-charset
+V 288
+# charsets to recognize by the svnmailer
+
+# Korean
+*.xml.ko = euc-kr
+*.html.ko.euc-kr = euc-kr
+
+# Japanese
+*.xml.ja = utf-8
+*.html.ja.utf8 = utf-8
+
+# Russian
+*.xml.ru = koi8-r
+*.html.ru.koi8-r = koi8-r
+
+# Turkish
+*.xml.tr = utf-8
+*.html.tr.utf8 = utf-8
+
+# The rest is iso-8859-1 (default)
+END

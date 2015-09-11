@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/ldap
+END
+config.m4
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/ldap/config.m4
+END
+mod_ldap.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/ldap/mod_ldap.dsp
+END
+mod_ldap.dep
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/ldap/mod_ldap.dep
+END
+mod_ldap.mak
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/ldap/mod_ldap.mak
+END
+util_ldap_cache.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/ldap/util_ldap_cache.h
+END
+util_ldap_cache_mgr.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/ldap/util_ldap_cache_mgr.c
+END
+NWGNUmakefile
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/ldap/NWGNUmakefile
+END
+README.ldap
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/ldap/README.ldap
+END
+util_ldap.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/ldap/util_ldap.c
+END
+util_ldap_cache.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/ldap/util_ldap_cache.c
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/ldap/Makefile.in
+END

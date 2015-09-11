@@ -1,0 +1,13 @@
+K 10
+svn:ignore
+V 55
+Makefile
+pth
+.deps
+openssl
+zlib
+apr
+apr-util
+apr-iconv
+
+END

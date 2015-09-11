@@ -1,0 +1,173 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl/index.html
+END
+ssl_intro.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl/ssl_intro.xml
+END
+index.html.en
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl/index.html.en
+END
+ssl_faq.xml.meta
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl/ssl_faq.xml.meta
+END
+ssl_intro.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl/ssl_intro.html
+END
+ssl_howto.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl/ssl_howto.xml
+END
+ssl_intro.html.en
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl/ssl_intro.html.en
+END
+index.html.tr.utf8
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl/index.html.tr.utf8
+END
+index.xml.zh-cn
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl/index.xml.zh-cn
+END
+ssl_howto.html
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl/ssl_howto.html
+END
+ssl_howto.html.en
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl/ssl_howto.html.en
+END
+ssl_faq.xml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl/ssl_faq.xml
+END
+index.html.ja.utf8
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl/index.html.ja.utf8
+END
+ssl_compat.xml.meta
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl/ssl_compat.xml.meta
+END
+index.html.zh-cn
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl/index.html.zh-cn
+END
+index.xml.tr
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl/index.xml.tr
+END
+index.xml.meta
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl/index.xml.meta
+END
+ssl_faq.html
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl/ssl_faq.html
+END
+ssl_faq.html.en
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl/ssl_faq.html.en
+END
+ssl_intro.html.ja.utf8
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl/ssl_intro.html.ja.utf8
+END
+index.xml.ja
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl/index.xml.ja
+END
+ssl_intro.xml.meta
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl/ssl_intro.xml.meta
+END
+ssl_compat.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl/ssl_compat.xml
+END
+ssl_intro.xml.ja
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl/ssl_intro.xml.ja
+END
+ssl_howto.xml.meta
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl/ssl_howto.xml.meta
+END
+index.xml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl/index.xml
+END
+ssl_compat.html
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl/ssl_compat.html
+END
+ssl_compat.html.en
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/ssl/ssl_compat.html.en
+END

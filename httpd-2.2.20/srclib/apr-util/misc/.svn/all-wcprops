@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/repos/asf/!svn/ver/1126221/apr/apr-util/branches/1.3.x/misc
+END
+apr_thread_pool.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/asf/!svn/ver/1126221/apr/apr-util/branches/1.3.x/misc/apr_thread_pool.c
+END
+apr_queue.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/1064279/apr/apr-util/branches/1.3.x/misc/apr_queue.c
+END
+apr_reslist.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/683719/apr/apr-util/branches/1.3.x/misc/apr_reslist.c
+END
+apu_dso.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/asf/!svn/ver/783582/apr/apr-util/branches/1.3.x/misc/apu_dso.c
+END
+apu_version.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/647687/apr/apr-util/branches/1.3.x/misc/apu_version.c
+END
+apr_rmm.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/asf/!svn/ver/800735/apr/apr-util/branches/1.3.x/misc/apr_rmm.c
+END
+apr_date.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/647687/apr/apr-util/branches/1.3.x/misc/apr_date.c
+END

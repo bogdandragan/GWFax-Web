@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/asf/!svn/ver/661006/apr/apr-util/branches/1.3.x/build/pkg
+END
+buildpkg.sh
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/661006/apr/apr-util/branches/1.3.x/build/pkg/buildpkg.sh
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/asf/!svn/ver/647687/apr/apr-util/branches/1.3.x/build/pkg/README
+END
+pkginfo.in
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/asf/!svn/ver/647687/apr/apr-util/branches/1.3.x/build/pkg/pkginfo.in
+END

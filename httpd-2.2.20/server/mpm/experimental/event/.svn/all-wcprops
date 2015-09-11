@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/mpm/experimental/event
+END
+fdqueue.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/mpm/experimental/event/fdqueue.h
+END
+pod.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/mpm/experimental/event/pod.h
+END
+config5.m4
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/mpm/experimental/event/config5.m4
+END
+fdqueue.c
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/mpm/experimental/event/fdqueue.c
+END
+mpm.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/mpm/experimental/event/mpm.h
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/mpm/experimental/event/Makefile.in
+END
+event.c
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/mpm/experimental/event/event.c
+END
+mpm_default.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/mpm/experimental/event/mpm_default.h
+END
+pod.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/mpm/experimental/event/pod.c
+END

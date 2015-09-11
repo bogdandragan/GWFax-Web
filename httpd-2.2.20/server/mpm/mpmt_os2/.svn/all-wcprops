@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/mpm/mpmt_os2
+END
+mpmt_os2.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/mpm/mpmt_os2/mpmt_os2.c
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/mpm/mpmt_os2/Makefile.in
+END
+mpm_default.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/mpm/mpmt_os2/mpm_default.h
+END
+mpmt_os2_child.c
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/mpm/mpmt_os2/mpmt_os2_child.c
+END
+config5.m4
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/mpm/mpmt_os2/config5.m4
+END
+mpm.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/mpm/mpmt_os2/mpm.h
+END

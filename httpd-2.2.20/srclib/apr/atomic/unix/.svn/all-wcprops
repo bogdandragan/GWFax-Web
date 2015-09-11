@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/asf/!svn/ver/1470350/apr/apr/branches/1.4.x/atomic/unix
+END
+builtins.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/atomic/unix/builtins.c
+END
+solaris.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/atomic/unix/solaris.c
+END
+ia32.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/asf/!svn/ver/1470350/apr/apr/branches/1.4.x/atomic/unix/ia32.c
+END
+s390.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/asf/!svn/ver/1470191/apr/apr/branches/1.4.x/atomic/unix/s390.c
+END
+mutex.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/atomic/unix/mutex.c
+END
+ppc.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/asf/!svn/ver/1470192/apr/apr/branches/1.4.x/atomic/unix/ppc.c
+END

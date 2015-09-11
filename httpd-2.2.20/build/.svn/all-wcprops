@@ -1,0 +1,197 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build
+END
+special.mk
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/special.mk
+END
+NWGNUhead.inc
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/NWGNUhead.inc
+END
+nw_export.inc
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/nw_export.inc
+END
+sysv_makefile
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/sysv_makefile
+END
+mkconfNW.awk
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/mkconfNW.awk
+END
+config-stubs
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/config-stubs
+END
+build-modules-c.awk
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/build-modules-c.awk
+END
+ltlib.mk
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/ltlib.mk
+END
+NWGNUscripts.inc
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/NWGNUscripts.inc
+END
+install-bindist.sh.in
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/install-bindist.sh.in
+END
+install.sh
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/install.sh
+END
+NWGNUtail.inc
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/NWGNUtail.inc
+END
+NWGNUenvironment.inc
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/NWGNUenvironment.inc
+END
+instdso.sh
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/instdso.sh
+END
+NWGNUmakefile
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/NWGNUmakefile
+END
+default.pl
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/default.pl
+END
+fastgen.sh
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/fastgen.sh
+END
+binbuild.sh
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/binbuild.sh
+END
+mkdep.perl
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/mkdep.perl
+END
+make_nw_export.awk
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/make_nw_export.awk
+END
+rules.mk.in
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/rules.mk.in
+END
+bsd_makefile
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/bsd_makefile
+END
+make_var_export.awk
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/make_var_export.awk
+END
+library.mk
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/library.mk
+END
+get-version.sh
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/get-version.sh
+END
+installwinconf.awk
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/installwinconf.awk
+END
+program.mk
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/program.mk
+END
+config_vars.sh.in
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/config_vars.sh.in
+END
+mkdir.sh
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/mkdir.sh
+END
+nw_ver.awk
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/nw_ver.awk
+END
+make_exports.awk
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/make_exports.awk
+END
+buildinfo.sh
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/build/buildinfo.sh
+END

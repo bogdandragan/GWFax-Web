@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/asf/!svn/ver/1368821/apr/apr/branches/1.4.x/tables
+END
+apr_tables.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/1368821/apr/apr/branches/1.4.x/tables/apr_tables.c
+END
+apr_hash.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/asf/!svn/ver/1237547/apr/apr/branches/1.4.x/tables/apr_hash.c
+END

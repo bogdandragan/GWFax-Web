@@ -1,0 +1,245 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/repos/asf/!svn/ver/1626566/apr/apr/branches/1.4.x/build
+END
+jlibtool.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/asf/!svn/ver/1183728/apr/apr/branches/1.4.x/build/jlibtool.c
+END
+libaprapp.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/build/libaprapp.dsp
+END
+MakeEtags
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/build/MakeEtags
+END
+aplibtool.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/asf/!svn/ver/1183728/apr/apr/branches/1.4.x/build/aplibtool.c
+END
+prelibaprapp.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/build/prelibaprapp.dsp
+END
+apr_hints.m4
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/asf/!svn/ver/1400205/apr/apr/branches/1.4.x/build/apr_hints.m4
+END
+aprapp.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/build/aprapp.dsp
+END
+PrintPath
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/build/PrintPath
+END
+apr_network.m4
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/asf/!svn/ver/1502807/apr/apr/branches/1.4.x/build/apr_network.m4
+END
+fixwin32mak.pl
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/929797/apr/apr/branches/1.4.x/build/fixwin32mak.pl
+END
+cvtdsp.pl
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/build/cvtdsp.pl
+END
+install.sh
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/build/install.sh
+END
+NWGNUtail.inc
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/1481066/apr/apr/branches/1.4.x/build/NWGNUtail.inc
+END
+apr_win32.m4
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/build/apr_win32.m4
+END
+config.guess
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/asf/!svn/ver/1626566/apr/apr/branches/1.4.x/build/config.guess
+END
+NWGNUenvironment.inc
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/1363624/apr/apr/branches/1.4.x/build/NWGNUenvironment.inc
+END
+NWGNUmakefile
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/1088201/apr/apr/branches/1.4.x/build/NWGNUmakefile
+END
+config.sub
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/asf/!svn/ver/1626566/apr/apr/branches/1.4.x/build/config.sub
+END
+gen-build.py
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/asf/!svn/ver/910961/apr/apr/branches/1.4.x/build/gen-build.py
+END
+win32ver.awk
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/build/win32ver.awk
+END
+find_apr.m4
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/asf/!svn/ver/979230/apr/apr/branches/1.4.x/build/find_apr.m4
+END
+make_nw_export.awk
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/asf/!svn/ver/1087521/apr/apr/branches/1.4.x/build/make_nw_export.awk
+END
+buildcheck.sh
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/asf/!svn/ver/835659/apr/apr/branches/1.4.x/build/buildcheck.sh
+END
+make_var_export.awk
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/build/make_var_export.awk
+END
+apr_rules.mk.in
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/asf/!svn/ver/936344/apr/apr/branches/1.4.x/build/apr_rules.mk.in
+END
+run-gcov.sh
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/build/run-gcov.sh
+END
+apr_common.m4
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/1199078/apr/apr/branches/1.4.x/build/apr_common.m4
+END
+lineends.pl
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/build/lineends.pl
+END
+get-version.sh
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/build/get-version.sh
+END
+apr_threads.m4
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/build/apr_threads.m4
+END
+preaprapp.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/build/preaprapp.dsp
+END
+mkdir.sh
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/asf/!svn/ver/1340290/apr/apr/branches/1.4.x/build/mkdir.sh
+END
+libaprapp.dep
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/1100867/apr/apr/branches/1.4.x/build/libaprapp.dep
+END
+libaprapp.mak
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/1100867/apr/apr/branches/1.4.x/build/libaprapp.mak
+END
+nw_ver.awk
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/asf/!svn/ver/794446/apr/apr/branches/1.4.x/build/nw_ver.awk
+END
+make_exports.awk
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/build/make_exports.awk
+END
+NWGNUhead.inc
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/1481066/apr/apr/branches/1.4.x/build/NWGNUhead.inc
+END
+aprapp.dep
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/asf/!svn/ver/1100867/apr/apr/branches/1.4.x/build/aprapp.dep
+END
+aprapp.mak
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/asf/!svn/ver/1100867/apr/apr/branches/1.4.x/build/aprapp.mak
+END
+nw_export.inc
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/build/nw_export.inc
+END

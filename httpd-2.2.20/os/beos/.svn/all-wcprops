@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/os/beos
+END
+beosd.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/os/beos/beosd.c
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/os/beos/Makefile.in
+END
+beosd.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/os/beos/beosd.h
+END
+os.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/os/beos/os.c
+END
+config.m4
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/os/beos/config.m4
+END
+os.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/os/beos/os.h
+END

@@ -1,0 +1,473 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa
+END
+mod_authz_owner.mak
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authz_owner.mak
+END
+mod_authn_alias.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authn_alias.dsp
+END
+mod_authz_host.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authz_host.dsp
+END
+mod_authn_dbd.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authn_dbd.dsp
+END
+mod_authz_groupfile.mak
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authz_groupfile.mak
+END
+mod_authn_anon.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authn_anon.dsp
+END
+mod_auth_digest.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_auth_digest.c
+END
+NWGNUauthndbm
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/NWGNUauthndbm
+END
+mod_authn_dbm.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authn_dbm.c
+END
+mod_authz_dbm.mak
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authz_dbm.mak
+END
+mod_authn_dbm.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authn_dbm.dsp
+END
+mod_authz_owner.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authz_owner.c
+END
+mod_auth_basic.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_auth_basic.dsp
+END
+mod_authz_groupfile.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authz_groupfile.c
+END
+NWGNUauthnzldap
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/NWGNUauthnzldap
+END
+mod_authz_owner.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authz_owner.dsp
+END
+mod_authz_groupfile.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authz_groupfile.dsp
+END
+NWGNUauthzdbm
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/NWGNUauthzdbm
+END
+mod_authz_dbm.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authz_dbm.c
+END
+mod_authz_user.mak
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authz_user.mak
+END
+mod_authz_dbm.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authz_dbm.dsp
+END
+NWGNUauthzusr
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/NWGNUauthzusr
+END
+mod_authz_user.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authz_user.c
+END
+mod_authz_user.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authz_user.dsp
+END
+mod_authnz_ldap.mak
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authnz_ldap.mak
+END
+mod_authn_file.mak
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authn_file.mak
+END
+NWGNUauthdigt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/NWGNUauthdigt
+END
+mod_authn_default.mak
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authn_default.mak
+END
+mod_authnz_ldap.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authnz_ldap.c
+END
+mod_authnz_ldap.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authnz_ldap.dsp
+END
+mod_authn_dbd.dep
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authn_dbd.dep
+END
+mod_authz_host.dep
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authz_host.dep
+END
+mod_authn_alias.dep
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authn_alias.dep
+END
+.indent.pro
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/.indent.pro
+END
+mod_authn_anon.dep
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authn_anon.dep
+END
+mod_authn_file.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authn_file.dsp
+END
+mod_authn_default.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authn_default.c
+END
+mod_authz_default.mak
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authz_default.mak
+END
+mod_auth_digest.mak
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_auth_digest.mak
+END
+mod_authn_default.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authn_default.dsp
+END
+mod_authn_dbm.dep
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authn_dbm.dep
+END
+mod_authn_alias.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authn_alias.c
+END
+mod_auth_basic.dep
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_auth_basic.dep
+END
+mod_authz_host.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authz_host.c
+END
+NWGNUauthnalias
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/NWGNUauthnalias
+END
+mod_authn_dbd.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authn_dbd.c
+END
+mod_authn_anon.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authn_anon.c
+END
+mod_authz_owner.dep
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authz_owner.dep
+END
+mod_authz_groupfile.dep
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authz_groupfile.dep
+END
+mod_authz_default.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authz_default.c
+END
+mod_auth_basic.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_auth_basic.c
+END
+mod_authz_dbm.dep
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authz_dbm.dep
+END
+mod_authz_default.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authz_default.dsp
+END
+mod_auth_digest.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_auth_digest.dsp
+END
+config.m4
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/config.m4
+END
+mod_auth.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_auth.h
+END
+NWGNUmakefile
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/NWGNUmakefile
+END
+NWGNUauthnano
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/NWGNUauthnano
+END
+mod_authz_user.dep
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authz_user.dep
+END
+NWGNUauthbasc
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/NWGNUauthbasc
+END
+NWGNUauthndef
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/NWGNUauthndef
+END
+mod_authnz_ldap.dep
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authnz_ldap.dep
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/Makefile.in
+END
+NWGNUauthzgrp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/NWGNUauthzgrp
+END
+mod_authn_file.dep
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authn_file.dep
+END
+mod_authn_default.dep
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authn_default.dep
+END
+NWGNUauthzdef
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/NWGNUauthzdef
+END
+NWGNUauthnfil
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/NWGNUauthnfil
+END
+mod_authn_alias.mak
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authn_alias.mak
+END
+mod_authn_file.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authn_file.c
+END
+mod_authn_dbd.mak
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authn_dbd.mak
+END
+mod_authz_host.mak
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authz_host.mak
+END
+mod_authn_anon.mak
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authn_anon.mak
+END
+mod_authz_default.dep
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authz_default.dep
+END
+mod_auth_digest.dep
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_auth_digest.dep
+END
+mod_authn_dbm.mak
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_authn_dbm.mak
+END
+mod_auth_basic.mak
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/mod_auth_basic.mak
+END
+NWGNUauthndbd
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/aaa/NWGNUauthndbd
+END

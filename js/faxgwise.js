@@ -4,15 +4,14 @@ var globalUsers;
 var ngApplication;
 
 function initUsersTable(){
-	ngApplication = angular.module('FaxGWiseApp', []);   
-    ngApplication.controller('usersCtrl', function ($scope, $http) {
-         $scope.sortType = "EMAIL";
+	ngApplication = angular.module('FaxGWiseApp', ['ui.bootstrap']);   
+    ngApplication.controller('usersCtrl', function ($scope, $http,  $modal, $log) {
+         $scope.sortType = "ID";
          $scope.sortReverse  = false;
          $scope.searchFilter   = '';
 
         $scope.recordsPerPage = 10;
         $scope.pageToLoad = 1;
-       // $scope.expandTable = false;
 
         var dataString = '['+$scope.recordsPerPage+','+$scope.pageToLoad+',"ID","asc"]';
         var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUsers/1');
@@ -30,8 +29,9 @@ function initUsersTable(){
             }
             alert("error:"+status);
         });
+ 
 
-        $scope.openUser = function (user, id) {            
+        $scope.openUser = function (user, id) {           
             var dataString = '['+id+','+$scope.recordsPerPage+','+$scope.pageToLoad+',"ID","asc"]';
             var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUserMSNList/1');
             var request = $http.post(url, dataString);
@@ -51,9 +51,158 @@ function initUsersTable(){
                 }
             	alert("error:"+status);
             });      
-        };  
+        };
+
+    $scope.editFormOpen = function (user) {
+
+    var modalInstance = $modal.open({
+    	 animation: true,
+      templateUrl: 'userEditForm.html',
+      controller: 'ModalInstanceCtrl',
+      resolve: {
+        	 user: function () {
+                return user;
+            }
+      }
+    });
+	};
+
+    $scope.addFormOpen = function (users) {
+    	
+    var modalInstance = $modal.open({
+    	 animation: true,
+      templateUrl: 'userAddForm.html',
+      controller: 'ModalInstance2Ctrl',
+      resolve: {
+        	 users: function () {
+                return $scope;
+            }
+      }
+      
+    });
+	};
+
+	$scope.deleteFormOpen = function (currUser, users) {
+
+    var modalInstance = $modal.open({
+    	 animation: true,
+      templateUrl: 'userDeleteForm.html',
+      controller: 'ModalInstance3Ctrl',
+      resolve: {
+        	 users: function () {
+                return users;
+            },
+            currUser: function(){
+            	return currUser;
+            }
+      }
+      
+    });
+	};
+
 
     });
+
+	ngApplication.controller('ModalInstanceCtrl', function ($scope, $http, $modalInstance, user) {
+
+  		$scope.id = user.ID;
+  		$scope.username = user.USERNAME;
+  		$scope.email = user.EMAIL;
+  		$scope.phone = user.USERPHONE;
+  		
+  		$scope.update = function() {
+    		
+    	var dataString = [{"ID":$scope.id,"USERNAME":$scope.username,"EMAIL":$scope.email,"USERPHONE":$scope.phone}];
+        var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.UpdateUser/1');
+        var request = $http.post(url, dataString);
+
+        request.success(function(data) {
+        	
+        	user.USERNAME = $scope.username;
+        	user.EMAIL = $scope.email;
+        	user.USERPHONE = $scope.phone;
+        	$scope.success = "User updated";
+
+        });
+        request.error(function(data, status, headers, config) {
+        	//console.log(data);
+        	console.log("status: "+status+", message: "+data.errorText);
+        	$scope.error = "An error occured while updating user";
+
+        });
+  		};
+
+  		$scope.cancel = function () {
+    		$modalInstance.dismiss('cancel');
+  		};
+	});
+
+	ngApplication.controller('ModalInstance2Ctrl', function ($scope, $http, $modalInstance, users) {
+
+		$scope.add = function () {
+    		var dataString = [{"USERNAME":$scope.username,"EMAIL":$scope.email,"USERPHONE":$scope.phone}];
+        	var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.AddUser/1');
+        	var request = $http.post(url, dataString);
+
+        	request.success(function(data) {
+        		var recordsPerPage = 10;
+        		var pageToLoad = 1;
+        		var dataString = '['+recordsPerPage+','+pageToLoad+',"ID","asc"]';
+        		var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUsers/1');
+       			 var request = $http.post(url, dataString);
+
+        		request.success(function(data, status, headers, config) {
+        			users.users = data.result[0].rows;
+        			$modalInstance.dismiss('cancel');	
+        		});
+        		request.error(function(data, status, headers, config) {
+            		console.log("sendSQL status: "+status+", message: "+data.errorText);
+        			$scope.error = "An error occured while adding user";
+        		});
+        	});
+        	request.error(function(data, status, headers, config) {
+        		//console.log(data);
+        		console.log("status: "+status+", message: "+data.errorText);
+        		$scope.error = "An error occured while adding user";
+
+        	});
+  		};
+
+  		$scope.cancel = function () {
+    		$modalInstance.dismiss('cancel');
+  		};
+	});
+
+	ngApplication.controller('ModalInstance3Ctrl', function ($scope, $http, $modalInstance, users, currUser) {
+
+		$scope.delete = function () {
+
+    		var dataString = '[' + currUser.ID + ']';
+        	var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.DeleteUser/1');
+        	var request = $http.post(url, dataString);
+
+        	request.success(function(data) {
+       			$.each(users, function(index, user) {
+      				if(user['ID'] == currUser.ID) {
+          				users.splice(index, 1);
+          				$modalInstance.dismiss('cancel');
+          				 return false;
+      				}    
+   				});
+        	});
+        	request.error(function(data, status, headers, config) {
+        		//console.log(data);
+        		console.log("status: "+status+", message: "+data.errorText);
+        		$scope.error = "An error occured while deleting user";
+
+        	});
+  		};
+
+  		$scope.cancel = function () {
+    		$modalInstance.dismiss('cancel');
+  		};
+	});
+
 }
 
 function initOutFaxesTable(){
@@ -66,7 +215,7 @@ function initOutFaxesTable(){
         $scope.pageToLoad = 1;
 
        $(".sk-circle").show();
-        var dataString = '['+$scope.recordsPerPage+','+$scope.pageToLoad+',"ID","desc"]';
+        var dataString = '['+$scope.recordsPerPage+','+$scope.pageToLoad+',"ID","desc", 0, ""]';
         var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetFaxOutMessages/1');
         var request = $http.post(url, dataString);
 
@@ -90,7 +239,6 @@ function initOutFaxesTable(){
                 localStorage.removeItem("scrollpos");
 
             }
-
         });
         request.error(function(data, status, headers, config) {
             if(status == 403){
@@ -136,7 +284,7 @@ function initOutFaxesTable(){
              console.log($scope.outFaxes[index]);
              if((typeof($scope.outFaxes[index].JOBS) == 'undefined') || $scope.outFaxes[index].JOBS.length < 1)
                 return;
-                $scope.outFaxes[index].expandRow = !$scope.outFaxes[index].expandRow      
+             $scope.outFaxes[index].expandRow = !$scope.outFaxes[index].expandRow      
         };  
 
         $('html').on('show.bs.dropdown', function () {

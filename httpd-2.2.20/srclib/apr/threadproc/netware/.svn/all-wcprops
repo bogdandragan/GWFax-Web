@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/asf/!svn/ver/1611061/apr/apr/branches/1.4.x/threadproc/netware
+END
+signals.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/asf/!svn/ver/1080082/apr/apr/branches/1.4.x/threadproc/netware/signals.c
+END
+proc.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/1080082/apr/apr/branches/1.4.x/threadproc/netware/proc.c
+END
+thread.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/asf/!svn/ver/1611061/apr/apr/branches/1.4.x/threadproc/netware/thread.c
+END
+threadpriv.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/threadproc/netware/threadpriv.c
+END
+procsup.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/threadproc/netware/procsup.c
+END

@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/loggers
+END
+mod_log_forensic.exp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/loggers/mod_log_forensic.exp
+END
+mod_log_config.mak
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/loggers/mod_log_config.mak
+END
+mod_log_config.dep
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/loggers/mod_log_config.dep
+END
+mod_log_forensic.dep
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/loggers/mod_log_forensic.dep
+END
+mod_log_forensic.mak
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/loggers/mod_log_forensic.mak
+END
+mod_logio.dep
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/loggers/mod_logio.dep
+END
+mod_logio.mak
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/loggers/mod_logio.mak
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/loggers/Makefile.in
+END
+config.m4
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/loggers/config.m4
+END
+mod_log_config.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/loggers/mod_log_config.c
+END
+NWGNUforensic
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/loggers/NWGNUforensic
+END
+NWGNUmodlogio
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/loggers/NWGNUmodlogio
+END
+mod_log_forensic.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/loggers/mod_log_forensic.c
+END
+mod_logio.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/loggers/mod_logio.c
+END
+mod_log_config.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/loggers/mod_log_config.dsp
+END
+mod_log_config.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/loggers/mod_log_config.h
+END
+NWGNUmakefile
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/loggers/NWGNUmakefile
+END
+mod_log_forensic.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/loggers/mod_log_forensic.dsp
+END
+mod_logio.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/loggers/mod_logio.dsp
+END
+.indent.pro
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/loggers/.indent.pro
+END
+mod_log_config.exp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/loggers/mod_log_config.exp
+END

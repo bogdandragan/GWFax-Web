@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/style/xsl
+END
+hhc.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/style/xsl/hhc.xsl
+END
+sitemap.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/style/xsl/sitemap.xsl
+END
+maf.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/style/xsl/maf.xsl
+END
+convmap.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/style/xsl/convmap.xsl
+END
+indexpage.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/style/xsl/indexpage.xsl
+END
+directiveindex.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/style/xsl/directiveindex.xsl
+END
+faq.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/style/xsl/faq.xsl
+END
+nroff.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/style/xsl/nroff.xsl
+END
+manualpage.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/style/xsl/manualpage.xsl
+END
+moduleindex.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/style/xsl/moduleindex.xsl
+END
+typemap.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/style/xsl/typemap.xsl
+END
+hhp.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/style/xsl/hhp.xsl
+END
+language.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/style/xsl/language.xsl
+END
+synopsis.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/style/xsl/synopsis.xsl
+END
+common.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/style/xsl/common.xsl
+END
+quickreference.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/docs/manual/style/xsl/quickreference.xsl
+END

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/asf/!svn/ver/1102151/apr/apr/branches/1.4.x/misc/win32
+END
+charset.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/misc/win32/charset.c
+END
+misc.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/asf/!svn/ver/1102151/apr/apr/branches/1.4.x/misc/win32/misc.c
+END
+internal.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/1084323/apr/apr/branches/1.4.x/misc/win32/internal.c
+END
+start.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/asf/!svn/ver/1092027/apr/apr/branches/1.4.x/misc/win32/start.c
+END
+apr_app.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/misc/win32/apr_app.c
+END
+rand.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/asf/!svn/ver/1084323/apr/apr/branches/1.4.x/misc/win32/rand.c
+END
+utf8.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/misc/win32/utf8.c
+END
+env.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/misc/win32/env.c
+END

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/database
+END
+NWGNUmakefile
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/database/NWGNUmakefile
+END
+mod_dbd.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/database/mod_dbd.dsp
+END
+mod_dbd.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/database/mod_dbd.h
+END
+mod_dbd.dep
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/database/mod_dbd.dep
+END
+mod_dbd.mak
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/database/mod_dbd.mak
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/database/Makefile.in
+END
+config.m4
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/database/config.m4
+END
+mod_dbd.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/database/mod_dbd.c
+END

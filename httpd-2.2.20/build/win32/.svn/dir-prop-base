@@ -1,0 +1,8 @@
+K 10
+svn:ignore
+V 45
+Apache.aps
+Apache.rc
+libhttpd.rc
+libhttpd.aps
+END

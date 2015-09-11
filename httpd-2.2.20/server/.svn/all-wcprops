@@ -1,0 +1,215 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server
+END
+gen_test_char.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/gen_test_char.dsp
+END
+buildmark.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/buildmark.c
+END
+.indent.pro
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/.indent.pro
+END
+core_filters.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/core_filters.c
+END
+util_filter.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/util_filter.c
+END
+scoreboard.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/scoreboard.c
+END
+main.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/main.c
+END
+util_pcre.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/util_pcre.c
+END
+error_bucket.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/error_bucket.c
+END
+util_xml.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/util_xml.c
+END
+util_script.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/util_script.c
+END
+vhost.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/vhost.c
+END
+config.m4
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/config.m4
+END
+config.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/config.c
+END
+util_ebcdic.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/util_ebcdic.c
+END
+NWGNUmakefile
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/NWGNUmakefile
+END
+util_cfgtree.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/util_cfgtree.c
+END
+util.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/util.c
+END
+log.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/log.c
+END
+util_md5.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/util_md5.c
+END
+util_debug.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/util_debug.c
+END
+util_charset.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/util_charset.c
+END
+core.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/core.c
+END
+request.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/request.c
+END
+provider.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/provider.c
+END
+util_time.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/util_time.c
+END
+gen_test_char.mak
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/gen_test_char.mak
+END
+gen_test_char.dep
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/gen_test_char.dep
+END
+listen.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/listen.c
+END
+connection.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/connection.c
+END
+mpm_common.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/mpm_common.c
+END
+protocol.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/protocol.c
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/Makefile.in
+END
+eoc_bucket.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/eoc_bucket.c
+END
+gen_test_char.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/gen_test_char.c
+END

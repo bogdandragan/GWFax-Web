@@ -1,0 +1,22 @@
+K 10
+svn:ignore
+V 119
+Makefile
+.deps
+.libs
+*.lo
+*.la
+config.h
+LibD
+LibR
+*.plg
+*.dep
+*.mak
+BuildLog.htm
+*.stc
+*.stt
+*.sto
+*.vcproj
+*.vcproj.*
+
+END

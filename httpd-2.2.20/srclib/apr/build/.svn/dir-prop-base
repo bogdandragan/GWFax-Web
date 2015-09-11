@@ -1,0 +1,23 @@
+K 10
+svn:ignore
+V 148
+Makefile
+libtool.m4
+ltconfig
+ltmain.sh
+ltcf-c.sh
+apr_rules.mk
+apr_rules.out
+LibD
+LibR
+Debug
+Release
+*.vcproj
+*.aps
+*.plg
+*.dep
+*.mak
+lt*.m4
+argz.m4
+
+END

@@ -156,7 +156,8 @@
                                 <div class="input-group-addon" style="background-color: #1ab394"><i style="color: #fff" class="fa fa-search"></i></div>
                                 <input type="text" placeholder="Search user " class="input form-control" ng-model="searchFilter">
                             </div>
-                            <div class="clients-list">                                                        
+                            <div class="clients-list">
+                                <button class="btn btn-sm btn-primary" ng-click="addFormOpen(users)"><i class="fa fa-plus"></i> Add User</button>                                                        
                                         <div class="table-responsive">
                                             <table class="table">
                                                 <thead>
@@ -190,11 +191,11 @@
                                                             </a>
                                                         </th>
                                                         <th>
-                                                            <a href="#" ng-click="sortType = 'ROUTENAME'; sortReverse = !sortReverse" style="color: #676a6c;">
+                                                           <!-- <a href="#" ng-click="sortType = 'ROUTENAME'; sortReverse = !sortReverse" style="color: #676a6c;">
                                                                 ROUTENAME
                                                                 <span ng-show="sortType == 'ROUTENAME' && !sortReverse" class="fa fa-caret-down"></span>
                                                                 <span ng-show="sortType == 'ROUTENAME' && sortReverse" class="fa fa-caret-up"></span>
-                                                            </a>
+                                                            </a>-->
                                                         </th>
                                                     </tr>
                                                 </thead>
@@ -204,7 +205,10 @@
                                                     <td ng-click="sortType = 'EMAIL'">{{currUser.EMAIL}}</td>
                                                     <td ng-click="sortType = 'USERNAME'">{{currUser.USERNAME}}</td>
                                                     <td ng-click="sortType = 'USERPHONE'">{{currUser.USERPHONE}}</td>
-                                                    <td ng-click="sortType = 'ROUTENAME'">{{currUser.ROUTENAME}}</td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-primary" ng-click="editFormOpen(currUser)">Edit</button>
+                                                        <button class="btn btn-sm btn-default" ng-click="deleteFormOpen(currUser, users)">Delete</button>
+                                                    </td>
                                                 </tr>
                                                 <tr data-ng-show="currUser.expandRow">
                                                     <td></td>
@@ -225,7 +229,11 @@
                                                 </tr>                                               
                                                 </tbody>
                                             </table>
-                                        </div>
+
+                                            <!--Edit modal-->
+                                </div>
+                                              
+
                              </div>
                     </div>
                 </div>
@@ -247,16 +255,22 @@
     <script src="js/inspinia.js"></script>
     <script src="js/plugins/pace/pace.min.js"></script>
     <script src="js/angular.min.js"></script>
+    <script src="js/ui-bootstrap-custom-tpls-0.13.4.min.js"></script>
     
     <script src="../js/config.js"></script>
     <script src="../js/faxgwise_tools.js"></script>
     <script src="../js/websockets.js"></script>
     <script src="../js/faxgwise.js"></script>
     <script src="../js/url.js"></script>
+    <script src="../js/jquery.validate.min.js"></script>
 
     <script>
        initUsersTable();
 
+
+       $(document).ready(function () {
+    
+});
     try
     {
         var socket;                     

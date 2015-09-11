@@ -1,0 +1,16 @@
+K 10
+svn:ignore
+V 71
+*.mdp
+*.ncb
+*.opt
+*.plg
+*.dsw
+*.mak
+mod_*D
+mod_*R
+.deps
+.libs
+Makefile
+
+END

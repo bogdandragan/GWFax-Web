@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/os/bs2000
+END
+os.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/os/bs2000/os.h
+END
+ebcdic.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/os/bs2000/ebcdic.c
+END
+ebcdic.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/os/bs2000/ebcdic.h
+END
+os.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/os/bs2000/os.c
+END

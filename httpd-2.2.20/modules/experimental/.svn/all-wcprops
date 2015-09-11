@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/experimental
+END
+mod_example.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/experimental/mod_example.c
+END
+mod_case_filter_in.dep
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/experimental/mod_case_filter_in.dep
+END
+mod_case_filter_in.mak
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/experimental/mod_case_filter_in.mak
+END
+mod_example.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/experimental/mod_example.dsp
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/experimental/Makefile.in
+END
+config.m4
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/experimental/config.m4
+END
+NWGNUcase_flt_in
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/experimental/NWGNUcase_flt_in
+END
+mod_case_filter_in.c
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/experimental/mod_case_filter_in.c
+END
+mod_case_filter.mak
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/experimental/mod_case_filter.mak
+END
+mod_case_filter.dep
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/experimental/mod_case_filter.dep
+END
+mod_case_filter_in.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/experimental/mod_case_filter_in.dsp
+END
+NWGNUmakefile
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/experimental/NWGNUmakefile
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/experimental/README
+END
+.indent.pro
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/experimental/.indent.pro
+END
+NWGNUcase_flt
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/experimental/NWGNUcase_flt
+END
+mod_case_filter.c
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/experimental/mod_case_filter.c
+END
+mod_example.mak
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/experimental/mod_example.mak
+END
+mod_example.dep
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/experimental/mod_example.dep
+END
+mod_case_filter.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/experimental/mod_case_filter.dsp
+END
+NWGNUexample
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/experimental/NWGNUexample
+END

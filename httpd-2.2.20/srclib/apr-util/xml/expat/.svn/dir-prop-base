@@ -1,0 +1,24 @@
+K 10
+svn:ignore
+V 115
+Makefile
+aclocal.m4
+configure
+libtool
+config.h.in
+config.h
+config.log
+config.status
+autom4te.cache
+expat_config.h*
+
+K 13
+svn:mergeinfo
+V 403
+/apr/apr/trunk/xml/expat:781403,784592,789965,794508
+/apr/apr-util/branches/1.3.x/xml/expat:692751
+/apr/apr-util/branches/1.5.x/xml/expat:1002504,1002584-1002585,1002620,1002622-1002623,1002628,1002647,1002975
+/apr/apr-util/trunk/xml/expat:692751,731225,743986,744009,745771,747612,747623,747630,781403
+/apr/apr-util/vendor/expat/1.95.7:1002560-1002564
+/apr/apr-util/vendor/expat/current:1002513-1002559
+END

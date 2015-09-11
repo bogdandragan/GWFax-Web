@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/asf/!svn/ver/731415/apr/apr-util/branches/1.3.x/crypto
+END
+apr_md4.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/asf/!svn/ver/647687/apr/apr-util/branches/1.3.x/crypto/apr_md4.c
+END
+getuuid.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/asf/!svn/ver/647687/apr/apr-util/branches/1.3.x/crypto/getuuid.c
+END
+uuid.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/asf/!svn/ver/647687/apr/apr-util/branches/1.3.x/crypto/uuid.c
+END
+apr_md5.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/asf/!svn/ver/647687/apr/apr-util/branches/1.3.x/crypto/apr_md5.c
+END
+apr_sha1.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/731415/apr/apr-util/branches/1.3.x/crypto/apr_sha1.c
+END

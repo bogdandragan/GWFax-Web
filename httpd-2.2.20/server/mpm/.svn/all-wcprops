@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/mpm
+END
+MPM.NAMING
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/mpm/MPM.NAMING
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/mpm/Makefile.in
+END
+config.m4
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/mpm/config.m4
+END

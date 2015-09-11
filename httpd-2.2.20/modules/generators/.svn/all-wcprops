@@ -1,0 +1,245 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators
+END
+NWGNUstatus
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/NWGNUstatus
+END
+mod_status.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_status.c
+END
+mod_status.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_status.dsp
+END
+mod_status.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_status.h
+END
+mod_cgi.dep
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_cgi.dep
+END
+mod_cgi.mak
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_cgi.mak
+END
+NWGNUinfo
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/NWGNUinfo
+END
+mod_info.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_info.c
+END
+mod_info.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_info.dsp
+END
+mod_cgi.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_cgi.c
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/Makefile.in
+END
+mod_cgid.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_cgid.c
+END
+mod_cgi.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_cgi.dsp
+END
+mod_cgi.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_cgi.h
+END
+mod_asis.exp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_asis.exp
+END
+mod_autoindex.exp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_autoindex.exp
+END
+.indent.pro
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/.indent.pro
+END
+mod_asis.mak
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_asis.mak
+END
+mod_asis.dep
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_asis.dep
+END
+mod_autoindex.dep
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_autoindex.dep
+END
+mod_autoindex.mak
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_autoindex.mak
+END
+config5.m4
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/config5.m4
+END
+mod_suexec.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_suexec.c
+END
+mod_status.exp
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_status.exp
+END
+NWGNUmod_asis
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/NWGNUmod_asis
+END
+mod_asis.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_asis.c
+END
+NWGNUautoindex
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/NWGNUautoindex
+END
+mod_autoindex.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_autoindex.c
+END
+NWGNUmod_cgi
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/NWGNUmod_cgi
+END
+mod_suexec.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_suexec.h
+END
+mod_asis.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_asis.dsp
+END
+mod_autoindex.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_autoindex.dsp
+END
+mod_info.exp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_info.exp
+END
+mod_status.mak
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_status.mak
+END
+mod_status.dep
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_status.dep
+END
+NWGNUmakefile
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/NWGNUmakefile
+END
+mod_cgi.exp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_cgi.exp
+END
+mod_cgid.exp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_cgid.exp
+END
+mod_info.dep
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_info.dep
+END
+mod_info.mak
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/modules/generators/mod_info.mak
+END

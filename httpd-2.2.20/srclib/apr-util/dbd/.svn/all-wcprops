@@ -1,0 +1,215 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/repos/asf/!svn/ver/1100412/apr/apr-util/branches/1.3.x/dbd
+END
+apr_dbd_odbc.dep
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/asf/!svn/ver/929803/apr/apr-util/branches/1.3.x/dbd/apr_dbd_odbc.dep
+END
+apr_dbd_odbc.mak
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/asf/!svn/ver/929803/apr/apr-util/branches/1.3.x/dbd/apr_dbd_odbc.mak
+END
+NWGNUmakefile
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/1082778/apr/apr-util/branches/1.3.x/dbd/NWGNUmakefile
+END
+apr_dbd_mysql.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/asf/!svn/ver/800431/apr/apr-util/branches/1.3.x/dbd/apr_dbd_mysql.c
+END
+apr_dbd_oracle.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/1084686/apr/apr-util/branches/1.3.x/dbd/apr_dbd_oracle.c
+END
+apr_dbd_odbc.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/asf/!svn/ver/1079951/apr/apr-util/branches/1.3.x/dbd/apr_dbd_odbc.c
+END
+apr_dbd_mysql.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/719501/apr/apr-util/branches/1.3.x/dbd/apr_dbd_mysql.dsp
+END
+apr_dbd_oracle.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/719501/apr/apr-util/branches/1.3.x/dbd/apr_dbd_oracle.dsp
+END
+apr_dbd_odbc.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/asf/!svn/ver/719501/apr/apr-util/branches/1.3.x/dbd/apr_dbd_odbc.dsp
+END
+apr_dbd.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/asf/!svn/ver/783582/apr/apr-util/branches/1.3.x/dbd/apr_dbd.c
+END
+apr_dbd_freetds.mak
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/asf/!svn/ver/1100412/apr/apr-util/branches/1.3.x/dbd/apr_dbd_freetds.mak
+END
+apr_dbd_freetds.dep
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/asf/!svn/ver/929803/apr/apr-util/branches/1.3.x/dbd/apr_dbd_freetds.dep
+END
+NWGNUdbdpgsql
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/1082778/apr/apr-util/branches/1.3.x/dbd/NWGNUdbdpgsql
+END
+NWGNUdbdsqli2
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/1082778/apr/apr-util/branches/1.3.x/dbd/NWGNUdbdsqli2
+END
+NWGNUdbdsqli3
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/1082778/apr/apr-util/branches/1.3.x/dbd/NWGNUdbdsqli3
+END
+apr_dbd_freetds.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/744003/apr/apr-util/branches/1.3.x/dbd/apr_dbd_freetds.c
+END
+apr_dbd_freetds.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/asf/!svn/ver/719501/apr/apr-util/branches/1.3.x/dbd/apr_dbd_freetds.dsp
+END
+NWGNUdbdmysql
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/1082778/apr/apr-util/branches/1.3.x/dbd/NWGNUdbdmysql
+END
+apr_dbd_sqlite2.mak
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/asf/!svn/ver/1100412/apr/apr-util/branches/1.3.x/dbd/apr_dbd_sqlite2.mak
+END
+apr_dbd_sqlite2.dep
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/asf/!svn/ver/929803/apr/apr-util/branches/1.3.x/dbd/apr_dbd_sqlite2.dep
+END
+apr_dbd_sqlite3.dep
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/asf/!svn/ver/929803/apr/apr-util/branches/1.3.x/dbd/apr_dbd_sqlite3.dep
+END
+apr_dbd_sqlite3.mak
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/asf/!svn/ver/1100412/apr/apr-util/branches/1.3.x/dbd/apr_dbd_sqlite3.mak
+END
+apr_dbd_pgsql.dep
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/929803/apr/apr-util/branches/1.3.x/dbd/apr_dbd_pgsql.dep
+END
+apr_dbd_pgsql.mak
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/1100412/apr/apr-util/branches/1.3.x/dbd/apr_dbd_pgsql.mak
+END
+apr_dbd_sqlite2.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/661844/apr/apr-util/branches/1.3.x/dbd/apr_dbd_sqlite2.c
+END
+apr_dbd_sqlite3.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/667456/apr/apr-util/branches/1.3.x/dbd/apr_dbd_sqlite3.c
+END
+apr_dbd_pgsql.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/asf/!svn/ver/1039373/apr/apr-util/branches/1.3.x/dbd/apr_dbd_pgsql.c
+END
+apr_dbd_sqlite2.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/asf/!svn/ver/719501/apr/apr-util/branches/1.3.x/dbd/apr_dbd_sqlite2.dsp
+END
+apr_dbd_sqlite3.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/asf/!svn/ver/719501/apr/apr-util/branches/1.3.x/dbd/apr_dbd_sqlite3.dsp
+END
+NWGNUdbdfreetds
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/asf/!svn/ver/1082778/apr/apr-util/branches/1.3.x/dbd/NWGNUdbdfreetds
+END
+apr_dbd_pgsql.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/719501/apr/apr-util/branches/1.3.x/dbd/apr_dbd_pgsql.dsp
+END
+apr_dbd_oracle.dep
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/929803/apr/apr-util/branches/1.3.x/dbd/apr_dbd_oracle.dep
+END
+apr_dbd_oracle.mak
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/asf/!svn/ver/1100412/apr/apr-util/branches/1.3.x/dbd/apr_dbd_oracle.mak
+END
+apr_dbd_mysql.dep
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/929803/apr/apr-util/branches/1.3.x/dbd/apr_dbd_mysql.dep
+END
+apr_dbd_mysql.mak
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/1100412/apr/apr-util/branches/1.3.x/dbd/apr_dbd_mysql.mak
+END

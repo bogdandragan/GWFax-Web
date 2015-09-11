@@ -1,0 +1,371 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support
+END
+htcacheclean.dep
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/htcacheclean.dep
+END
+htcacheclean.mak
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/htcacheclean.mak
+END
+NWGNUhtpasswd
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/NWGNUhtpasswd
+END
+NWGNUhtdbm
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/NWGNUhtdbm
+END
+split-logfile.in
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/split-logfile.in
+END
+htdbm.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/htdbm.c
+END
+envvars-std.in
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/envvars-std.in
+END
+htdigest.mak
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/htdigest.mak
+END
+htdigest.dep
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/htdigest.dep
+END
+htcacheclean.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/htcacheclean.c
+END
+htdbm.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/htdbm.dsp
+END
+config.m4
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/config.m4
+END
+htcacheclean.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/htcacheclean.dsp
+END
+httxt2dbm.dep
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/httxt2dbm.dep
+END
+httxt2dbm.mak
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/httxt2dbm.mak
+END
+logresolve.dep
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/logresolve.dep
+END
+list_hooks.pl
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/list_hooks.pl
+END
+logresolve.mak
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/logresolve.mak
+END
+ab.dep
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/ab.dep
+END
+ab.mak
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/ab.mak
+END
+apachectl.in
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/apachectl.in
+END
+rotatelogs.mak
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/rotatelogs.mak
+END
+rotatelogs.dep
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/rotatelogs.dep
+END
+htdigest.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/htdigest.c
+END
+NWGNUmakefile
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/NWGNUmakefile
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/README
+END
+NWGNUhttxt2dbm
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/NWGNUhttxt2dbm
+END
+htdigest.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/htdigest.dsp
+END
+httxt2dbm.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/httxt2dbm.c
+END
+logresolve.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/logresolve.c
+END
+ab.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/ab.c
+END
+rotatelogs.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/rotatelogs.c
+END
+htpasswd.mak
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/htpasswd.mak
+END
+htpasswd.dep
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/htpasswd.dep
+END
+httxt2dbm.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/httxt2dbm.dsp
+END
+check_forensic
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/check_forensic
+END
+logresolve.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/logresolve.dsp
+END
+ab.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/ab.dsp
+END
+rotatelogs.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/rotatelogs.dsp
+END
+NWGNUlogres
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/NWGNUlogres
+END
+abs.dep
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/abs.dep
+END
+abs.mak
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/abs.mak
+END
+suexec.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/suexec.c
+END
+htpasswd.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/htpasswd.c
+END
+log_server_status.in
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/log_server_status.in
+END
+apxs.in
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/apxs.in
+END
+dbmmanage.in
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/dbmmanage.in
+END
+NWGNUhtcacheclean
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/NWGNUhtcacheclean
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/Makefile.in
+END
+checkgid.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/checkgid.c
+END
+htpasswd.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/htpasswd.dsp
+END
+suexec.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/suexec.h
+END
+abs.dsp
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/abs.dsp
+END
+NWGNUhtdigest
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/NWGNUhtdigest
+END
+.indent.pro
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/.indent.pro
+END
+logresolve.pl.in
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/logresolve.pl.in
+END
+NWGNUab
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/NWGNUab
+END
+phf_abuse_log.cgi.in
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/phf_abuse_log.cgi.in
+END
+htdbm.dep
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/htdbm.dep
+END
+htdbm.mak
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/htdbm.mak
+END
+NWGNUrotlogs
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/support/NWGNUrotlogs
+END

@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/asf/!svn/ver/826089/apr/apr/branches/1.4.x/network_io/os2
+END
+socket_util.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/asf/!svn/ver/826089/apr/apr/branches/1.4.x/network_io/os2/socket_util.c
+END
+sendrecv.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/network_io/os2/sendrecv.c
+END
+sockaddr.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/network_io/os2/sockaddr.c
+END
+sockets.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/network_io/os2/sockets.c
+END
+inet_ntop.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/network_io/os2/inet_ntop.c
+END
+inet_pton.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/network_io/os2/inet_pton.c
+END
+sendrecv_udp.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/network_io/os2/sendrecv_udp.c
+END
+os2calls.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/network_io/os2/os2calls.c
+END
+sockopt.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/network_io/os2/sockopt.c
+END

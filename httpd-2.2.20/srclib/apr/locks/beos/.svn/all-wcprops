@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/locks/beos
+END
+proc_mutex.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/locks/beos/proc_mutex.c
+END
+thread_rwlock.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/locks/beos/thread_rwlock.c
+END
+thread_mutex.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/locks/beos/thread_mutex.c
+END
+thread_cond.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/asf/!svn/ver/731029/apr/apr/branches/1.4.x/locks/beos/thread_cond.c
+END

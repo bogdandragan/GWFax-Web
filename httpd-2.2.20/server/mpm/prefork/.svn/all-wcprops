@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/mpm/prefork
+END
+config.m4
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/mpm/prefork/config.m4
+END
+prefork.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/mpm/prefork/prefork.c
+END
+mpm.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/mpm/prefork/mpm.h
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/mpm/prefork/Makefile.in
+END
+mpm_default.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/asf/!svn/ver/1163057/httpd/httpd/tags/2.2.20/server/mpm/prefork/mpm_default.h
+END

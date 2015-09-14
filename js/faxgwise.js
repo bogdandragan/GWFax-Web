@@ -100,6 +100,21 @@ function initUsersTable(){
     });
 	};
 
+	$scope.addMSNFormOpen = function (currUser) {
+
+    var modalInstance = $modal.open({
+    	 animation: true,
+      templateUrl: 'msnAddForm.html',
+      controller: 'ModalInstance4Ctrl',
+      resolve: {
+            currUser: function(){
+            	return currUser;
+            }
+      }
+      
+    });
+	};
+
 
     });
 
@@ -117,7 +132,6 @@ function initUsersTable(){
         var request = $http.post(url, dataString);
 
         request.success(function(data) {
-        	
         	user.USERNAME = $scope.username;
         	user.EMAIL = $scope.email;
         	user.USERPHONE = $scope.phone;
@@ -198,6 +212,17 @@ function initUsersTable(){
         	});
   		};
 
+  		$scope.cancel = function () {
+    		$modalInstance.dismiss('cancel');
+  		};
+	});
+
+	ngApplication.controller('ModalInstance4Ctrl', function ($scope, $http, $modalInstance, currUser) {
+
+		$scope.addMSN = function () {
+
+  		};
+  		
   		$scope.cancel = function () {
     		$modalInstance.dismiss('cancel');
   		};

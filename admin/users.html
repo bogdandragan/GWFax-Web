@@ -205,9 +205,10 @@
                                                     <td ng-click="sortType = 'EMAIL'">{{currUser.EMAIL}}</td>
                                                     <td ng-click="sortType = 'USERNAME'">{{currUser.USERNAME}}</td>
                                                     <td ng-click="sortType = 'USERPHONE'">{{currUser.USERPHONE}}</td>
-                                                    <td>
-                                                        <button class="btn btn-sm btn-primary" ng-click="editFormOpen(currUser)">Edit</button>
-                                                        <button class="btn btn-sm btn-default" ng-click="deleteFormOpen(currUser, users)">Delete</button>
+                                                    <td style="text-align: center;">
+                                                        <button class="btn btn-sm btn-primary" ng-click="editFormOpen(currUser)" style="margin: 0 3px;"><i class="fa fa-pencil-square-o"></i> Edit</button>
+                                                        <button class="btn btn-sm btn-primary" ng-click="addMSNFormOpen(currUser)" style="margin: 0 3px;"><i class="fa fa-plus"></i> Add MSN</button>
+                                                        <button class="btn btn-sm btn-default" ng-click="deleteFormOpen(currUser, users)" style="margin: 0 3px;"><i class="fa fa-trash-o"></i> Delete</button>
                                                     </td>
                                                 </tr>
                                                 <tr data-ng-show="currUser.expandRow">
@@ -218,11 +219,15 @@
                                                                 <th>#</th>
                                                                 <th>MSN</th>
                                                                 <th>Controller name</th>
+                                                                <th></th>
                                                             </tr>
                                                             <tr ng-repeat="msn in msns">
                                                                 <td>{{msn.ID}}</td>
                                                                 <td>{{msn.MSN}}</td>
                                                                 <td>{{msn.CONTROLLERNAME}}</td>
+                                                                <td>
+                                                                    <button class="btn btn-sm btn-default"><i class="fa fa-trash-o"></i> Delete MSN</button>
+                                                                </td>
                                                             </tr>
                                                         </table>
                                                     </td>  

@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>FaxGwise | Users</title>
+    <title>FaxGwise | Templates</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -18,7 +18,7 @@
 
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-
+    <link href="css/loading.css" rel="stylesheet">
 
 
 </head>
@@ -59,10 +59,10 @@
                         <li><a href="outfaxes.html">Out faxes</a></li>
                     </ul>
                 </li>
-                <li class="active">
+                <li>
                     <a href="users.html"><i class="fa fa-user"></i> <span class="nav-label">Users</span> <span></span></a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="templates.html"><i class="fa fa-file-text-o"></i> <span class="nav-label">Templates</span> <span></span></a>
                 </li>
                 <li>
@@ -73,28 +73,28 @@
                     <span style="margin-left: 10px" class="label label-info">Stopped</span>
 
                     </span>
-                    <a href="settings.html#isdncontroller" id="settings-label" class="glyphicon glyphicon-cog"></a>
+                    <a href="#isdncontroller" id="settings-label" class="glyphicon glyphicon-cog settings-label"></a>
                 </li>
                 <li>
                     <span class="controller-name" class="nav-label">T38 Controller
                     <span style="margin-left: 10px" class="label label-primary">Enabled</span>
 
                     </span>
-                    <a href="settings.html#t38controller" id="settings-label" class="glyphicon glyphicon-cog"></a>
+                    <a href="#t38controller" id="settings-label" class="glyphicon glyphicon-cog settings-label"></a>
                 </li>
                 <li>
                     <span class="controller-name" class="nav-label">GW Communicator
                     <span style="margin-left: 10px" class="label label-primary">Enabled</span>
 
                     </span>
-                    <a href="settings.html#gwcommunicator" id="settings-label" class="glyphicon glyphicon-cog"></a>
+                    <a href="#gwcommunicator" id="settings-label" class="glyphicon glyphicon-cog settings-label"></a>
                 </li>
                 <li>
                     <span class="controller-name" class="nav-label">Second Communic.
                     <span style="margin-left: 10px" class="label label-info">Stopped</span>
 
                     </span>
-                    <a href="settings.html#secondcommunicator" id="settings-label" class="glyphicon glyphicon-cog"></a>
+                    <a href="#secondcommunicator" id="settings-label" class="glyphicon glyphicon-cog settings-label"></a>
                 </li>
                 <li class="landing_link">
                     <a target="_blank" href="Landing_page/index.html"><i class="fa fa-star"></i> <span class="nav-label">Landing Page</span> <span class="label label-warning pull-right">NEW</span></a>
@@ -120,7 +120,7 @@
         </div>
             <ul class="nav navbar-top-links navbar-right">
                 <li>
-                    <span class="m-r-sm text-muted welcome-message">Welcome to INSPINIA+ Admin Theme.</span>
+                    <span class="m-r-sm text-muted welcome-message">Welcome to INSPINIA+ Admin Theme</span>
                 </li>
 
 
@@ -135,13 +135,13 @@
         </div>
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
-                    <h2>Users</h2>
+                    <h2>Templates</h2>
                     <ol class="breadcrumb">
                         <li>
                             <a href="home.html">Home</a>
                         </li>
                         <li class="active">
-                            <strong>Users</strong>
+                            <strong>Templates</strong>
                         </li>
                     </ol>
                 </div>
@@ -152,96 +152,57 @@
 
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
-        <div class="col-lg-8" ng-app="FaxGWiseApp" ng-controller="usersCtrl">
+        <div class="col-lg-8">
                     <div class="ibox">
                         <div class="ibox-content">                           
-                            <div class="input-group">
-                                <div class="input-group-addon" style="background-color: #1ab394"><i style="color: #fff" class="fa fa-search"></i></div>
-                                <input type="text" placeholder="Search user " class="input form-control" ng-model="searchFilter">
-                            </div>
-                            <div class="clients-list">
-                                <button class="btn btn-sm btn-primary" ng-click="addFormOpen(users)"><i class="fa fa-plus"></i> Add User</button>                                                        
-                                        <div class="table-responsive">
-                                            <table class="table">
+                            <div  ng-app="FaxGWiseApp" ng-controller="templatesCtrl">
+                            <button class="btn btn-sm btn-primary" ng-click="addFormOpen(templates)"><i class="fa fa-plus"></i> Add Template</button>
+                                <div class="table-responsive">
+                                            <table class="table table-hover">
                                                 <thead>
                                                     <tr>
                                                         <th>
-                                                            <a href="#" ng-click="sortType = 'ID'; sortReverse = !sortReverse" style="color: #676a6c;">
-                                                                ID
-                                                                <span ng-show="sortType == 'ID' && !sortReverse" class="fa fa-caret-down"></span>
-                                                                <span ng-show="sortType == 'ID' && sortReverse" class="fa fa-caret-up"></span>
-                                                            </a>
+                                                            ID
                                                         </th>
                                                         <th>
-                                                            <a href="#" ng-click="sortType = 'EMAIL'; sortReverse = !sortReverse" style="color: #676a6c;">
-                                                                EMAIL
-                                                                <span ng-show="sortType == 'EMAIL' && !sortReverse" class="fa fa-caret-down"></span>
-                                                                <span ng-show="sortType == 'EMAIL' && sortReverse" class="fa fa-caret-up"></span>
-                                                            </a>
+                                                            TEMPLATE NAME
                                                         </th>
                                                         <th>
-                                                            <a href="#" ng-click="sortType = 'USERNAME'; sortReverse = !sortReverse" style="color: #676a6c;">
-                                                                USERNAME
-                                                                <span ng-show="sortType == 'USERNAME' && !sortReverse" class="fa fa-caret-down"></span>
-                                                                <span ng-show="sortType == 'USERNAME' && sortReverse" class="fa fa-caret-up"></span>
-                                                            </a>
+                                                            DESCRIPTION
                                                         </th>
                                                         <th>
-                                                            <a href="#" ng-click="sortType = 'USERPHONE'; sortReverse = !sortReverse" style="color: #676a6c;">
-                                                                USERPHONE
-                                                                <span ng-show="sortType == 'USERPHONE' && !sortReverse" class="fa fa-caret-down"></span>
-                                                                <span ng-show="sortType == 'USERPHONE' && sortReverse" class="fa fa-caret-up"></span>
-                                                            </a>
+                                                            MODIFIED DATE
                                                         </th>
                                                         <th>
-                                                           <!-- <a href="#" ng-click="sortType = 'ROUTENAME'; sortReverse = !sortReverse" style="color: #676a6c;">
-                                                                ROUTENAME
-                                                                <span ng-show="sortType == 'ROUTENAME' && !sortReverse" class="fa fa-caret-down"></span>
-                                                                <span ng-show="sortType == 'ROUTENAME' && sortReverse" class="fa fa-caret-up"></span>
-                                                            </a>-->
+                                                           ENCLOSURE
+                                                        </th>
+                                                        <th>
+
                                                         </th>
                                                     </tr>
                                                 </thead>
-                                                <tbody ng-repeat="currUser in users | orderBy:sortType:sortReverse | filter:searchFilter">
-                                                <tr ng-click="openUser(currUser, currUser.ID)">
-                                                    <td ng-click="sortType = 'ID'">{{currUser.ID}}</td>
-                                                    <td ng-click="sortType = 'EMAIL'">{{currUser.EMAIL}}</td>
-                                                    <td ng-click="sortType = 'USERNAME'">{{currUser.USERNAME}}</td>
-                                                    <td ng-click="sortType = 'USERPHONE'">{{currUser.USERPHONE}}</td>
-                                                    <td style="text-align: center;">
-                                                        <button class="btn btn-xs btn-primary" ng-click="editFormOpen(currUser)" style="margin: 0 3px;"><i class="fa fa-pencil-square-o"></i> Edit</button>
-                                                        <button class="btn btn-xs btn-primary" ng-click="addMsnFormOpen(msns, currUser)" style="margin: 0 3px;"><i class="fa fa-plus"></i> Add MSN</button>
-                                                        <button class="btn btn-xs btn-default" ng-click="deleteFormOpen(currUser, users)" style="margin: 0 3px;"><i class="fa fa-trash-o"></i> Delete</button>
-                                                    </td>
-                                                </tr>
-                                                <tr data-ng-show="currUser.expandRow">
-                                                    <td></td>
-                                                    <td>
-                                                        <table class="table table-striped">
-                                                            <tr>
-                                                                <th>#</th>
-                                                                <th>MSN</th>
-                                                                <th>Controller name</th>
-                                                                <th></th>
-                                                            </tr>
-                                                            <tr ng-repeat="msn in msns">
-                                                                <td>{{msn.ID}}</td>
-                                                                <td>{{msn.MSN}}</td>
-                                                                <td>{{msn.CONTROLLERNAME}}</td>
-                                                                <td>
-                                                                    <button class="btn btn-xs btn-default" ng-click="deleteMsnFormOpen(currUser, msn, msns)"><i class="fa fa-trash-o"></i> Delete MSN</button>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </td>  
-                                                </tr>                                               
+                                                <tbody ng-repeat="template in templates">
+                                              		<tr ng-class="{info: template.STANDARD==1}">
+                                              			<td>{{template.ID}}</td>
+                                              			<td>{{template.TEMPLATENAME}}</td>
+                                              			<td>{{template.DESCRIPTION}}</td>
+                                              			<td ng-if="template.MODIFIEDDATE == null">new</td>
+                                              			<td ng-if="template.MODIFIEDDATE != null">{{template.MODIFIEDDATE}}</td>
+                                              			<td ng-if="template.ENCLOSURE == 1">1</td>
+                                              			<td ng-if="template.ENCLOSURE == 0">0</td>
+                                              			<td style="text-align: center;">
+                                              				<button class="btn btn-xs btn-primary" ng-click="editFormOpen(template)" style="margin: 0 3px;"><i class="fa fa-pencil-square-o"></i> Edit</button>
+                                                        	<button class="btn btn-xs btn-default" ng-click="deleteFormOpen(template, templates)" style="margin: 0 3px;"><i class="fa fa-trash-o"></i> Delete</button>
+                                              			</td>
+                                              		</tr>
                                                 </tbody>
                                             </table>
 
                                             <!--Edit modal-->
                                 </div>
-                                              
-
+                                    </div>
+                                    </div>
+                                </div>
                              </div>
                     </div>
                 </div>
@@ -264,23 +225,21 @@
     <script src="js/plugins/pace/pace.min.js"></script>
     <script src="js/angular.min.js"></script>
     <script src="js/ui-bootstrap-custom-tpls-0.13.4.min.js"></script>
-    
+
     <script src="../js/config.js"></script>
     <script src="../js/faxgwise_tools.js"></script>
     <script src="../js/websockets.js"></script>
     <script src="../js/faxgwise.js"></script>
     <script src="../js/url.js"></script>
     <script src="../js/jquery.validate.min.js"></script>
+    <script src="../js/settingsvalidation.js"></script>
 
     <script>
-       initUsersTable();
 
+    	initTemplates();	
 
-       $(document).ready(function () {
-    
-});
-    try
-    {
+        try
+        {
         var socket;                     
         socket = new WebSocket(WEBSOCKET_URL,"synopsejson");     
         console.log('WebSocket - status '+socket.readyState);
@@ -314,9 +273,9 @@
             };
             return req;
         }
+
     </script>
 
 </body>
 
-<!-- Site: hackforums.ru | E-mail: abuse@hackforums.ru | Skype: h2osancho -->
 </html>

@@ -10,9 +10,9 @@ function initUsersTable(){
          $scope.sortReverse  = false;
          $scope.searchFilter   = '';
 
-        $scope.recordsPerPage = 10;
+        $scope.recordsPerPage = 30;
         $scope.pageToLoad = 1;
-
+       
         var dataString = '['+$scope.recordsPerPage+','+$scope.pageToLoad+',"ID","asc"]';
         var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUsers/1');
         var request = $http.post(url, dataString);
@@ -30,8 +30,10 @@ function initUsersTable(){
             alert("error:"+status);
         });
  
+        $scope.msns = {};
 
-        $scope.openUser = function (user, id) {           
+        $scope.openUser = function (user, id) {  
+        	
             var dataString = '['+id+','+$scope.recordsPerPage+','+$scope.pageToLoad+',"ID","asc"]';
             var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUserMSNList/1');
             var request = $http.post(url, dataString);
@@ -100,15 +102,39 @@ function initUsersTable(){
     });
 	};
 
-	$scope.addMSNFormOpen = function (currUser) {
+	$scope.addMsnFormOpen = function (msns, currUser) {
 
     var modalInstance = $modal.open({
     	 animation: true,
       templateUrl: 'msnAddForm.html',
       controller: 'ModalInstance4Ctrl',
       resolve: {
+            msns: function(){
+            	return msns;
+            },
             currUser: function(){
             	return currUser;
+            }
+      }
+      
+    });
+	};
+
+	$scope.deleteMsnFormOpen = function (currUser, msn, msns) {
+	
+    var modalInstance = $modal.open({
+    	 animation: true,
+      templateUrl: 'msnDeleteForm.html',
+      controller: 'ModalInstance5Ctrl',
+      resolve: {
+            currUser: function(){
+            	return currUser;
+            },
+            msn: function(){
+            	return msn;
+            },
+            msns: function(){
+            	return msns;
             }
       }
       
@@ -217,10 +243,84 @@ function initUsersTable(){
   		};
 	});
 
-	ngApplication.controller('ModalInstance4Ctrl', function ($scope, $http, $modalInstance, currUser) {
+	ngApplication.controller('ModalInstance4Ctrl', function ($scope, $http, $modalInstance, msns, currUser) {
 
-		$scope.addMSN = function () {
+		$scope.recordsPerPage = 30;
+        $scope.pageToLoad = 1;
+       
+        var dataString = '['+$scope.recordsPerPage+','+$scope.pageToLoad+',"ID","asc"]';
+        var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetAllMSNList/1');
+        var request = $http.post(url, dataString);
 
+        request.success(function(data, status, headers, config) {
+            console.log(data.result[0].rows);
+
+            $scope.msns = data.result[0].rows;
+        });
+        request.error(function(data, status, headers, config) {
+            $scope.error = "An error occured while loading MSNs";
+            if(status == 403){
+                window.location.replace("../login.html");
+            }
+            alert("error:"+status);
+        });
+
+        $scope.selectedRow = null;
+        var msnId = null;
+        $scope.setClickedRow = function(index, msn){
+        	$scope.selectedRow = index;
+        	msnId = msn.ID;
+        }
+
+		$scope.add = function () {
+			var userId = currUser.ID;
+			var dataString = '['+userId+','+msnId+']';
+        	var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.AddUserMsn/1'); 
+
+        	var request = $http.post(url, dataString);
+
+        	request.success(function(data) {
+       			console.log(data);
+        	});
+        	request.error(function(data, status, headers, config) {
+        		//console.log(data);
+        		console.log("status: "+status+", message: "+data.errorText);
+        		$scope.error = "An error occured while adding MSN";
+
+        	});
+
+  		};
+  		
+  		$scope.cancel = function () {
+    		$modalInstance.dismiss('cancel');
+  		};
+	});
+
+	ngApplication.controller('ModalInstance5Ctrl', function ($scope, $http, $modalInstance, currUser, msn, msns) {
+
+		$scope.delete = function () {
+			var msnId = msn.ID;
+			var userId = currUser.ID;
+
+			var dataString = '['+userId+','+msnId+']';
+        	var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.DeleteUserMsn/1');
+        	var request = $http.post(url, dataString);
+
+        	request.success(function(data) {
+       			$.each(msns, function(index, item) {
+      				if(item['ID'] == msn.ID) {
+          				msns.splice(index, 1);
+          				$modalInstance.dismiss('cancel');
+          				 return false;
+      				}    
+   				});
+        	});
+        	request.error(function(data, status, headers, config) {
+        		//console.log(data);
+        		console.log("status: "+status+", message: "+data.errorText);
+        		$scope.error = "An error occured while deleting msn";
+
+        	});
   		};
   		
   		$scope.cancel = function () {
@@ -1057,3 +1157,181 @@ function AdvanceOutFaxMessage(messageData) {
 	messageData['childTableExpanded'] = false;
 }
 
+function initTemplates(){
+	ngApplication = angular.module('FaxGWiseApp', ['ui.bootstrap']);   
+    ngApplication.controller('templatesCtrl', function ($scope, $http, $modal, $log) {
+
+    $scope.recordsPerPage = 30;
+    $scope.pageToLoad = 1;
+
+    var dataString = '['+$scope.recordsPerPage+','+$scope.pageToLoad+',"ID","desc"]';
+    var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetTemplates/1');
+
+    var request = $http.post(url, dataString);
+
+    request.success(function(data, status, headers, config) {
+    	console.log(data.result[0].rows);
+       	$scope.templates = data.result[0].rows;
+
+    });
+    request.error(function(data, status, headers, config) {
+        console.log("sendSQL status: "+status+", message: "+data);
+        if(status == 403){
+            window.location.replace("../login.html");
+        }
+        alert("error:"+status);
+    });
+
+    $scope.addFormOpen = function (templates) {
+    	
+    var modalInstance = $modal.open({
+   	  animation: true,
+      templateUrl: 'templateAddForm.html',
+      controller: 'ModalInstanceCtrl',
+      resolve: {
+        	 templates: function () {
+                return $scope;
+            }
+      }
+      
+    });
+	};
+
+	$scope.deleteFormOpen = function (template, templates) {
+
+    var modalInstance = $modal.open({
+    	 animation: true,
+      templateUrl: 'templateDeleteForm.html',
+      controller: 'ModalInstance2Ctrl',
+      resolve: {
+        	 templates: function () {
+                return templates;
+            },
+            template: function(){
+            	return template;
+            }
+      }
+      
+    });
+	};
+
+	$scope.editFormOpen = function (template) {
+
+    var modalInstance = $modal.open({
+    	 animation: true,
+      templateUrl: 'templateEditForm.html',
+      controller: 'ModalInstance3Ctrl',
+      resolve: {
+        	 template: function () {
+                return template;
+            }
+      }
+    });
+	};
+});
+
+	ngApplication.controller('ModalInstanceCtrl', function ($scope, $http, $modalInstance, templates) {
+		$scope.enclosure = 0;
+		$scope.standard = 0;
+		$scope.add = function () {
+    		var dataString = [{"TEMPLATENAME":$scope.name,"DESCRIPTION":$scope.description,"ENCLOSURE":$scope.enclosure, "STANDARD":$scope.standard}];
+        	var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.AddTemplate/1');
+        	console.log(dataString);
+        	var request = $http.post(url, dataString);
+
+        	request.success(function(data) {
+        		var recordsPerPage = 30;
+        		var pageToLoad = 1;
+        		var dataString = '['+recordsPerPage+','+pageToLoad+',"ID","desc"]';
+        		var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetTemplates/1');
+       			 var request = $http.post(url, dataString);
+
+        		request.success(function(data, status, headers, config) {
+        			templates.templates = data.result[0].rows;
+        			$modalInstance.dismiss('cancel');	
+        		});
+        		request.error(function(data, status, headers, config) {
+            		console.log("sendSQL status: "+status+", message: "+data.errorText);
+        			$scope.error = "An error occured while adding template";
+        		});
+        	});
+        	request.error(function(data, status, headers, config) {
+        		//console.log(data);
+        		console.log("status: "+status+", message: "+data.errorText);
+        		$scope.error = "An error occured while adding template";
+
+        	});
+  		};
+
+  		$scope.cancel = function () {
+    		$modalInstance.dismiss('cancel');
+  		};
+	});
+
+	ngApplication.controller('ModalInstance2Ctrl', function ($scope, $http, $modalInstance, templates, template) {
+
+		$scope.delete = function () {
+
+    		var dataString = '[' + template.ID + ']';
+        	var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.DeleteTemplate/1');
+        	var request = $http.post(url, dataString);
+
+        	request.success(function(data) {
+       			$.each(templates, function(index, item) {
+      				if(item['ID'] == template.ID) {
+          				templates.splice(index, 1);
+          				$modalInstance.dismiss('cancel');
+          				 return false;
+      				}    
+   				});
+        	});
+        	request.error(function(data, status, headers, config) {
+        		//console.log(data);
+        		console.log("status: "+status+", message: "+data.errorText);
+        		$scope.error = "An error occured while deleting template";
+
+        	});
+  		};
+
+  		$scope.cancel = function () {
+    		$modalInstance.dismiss('cancel');
+  		};
+	});
+
+	ngApplication.controller('ModalInstance3Ctrl', function ($scope, $http, $modalInstance, template) {
+
+  		$scope.id = template.ID;
+  		$scope.name = template.TEMPLATENAME;
+  		$scope.description = template.DESCRIPTION;
+  		$scope.enclosure = template.ENCLOSURE;
+  		$scope.standard = template.STANDARD;
+
+  		$scope.update = function() {
+    		
+    	var dataString = [{"ID":$scope.id,"TEMPLATENAME":$scope.name,"DESCRIPTION":$scope.description,"ENCLOSURE":$scope.enclosure, "STANDARD":$scope.standard}];
+        var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.UpdateTemplate/1');
+        var request = $http.post(url, dataString);
+
+        request.success(function(data) {
+        	template.TEMPLATENAME = $scope.name;
+        	template.EMAIL = $scope.email;
+        	template.DESCRIPTION = $scope.description;
+        	template.ENCLOSURE = $scope.enclosure;
+        	template.STANDARD = $scope.standard
+        	$scope.success = "Template updated";
+
+        });
+        request.error(function(data, status, headers, config) {
+        	//console.log(data);
+        	console.log("status: "+status+", message: "+data.errorText);
+        	$scope.error = "An error occured while updating template";
+
+        });
+  		};
+
+  		$scope.cancel = function () {
+    		$modalInstance.dismiss('cancel');
+  		};
+	});
+
+}

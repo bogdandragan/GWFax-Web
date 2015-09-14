@@ -1,0 +1,30 @@
+
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" ng-click="cancel()">&times;</button>
+                                                    <h4 class="modal-title">Add MSN</h4>
+                                                  </div>
+                                                  <div class="modal-body">
+                                                    <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                    	<th>#</th>
+                                                        <th>Controller</th>
+                                                        <th>MSN</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody ng-repeat="msn in msns">
+                                              		<tr ng-class="{warning:selectedRow == $index}" ng-click="setClickedRow($index, msn)">
+                                              		    <td>{{msn.ID}}</td>
+                                              			<td>{{msn.CONTROLLERNAME}}</td>
+                                              			<td>{{msn.MSN}}</td>
+                                              		</tr>
+                                                </tbody>
+                                            </table>
+                                                      
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                    <span style="margin-right: 30px; color: red;">{{error}}</span>
+                                                    <button type="submit" class="btn btn-primary" ng-click="add()" ng-disabled="selectedRow == null">Add</button>
+                                                    <button type="button" class="btn btn-default" ng-click="cancel()">Close</button>
+                                                  </div>
+                                                </div>

@@ -191,7 +191,7 @@
                                               			<td ng-if="template.ENCLOSURE == 1">1</td>
                                               			<td ng-if="template.ENCLOSURE == 0">0</td>
                                               			<td style="text-align: center;">
-                                              				<button class="btn btn-xs btn-primary" ng-click="editFormOpen(template)" style="margin: 0 3px;"><i class="fa fa-pencil-square-o"></i> Edit</button>
+                                              				<button class="btn btn-xs btn-success" ng-click="editFormOpen(template)" style="margin: 0 3px;"><i class="fa fa-pencil-square-o"></i> Edit</button>
                                                         	<button class="btn btn-xs btn-default" ng-click="deleteFormOpen(template, templates)" style="margin: 0 3px;"><i class="fa fa-trash-o"></i> Delete</button>
                                               			</td>
                                               		</tr>
@@ -225,11 +225,12 @@
     <script src="js/plugins/pace/pace.min.js"></script>
     <script src="js/angular.min.js"></script>
     <script src="js/ui-bootstrap-custom-tpls-0.13.4.min.js"></script>
+    <script src="js/angular-base64-upload.min.js"></script>
 
     <script src="../js/config.js"></script>
     <script src="../js/faxgwise_tools.js"></script>
     <script src="../js/websockets.js"></script>
-    <script src="../js/faxgwise.js"></script>
+    <script src="../js/templates.js"></script>
     <script src="../js/url.js"></script>
     <script src="../js/jquery.validate.min.js"></script>
     <script src="../js/settingsvalidation.js"></script>

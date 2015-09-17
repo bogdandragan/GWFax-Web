@@ -1,9 +1,0 @@
-K 10
-svn:ignore
-V 31
-Makefile
-*.lo
-*.slo
-.libs
-.deps
-END

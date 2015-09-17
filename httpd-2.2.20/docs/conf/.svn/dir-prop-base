@@ -1,8 +1,0 @@
-K 10
-svn:ignore
-V 39
-httpd-std.conf
-ssl-std.conf
-httpd.conf
-
-END

@@ -1,43 +1,0 @@
-10
-
-dir
-1698104
-http://svn.apache.org/repos/asf/apr/apr/branches/1.4.x/locks
-http://svn.apache.org/repos/asf
-
-
-
-2011-02-26T10:44:18.724946Z
-1074821
-fuankg
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-13f79535-47bb-0310-9956-ffa450edef68
-
-win32
-dir
-
-os2
-dir
-
-unix
-dir
-
-netware
-dir
-
-beos
-dir
-

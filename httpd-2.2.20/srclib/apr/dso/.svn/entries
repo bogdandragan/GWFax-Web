@@ -1,49 +1,0 @@
-10
-
-dir
-1698104
-http://svn.apache.org/repos/asf/apr/apr/branches/1.4.x/dso
-http://svn.apache.org/repos/asf
-
-
-
-2008-06-18T04:58:40.403203Z
-669082
-bojan
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-13f79535-47bb-0310-9956-ffa450edef68
-
-netware
-dir
-
-beos
-dir
-
-os390
-dir
-
-aix
-dir
-
-win32
-dir
-
-os2
-dir
-
-unix
-dir
-

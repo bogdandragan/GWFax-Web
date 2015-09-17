@@ -43,14 +43,14 @@ function initTemplates(){
     $scope.addFormOpen = function (templates) {
     	
     var modalInstance = $modal.open({
-   	  animation: true,
-      templateUrl: 'templateAddForm.html',
-      controller: 'ModalInstanceCtrl',
-      resolve: {
-        	 templates: function () {
-                return $scope;
-            }
-      }
+   	  	animation: true,
+      	templateUrl: 'templateAddForm.html',
+      	controller: 'ModalInstanceCtrl',
+      	resolve: {
+        	templates: function () {
+               return $scope;
+        }
+    }
       
     });
 	};
@@ -58,10 +58,10 @@ function initTemplates(){
 	$scope.deleteFormOpen = function (template, templates) {
 
     var modalInstance = $modal.open({
-    	 animation: true,
-      templateUrl: 'templateDeleteForm.html',
-      controller: 'ModalInstance2Ctrl',
-      resolve: {
+    	animation: true,
+      	templateUrl: 'templateDeleteForm.html',
+      	controller: 'ModalInstance2Ctrl',
+      	resolve: {
         	 templates: function () {
                 return templates;
             },
@@ -76,10 +76,10 @@ function initTemplates(){
 	$scope.editFormOpen = function (template) {
 
     var modalInstance = $modal.open({
-    	 animation: true,
-      templateUrl: 'templateEditForm.html',
-      controller: 'ModalInstance3Ctrl',
-      resolve: {
+    	animation: true,
+      	templateUrl: 'templateEditForm.html',
+      	controller: 'ModalInstance3Ctrl',
+      	resolve: {
         	 template: function () {
                 return template;
             }
@@ -102,7 +102,7 @@ function initTemplates(){
         		var pageToLoad = 1;
         		var dataString = '['+recordsPerPage+','+pageToLoad+',"ID","desc"]';
         		var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetTemplates/1');
-       			 var request = $http.post(url, dataString);
+       			var request = $http.post(url, dataString);
 
         		request.success(function(data, status, headers, config) {
         			templates.templates = data.result[0].rows;

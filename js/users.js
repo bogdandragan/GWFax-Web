@@ -3,6 +3,8 @@ var ngApplication;
 function initUsersTable(){
 	ngApplication = angular.module('FaxGWiseApp', ['ui.bootstrap']);   
     ngApplication.controller('usersCtrl', function ($scope, $http,  $modal, $log) {
+        
+
          $scope.sortType = "ID";
          $scope.sortReverse  = false;
          $scope.searchFilter   = '';
@@ -53,7 +55,7 @@ function initUsersTable(){
         };
 
     $scope.editFormOpen = function (user) {
-
+      console.log("editopen");
     var modalInstance = $modal.open({
     	animation: true,
       	templateUrl: 'userEditForm.html',

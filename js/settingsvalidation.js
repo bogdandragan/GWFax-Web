@@ -5,6 +5,9 @@ $(document).ready(function () {
             timeout:{
                 digits:true
             },
+            filesize:{
+                digits:true
+            },
             compress:{
                 digits:false
             },
@@ -124,8 +127,11 @@ $(document).ready(function () {
             t38retrycount:{
                 digits:true
             },
-            t38maxfaxfilesize:{
+            t38licensedport:{
                 digits:true
+            },
+            t38initport:{
+                digits:false
             }
         },
         highlight: function(element) {
@@ -156,6 +162,15 @@ $(document).ready(function () {
             },
             mailboxscaninterval:{
                 digits:true
+            },
+            login:"required",
+            password:"required",
+            domain:"required",
+            port:{
+                digits: true
+            },
+            workfolder:{
+                digits: false
             }
         },
         highlight: function(element) {
@@ -212,6 +227,9 @@ $(document).ready(function () {
     $('#router').validate({
         rules:{
             nrlengthfordialprefix:{
+                digits:true
+            },
+            deletefaxolder:{
                 digits:true
             }
         },

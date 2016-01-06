@@ -5,20 +5,19 @@ function initSettings(){
         ngApplication.controller('settingsCtrl', function ($scope, $http) {
 
         $scope.numbers = [0,1,2];
-
         var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetSettings/1');
         var request = $http.post(url);
 
         request.success(function(data, status, headers, config) {
-            console.log(data.result[0]);
+            console.log(data);
             var data = data.result[0];
             $scope.faxConverter = data[0].Options;
-            $scope.isdnController = data[1].Options;
-            $scope.t38Controller = data[2].Options;
-            $scope.gwCommunicator = data[3].Options;
-            $scope.secondCommunicator = data[4].Options;
-            $scope.reporter = data[5].Options;
-            $scope.router = data[6].Options;
+            //$scope.isdnController = data[1].Options;
+            $scope.t38Controller = data[1].Options;
+            $scope.gwCommunicator = data[2].Options;
+            //$scope.secondCommunicator = data[4].Options;
+            $scope.reporter = data[3].Options;
+            $scope.router = data[4].Options;
         });
         request.error(function(data, status, headers, config) {
             console.log("sendSQL status: "+status+", message: "+data);
@@ -68,7 +67,7 @@ function initSettings(){
 
         $("#convertergeneral").submit(function(event){
             event.preventDefault();
-            var params = ['filetypes','convEnabled','timeout','compress','format'];
+            var params = ['filetypes','convEnabled','timeout','compress','format','filesize'];
 
             saveSettings(params, function(){
                 $(".saving-conv").show();
@@ -113,7 +112,7 @@ function initSettings(){
 
         $("#t38").submit(function(event){
             event.preventDefault();
-            var params = ['t38enabled','t38runstart','t38retryperiod','t38retrycount','t38maxfaxfilesize','defaultsendertelephone','defaultsenderfax','defaultsendername','defaultsendercompany'];
+            var params = ['t38enabled','t38runstart','t38retryperiod','t38retrycount', 't38licensedport', 't38initport'];
 
             saveSettings(params, function(){
                 $(".saving").show();
@@ -173,7 +172,7 @@ function initSettings(){
 
         $("#router").submit(function(event){
             event.preventDefault();
-            var params = ['citycode','countrycode','nrlengthfordialprefix','internalfaxrouting','listenmsn','adminemail','ownphonenumber','routerdefaultsendertelephone','routerdefaultsenderfax','routerdefaultsendername','routerdefaultsendercompany','defaultsenderemail'];
+            var params = ['citycode','countrycode','nrlengthfordialprefix','internalfaxrouting', 'deletefaxolder', 'listenmsn','adminemail','ownphonenumber','routerdefaultsendertelephone','routerdefaultsenderfax','routerdefaultsendername','routerdefaultsendercompany','defaultsenderemail'];
 
             saveSettings(params, function(){
                 $(".saving").show();

@@ -4,6 +4,19 @@ function initOutFaxesTable(){
 	ngApplication = angular.module('FaxGWiseApp', []);  
     ngApplication.controller('outFaxesCtrl', function ($scope, $http) {
 
+        $scope.isAdmin = false;
+       var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetMyUserData/1');
+       var request = $http.post(url);
+        request.success(function(data) {
+            console.log(data);
+            if(data.result[0].UserRights == "Admin"){
+                $scope.isAdmin = true;          
+            }
+        });
+        request.error(function(data, status, headers, config) {            
+            console.log("status: "+status+", message: "+data.errorText);
+        });
+
         $scope.isRowClicked = true;
 
         $scope.recordsPerPage = 10;
@@ -55,7 +68,7 @@ function initOutFaxesTable(){
                 $(".sk-circle").show();
                 $scope.pageToLoad += 1;
                 //alert($scope.totalRecords + " " + $scope.inFaxes.length);
-                var dataString = '[' + $scope.recordsPerPage + ',' + $scope.pageToLoad + ',"ID","desc"]';
+                var dataString = '[' + $scope.recordsPerPage + ',' + $scope.pageToLoad + ',"ID","desc", 0, ""]';
                 var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetFaxOutMessages/1');
                 var request = $http.post(url, dataString);
                 request.success(function(data, status, headers, config) {
@@ -304,6 +317,19 @@ function initOutFaxesTable(){
 function InitOutFaxDetails_ngApplication (faxQueueID) {		
 	ngApplication = angular.module('FaxGWiseApp', []);
 	ngApplication.controller('outFaxeDetailsCtrl', function($scope, $http) {
+        $scope.isAdmin = false;
+       var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetMyUserData/1');
+       var request = $http.post(url);
+        request.success(function(data) {
+            console.log(data);
+            if(data.result[0].UserRights == "Admin"){
+                $scope.isAdmin = true;          
+            }
+        });
+        request.error(function(data, status, headers, config) {            
+            console.log("status: "+status+", message: "+data.errorText);
+        });
+
 		if (faxQueueID == '') { return }
 		
 		$scope.GetResolutionAsText = function (resolutionNumber) {

@@ -18,7 +18,7 @@
 
 <body>
 
-    <div id="wrapper">
+    <div id="wrapper" ng-app="FaxGWiseApp" ng-controller="outFaxeDetailsCtrl">
 
     <nav class="navbar-default navbar-static-side" role="navigation">
         <div class="sidebar-collapse">
@@ -52,48 +52,42 @@
                         <li><a href="outfaxes.html">Out faxes</a></li>
                     </ul>
                 </li>
-                <li>
+                <li ng-show="this.isAdmin">
                     <a href="users.html"><i class="fa fa-user"></i> <span class="nav-label">Users</span> <span></span></a>
                 </li>
-                <li>
+                <li ng-show="this.isAdmin">
                     <a href="templates.html"><i class="fa fa-file-text-o"></i> <span class="nav-label">Templates</span> <span></span></a>
                 </li>
-                <li>
+                <li ng-show="this.isAdmin">
                     <a href="settings.html"><i class="fa fa-cogs"></i> <span class="nav-label">Settings</span> <span></span></a>
                 </li>
-                <li>
+                <li ng-show="this.isAdmin">
                     <span class="controller-name" class="nav-label">ISDN Controller
                     <span style="margin-left: 10px" class="label label-info">Stopped</span>
 
                     </span>
                     <a href="settings.html#isdncontroller" id="settings-label" class="glyphicon glyphicon-cog"></a>
                 </li>
-                <li>
+                <li ng-show="this.isAdmin">
                     <span class="controller-name" class="nav-label">T38 Controller
                     <span style="margin-left: 10px" class="label label-primary">Enabled</span>
 
                     </span>
                     <a href="settings.html#t38controller" id="settings-label" class="glyphicon glyphicon-cog"></a>
                 </li>
-                <li>
+                <li ng-show="this.isAdmin">
                     <span class="controller-name" class="nav-label">GW Communicator
                     <span style="margin-left: 10px" class="label label-primary">Enabled</span>
 
                     </span>
                     <a href="settings.html#gwcommunicator" id="settings-label" class="glyphicon glyphicon-cog"></a>
                 </li>
-                <li>
+                <li ng-show="this.isAdmin">
                     <span class="controller-name" class="nav-label">Second Communic.
                     <span style="margin-left: 10px" class="label label-info">Stopped</span>
 
                     </span>
                     <a href="settings.html#secondcommunicator" id="settings-label" class="glyphicon glyphicon-cog"></a>
-                </li>
-                <li class="landing_link">
-                    <a target="_blank" href="Landing_page/index.html"><i class="fa fa-star"></i> <span class="nav-label">Landing Page</span> <span class="label label-warning pull-right">NEW</span></a>
-                </li>
-                <li class="special_link">
-                    <a href="package.html"><i class="fa fa-database"></i> <span class="nav-label">Package</span></a>
                 </li>
             </ul>
 
@@ -145,7 +139,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="wrapper wrapper-content animated fadeInUp">
-                    <div class="ibox" ng-app="FaxGWiseApp" ng-controller="outFaxeDetailsCtrl">
+                    <div class="ibox">
                         <div class="ibox-content">
                             <div class="row">
                                 <div class="col-lg-12">

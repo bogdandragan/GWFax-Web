@@ -54,49 +54,43 @@
                         <li><a href="outfaxes.html">Out faxes</a></li>
                     </ul>
                 </li>
-                <li>
+                <li ng-show="this.isAdmin">
                     <a href="users.html"><i class="fa fa-user"></i> <span class="nav-label">Users</span> <span></span></a>
                 </li>
-                <li>
+                <li ng-show="this.isAdmin">
                     <a href="templates.html"><i class="fa fa-file-text-o"></i> <span class="nav-label">Templates</span> <span></span></a>
                 </li>
-                <li>
+                <li ng-show="this.isAdmin">
                     <a href="settings.html"><i class="fa fa-cogs"></i> <span class="nav-label">Settings</span> <span></span></a>
                 </li>
-                <li>
+                <!--<li ng-show="this.isAdmin">
                     <span class="controller-name" class="nav-label">ISDN Controller
                     <span style="margin-left: 10px" class="label" ng-class="{false:'label-warning', true:'label-primary'}[controllers.Controllers[0].State == 'Started']">{{controllers.Controllers[0].State}}</span>
 
                     </span>
                     <a href="settings.html#isdncontroller" id="settings-label" class="glyphicon glyphicon-cog"></a>
-                </li>
-                <li>
+                </li>-->
+                <li ng-show="this.isAdmin">
                     <span class="controller-name" class="nav-label">T38 Controller
                     <span style="margin-left: 10px" class="label" ng-class="{false:'label-warning', true:'label-primary'}[controllers.Controllers[1].State == 'Started']">{{controllers.Controllers[1].State}}</span>
 
                     </span>
                     <a href="settings.html#t38controller" id="settings-label" class="glyphicon glyphicon-cog"></a>
                 </li>
-                <li>
+                <li ng-show="this.isAdmin">
                     <span class="controller-name" class="nav-label">GW Communicator
                     <span style="margin-left: 10px" class="label" ng-class="{false:'label-warning', true:'label-primary'}[controllers.Communicators[0].State == 'Started']">{{controllers.Communicators[0].State}}</span>
 
                     </span>
                     <a href="settings.html#gwcommunicator" id="settings-label" class="glyphicon glyphicon-cog"></a>
                 </li>
-                <li>
+                <!--<li ng-show="this.isAdmin">
                     <span class="controller-name" class="nav-label">Second Communic.
                     <span style="margin-left: 10px" class="label label-info"></span>
 
                     </span>
                     <a href="#secondcommunicator" id="settings-label" class="glyphicon glyphicon-cog settings-label"></a>
-                </li>
-                <li class="landing_link">
-                    <a target="_blank" href="Landing_page/index.html"><i class="fa fa-star"></i> <span class="nav-label">Landing Page</span> <span class="label label-warning pull-right">NEW</span></a>
-                </li>
-                <li class="special_link">
-                    <a href="package.html"><i class="fa fa-database"></i> <span class="nav-label">Package</span></a>
-                </li>
+                </li>-->
             </ul>
 
         </div>
@@ -175,7 +169,6 @@
 </div>
 
 
-
 <!-- Mainly scripts -->
 <script src="js/jquery-2.1.1.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -198,7 +191,18 @@
 
     var FaxGWiseApp = angular.module('FaxGWiseApp', []);  
     FaxGWiseApp.controller('statusesCtrl', function ($scope, $http) {
-
+       $scope.isAdmin = false;
+       var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetMyUserData/1');
+       var request = $http.post(url);
+        request.success(function(data) {
+            console.log(data);
+            if(data.result[0].UserRights == "Admin"){
+                $scope.isAdmin = true;          
+            }
+        });
+        request.error(function(data, status, headers, config) {            
+            console.log("status: "+status+", message: "+data.errorText);
+        });
     try
     {
         var socket;                        
@@ -269,23 +273,8 @@
             };
             return req;
         }
-
-
-
-
-
-
-
-
-
     });
 
-
-
-
-
-
-    
 </script>
 
 

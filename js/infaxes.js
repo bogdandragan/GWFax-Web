@@ -4,6 +4,19 @@ function initInFaxesTable(){
 	    ngApplication = angular.module('FaxGWiseApp', []);  
     	ngApplication.controller('inFaxesCtrl', function ($scope, $http) {
 
+        $scope.isAdmin = false;
+       var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetMyUserData/1');
+       var request = $http.post(url);
+        request.success(function(data) {
+            console.log(data);
+            if(data.result[0].UserRights == "Admin"){
+                $scope.isAdmin = true;          
+            }
+        });
+        request.error(function(data, status, headers, config) {            
+            console.log("status: "+status+", message: "+data.errorText);
+        });    
+
         $scope.recordsPerPage = 10;
         $scope.pageToLoad = 1;
        // $scope.expandTable = false;
@@ -192,6 +205,18 @@ function initInFaxesDetails(){
 
     ngApplication = angular.module('FaxGWiseApp', []);   
     ngApplication.controller('inFaxDetailsCtrl', function ($scope, $http) {
+        $scope.isAdmin = false;
+       var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetMyUserData/1');
+       var request = $http.post(url);
+        request.success(function(data) {
+            console.log(data);
+            if(data.result[0].UserRights == "Admin"){
+                $scope.isAdmin = true;          
+            }
+        });
+        request.error(function(data, status, headers, config) {            
+            console.log("status: "+status+", message: "+data.errorText);
+        });
 
         var dataString = '['+id+']';
         var url = AddSessionSignatureToURL(MAIN_URL + '/RemoteFax.GetUpdatedJobINMessage/1');

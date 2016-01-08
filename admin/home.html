@@ -202,6 +202,9 @@
         });
         request.error(function(data, status, headers, config) {            
             console.log("status: "+status+", message: "+data.errorText);
+            if(status == 403){
+                window.location.replace("../login.html");
+            }
         });
     try
     {

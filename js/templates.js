@@ -199,7 +199,7 @@ function initTemplates(){
         		template.DESCRIPTION = $scope.description;
         		template.ENCLOSURE = $scope.enclosure;
         		template.STANDARD = $scope.standard
-        		$scope.success = "Template updated";
+        		$scope.success = "Template has been updated";
         	}
         });
         request.error(function(data, status, headers, config) {

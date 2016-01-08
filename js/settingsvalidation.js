@@ -130,7 +130,7 @@ $(document).ready(function () {
             t38licensedport:{
                 digits:true
             },
-            t38initport:{
+            t38dialplan:{
                 digits:false
             }
         },
